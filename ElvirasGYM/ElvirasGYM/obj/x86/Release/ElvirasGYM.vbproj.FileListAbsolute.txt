@@ -29,3 +29,16 @@ F:\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.vbproj.GenerateResource.Cach
 E:\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.exe
 E:\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.xml
 E:\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.pdb
+C:\Users\Efrain\Documents\ProgramaFitness_vb.net\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.xml
+C:\Users\Efrain\Documents\ProgramaFitness_vb.net\ElvirasGYM\ElvirasGYM\bin\Release\ElvirasGYM.exe
+C:\Users\Efrain\Documents\ProgramaFitness_vb.net\ElvirasGYM\ElvirasGYM\bin\Release\ElvirasGYM.pdb
+C:\Users\Efrain\Documents\ProgramaFitness_vb.net\ElvirasGYM\ElvirasGYM\bin\Release\ElvirasGYM.xml
+C:\Users\Efrain\Documents\ProgramaFitness_vb.net\ElvirasGYM\ElvirasGYM\bin\Release\MySql.Data.dll
+C:\Users\Efrain\Documents\ProgramaFitness_vb.net\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.ClienteNuevo.resources
+C:\Users\Efrain\Documents\ProgramaFitness_vb.net\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.Clientes.resources
+C:\Users\Efrain\Documents\ProgramaFitness_vb.net\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.Login.resources
+C:\Users\Efrain\Documents\ProgramaFitness_vb.net\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.Resources.resources
+C:\Users\Efrain\Documents\ProgramaFitness_vb.net\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.Principal.resources
+C:\Users\Efrain\Documents\ProgramaFitness_vb.net\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.vbproj.GenerateResource.Cache
+C:\Users\Efrain\Documents\ProgramaFitness_vb.net\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.exe
+C:\Users\Efrain\Documents\ProgramaFitness_vb.net\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.pdb

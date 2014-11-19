@@ -33,9 +33,30 @@ Public Class Clientes
         BDobj.dt = Nothing
     End Sub
 
+    'Llena el combobox de grupo desde la base de datos
+    Private Sub llenar_Combo()
+        BDobj.cmd = New MySqlCommand
+        BDobj.da = New MySqlDataAdapter
+        BDobj.dt = New DataTable
+
+        BDobj.cmd.Connection = BDobj.cnn
+        BDobj.cmd.CommandText = "SELECT id, tipo FROM pagos order by id"
+        BDobj.da.SelectCommand = BDobj.cmd
+        BDobj.da.Fill(BDobj.dt)
+
+        cbxTipo.DataSource = BDobj.dt
+        cbxTipo.ValueMember = "id"
+        cbxTipo.DisplayMember = "tipo"
+        cbxTipo.DropDownStyle = ComboBoxStyle.DropDownList
+        BDobj.cmd = Nothing
+        BDobj.da = Nothing
+        BDobj.dt = Nothing
+    End Sub
+
 
     Private Sub Clientes_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         BDobj.open()
+        llenar_Combo()
         Dim tab As Integer = tabcliente.SelectedIndex
         If tab = 0 Then
             LlenarBindingSource()
@@ -47,10 +68,11 @@ Public Class Clientes
         fila = DTclientes.CurrentRow.Index
         If e.KeyCode = Keys.Enter Then
             txtDNI.Text = DTclientes.Item(0, fila).Value
-            txtNombre.Text = DTclientes.Item(1, fila).Value
-            txtApellidop.Text = DTclientes.Item(2, fila).Value
-            txtApellidom.Text = DTclientes.Item(3, fila).Value
+            'txtNombre.Text = DTclientes.Item(1, fila).Value
+            'txtApellidop.Text = DTclientes.Item(2, fila).Value
+            'txtApellidom.Text = DTclientes.Item(3, fila).Value
             txtDNI.Enabled = False
+            btnBuscar.PerformClick()
             'activar()
             'txtId.Enabled = False
             'btnAgregar.Enabled = False
@@ -68,14 +90,14 @@ Public Class Clientes
         cbxTipo.ForeColor = Color.Black
     End Sub
 
-    Private Sub cbxGrupo_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbxGrupo.GotFocus
-        cbxGrupo.BackColor = Color.Honeydew
-        cbxGrupo.ForeColor = Color.Black
+    Private Sub cbxGrupo_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbxClase.GotFocus
+        cbxClase.BackColor = Color.Honeydew
+        cbxClase.ForeColor = Color.Black
     End Sub
 
-    Private Sub cbxGrupo_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbxGrupo.LostFocus
-        cbxGrupo.BackColor = Color.White
-        cbxGrupo.ForeColor = Color.Black
+    Private Sub cbxGrupo_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbxClase.LostFocus
+        cbxClase.BackColor = Color.White
+        cbxClase.ForeColor = Color.Black
     End Sub
 
     Private Sub txtDNI_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtDNI.GotFocus
@@ -128,7 +150,7 @@ Public Class Clientes
         g.DrawRectangle(pen, New Rectangle(txtApellidop.Location, txtApellidop.Size))
         g.DrawRectangle(pen, New Rectangle(txtApellidom.Location, txtApellidom.Size))
         g.DrawRectangle(pen, New Rectangle(cbxTipo.Location, cbxTipo.Size))
-        g.DrawRectangle(pen, New Rectangle(cbxGrupo.Location, cbxGrupo.Size))
+        g.DrawRectangle(pen, New Rectangle(cbxClase.Location, cbxClase.Size))
         pen.Dispose()
     End Sub
 
@@ -186,5 +208,19 @@ Public Class Clientes
         txtNombre.Focus()
     End Sub
 
-   
+    Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscar.Click
+        SQLString = String.Format("SELECT * FROM clientes WHERE id = " & Trim(txtDNI.Text))
+        reader = BDobj.executeReader(SQLString)
+        If reader.Read = True Then
+            txtNombre.Text = reader("nombre").ToString
+            txtApellidop.Text = reader("apellido_paterno").ToString
+            txtApellidom.Text = reader("apellido_materno").ToString
+            cbxTipo.SelectedValue = reader("pagos_id").ToString
+        Else
+            MsgBox("No se encontro un registro")
+            limpiar()
+            txtDNI.Focus()
+        End If
+        reader.Close()
+    End Sub
 End Class

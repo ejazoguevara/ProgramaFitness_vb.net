@@ -33,7 +33,7 @@ Partial Class Clientes
         Me.btnAgregar = New System.Windows.Forms.Button()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.imagenes = New System.Windows.Forms.ImageList(Me.components)
-        Me.cbxGrupo = New System.Windows.Forms.ComboBox()
+        Me.cbxClase = New System.Windows.Forms.ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.cbxTipo = New System.Windows.Forms.ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -78,7 +78,7 @@ Partial Class Clientes
         Me.datosclientes.Controls.Add(Me.txtNombre)
         Me.datosclientes.Controls.Add(Me.gbxDos)
         Me.datosclientes.Controls.Add(Me.btnBuscar)
-        Me.datosclientes.Controls.Add(Me.cbxGrupo)
+        Me.datosclientes.Controls.Add(Me.cbxClase)
         Me.datosclientes.Controls.Add(Me.Label7)
         Me.datosclientes.Controls.Add(Me.cbxTipo)
         Me.datosclientes.Controls.Add(Me.Label6)
@@ -170,25 +170,27 @@ Partial Class Clientes
         Me.imagenes.Images.SetKeyName(0, "tomarfoto2.png")
         Me.imagenes.Images.SetKeyName(1, "buscar.png")
         '
-        'cbxGrupo
+        'cbxClase
         '
-        Me.cbxGrupo.FormattingEnabled = True
-        Me.cbxGrupo.Location = New System.Drawing.Point(375, 97)
-        Me.cbxGrupo.Name = "cbxGrupo"
-        Me.cbxGrupo.Size = New System.Drawing.Size(156, 25)
-        Me.cbxGrupo.TabIndex = 6
+        Me.cbxClase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxClase.FormattingEnabled = True
+        Me.cbxClase.Location = New System.Drawing.Point(375, 97)
+        Me.cbxClase.Name = "cbxClase"
+        Me.cbxClase.Size = New System.Drawing.Size(156, 25)
+        Me.cbxClase.TabIndex = 6
         '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.Location = New System.Drawing.Point(309, 100)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(54, 17)
+        Me.Label7.Size = New System.Drawing.Size(48, 17)
         Me.Label7.TabIndex = 27
-        Me.Label7.Text = "Grupo:"
+        Me.Label7.Text = "Clase:"
         '
         'cbxTipo
         '
+        Me.cbxTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxTipo.FormattingEnabled = True
         Me.cbxTipo.Location = New System.Drawing.Point(410, 58)
         Me.cbxTipo.Name = "cbxTipo"
@@ -362,7 +364,7 @@ Partial Class Clientes
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents btnBuscar As System.Windows.Forms.Button
-    Friend WithEvents cbxGrupo As System.Windows.Forms.ComboBox
+    Friend WithEvents cbxClase As System.Windows.Forms.ComboBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents cbxTipo As System.Windows.Forms.ComboBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
