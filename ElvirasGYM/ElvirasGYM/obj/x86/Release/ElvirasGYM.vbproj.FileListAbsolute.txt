@@ -1,0 +1,31 @@
+C:\Users\Efrain\Documents\Visual Studio 2010\Projects\ElvirasGYM\ElvirasGYM\bin\Release\ElvirasGYM.exe
+C:\Users\Efrain\Documents\Visual Studio 2010\Projects\ElvirasGYM\ElvirasGYM\bin\Release\ElvirasGYM.pdb
+C:\Users\Efrain\Documents\Visual Studio 2010\Projects\ElvirasGYM\ElvirasGYM\bin\Release\ElvirasGYM.xml
+C:\Users\Efrain\Documents\Visual Studio 2010\Projects\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.vbprojResolveAssemblyReference.cache
+C:\Users\Efrain\Documents\Visual Studio 2010\Projects\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.Login.resources
+C:\Users\Efrain\Documents\Visual Studio 2010\Projects\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.Resources.resources
+C:\Users\Efrain\Documents\Visual Studio 2010\Projects\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.Principal.resources
+C:\Users\Efrain\Documents\Visual Studio 2010\Projects\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.vbproj.GenerateResource.Cache
+C:\Users\Efrain\Documents\Visual Studio 2010\Projects\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.exe
+C:\Users\Efrain\Documents\Visual Studio 2010\Projects\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.xml
+C:\Users\Efrain\Documents\Visual Studio 2010\Projects\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.pdb
+C:\Users\Efrain\Documents\Visual Studio 2010\Projects\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.ClienteNuevo.resources
+C:\Users\Efrain\Documents\Visual Studio 2010\Projects\ElvirasGYM\ElvirasGYM\bin\Release\MySql.Data.dll
+C:\Users\Efrain\Documents\Visual Studio 2010\Projects\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.Clientes.resources
+F:\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.exe
+F:\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.xml
+F:\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.pdb
+F:\ElvirasGYM\ElvirasGYM\bin\Release\ElvirasGYM.exe
+F:\ElvirasGYM\ElvirasGYM\bin\Release\ElvirasGYM.pdb
+F:\ElvirasGYM\ElvirasGYM\bin\Release\ElvirasGYM.xml
+F:\ElvirasGYM\ElvirasGYM\bin\Release\MySql.Data.dll
+F:\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.vbprojResolveAssemblyReference.cache
+F:\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.ClienteNuevo.resources
+F:\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.Clientes.resources
+F:\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.Login.resources
+F:\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.Resources.resources
+F:\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.Principal.resources
+F:\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.vbproj.GenerateResource.Cache
+E:\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.exe
+E:\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.xml
+E:\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.pdb
