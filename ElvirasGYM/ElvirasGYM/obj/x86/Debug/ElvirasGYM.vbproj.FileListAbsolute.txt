@@ -1,0 +1,19 @@
+C:\Users\Efrain\AppData\Local\Temporary Projects\ElvirasGYM\bin\Debug\ElvirasGYM.exe
+C:\Users\Efrain\AppData\Local\Temporary Projects\ElvirasGYM\bin\Debug\ElvirasGYM.pdb
+C:\Users\Efrain\AppData\Local\Temporary Projects\ElvirasGYM\bin\Debug\ElvirasGYM.xml
+C:\Users\Efrain\AppData\Local\Temporary Projects\ElvirasGYM\obj\x86\Debug\ElvirasGYM.Form1.resources
+C:\Users\Efrain\AppData\Local\Temporary Projects\ElvirasGYM\obj\x86\Debug\ElvirasGYM.Resources.resources
+C:\Users\Efrain\AppData\Local\Temporary Projects\ElvirasGYM\obj\x86\Debug\ElvirasGYM.vbproj.GenerateResource.Cache
+C:\Users\Efrain\AppData\Local\Temporary Projects\ElvirasGYM\obj\x86\Debug\ElvirasGYM.exe
+C:\Users\Efrain\AppData\Local\Temporary Projects\ElvirasGYM\obj\x86\Debug\ElvirasGYM.xml
+C:\Users\Efrain\AppData\Local\Temporary Projects\ElvirasGYM\obj\x86\Debug\ElvirasGYM.pdb
+C:\Users\Efrain\documents\visual studio 2010\Projects\ElvirasGYM\ElvirasGYM\obj\x86\Debug\ElvirasGYM.exe
+C:\Users\Efrain\documents\visual studio 2010\Projects\ElvirasGYM\ElvirasGYM\obj\x86\Debug\ElvirasGYM.xml
+C:\Users\Efrain\documents\visual studio 2010\Projects\ElvirasGYM\ElvirasGYM\obj\x86\Debug\ElvirasGYM.pdb
+C:\Users\Efrain\documents\visual studio 2010\Projects\ElvirasGYM\ElvirasGYM\bin\Debug\ElvirasGYM.exe
+C:\Users\Efrain\documents\visual studio 2010\Projects\ElvirasGYM\ElvirasGYM\bin\Debug\ElvirasGYM.pdb
+C:\Users\Efrain\documents\visual studio 2010\Projects\ElvirasGYM\ElvirasGYM\bin\Debug\ElvirasGYM.xml
+C:\Users\Efrain\documents\visual studio 2010\Projects\ElvirasGYM\ElvirasGYM\obj\x86\Debug\ElvirasGYM.Resources.resources
+C:\Users\Efrain\documents\visual studio 2010\Projects\ElvirasGYM\ElvirasGYM\obj\x86\Debug\ElvirasGYM.Principal.resources
+C:\Users\Efrain\documents\visual studio 2010\Projects\ElvirasGYM\ElvirasGYM\obj\x86\Debug\ElvirasGYM.vbproj.GenerateResource.Cache
+C:\Users\Efrain\Documents\Visual Studio 2010\Projects\ElvirasGYM\ElvirasGYM\obj\x86\Debug\ElvirasGYM.Login.resources
