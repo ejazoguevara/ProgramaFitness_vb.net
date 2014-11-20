@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-11-2014 a las 10:55:07
+-- Tiempo de generación: 20-11-2014 a las 22:19:47
 -- Versión del servidor: 5.6.20
 -- Versión de PHP: 5.5.15
 
@@ -55,14 +55,15 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   `grupo_id` int(11) NOT NULL,
   `pagos_id` int(11) NOT NULL,
   `descuentos_id` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1002 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1004 ;
 
 --
 -- Volcado de datos para la tabla `clientes`
 --
 
 INSERT INTO `clientes` (`id`, `nombre`, `apellido_paterno`, `apellido_materno`, `foto`, `activo`, `grupo_id`, `pagos_id`, `descuentos_id`) VALUES
-(1001, 'Karen', 'Lozano', 'Chávez', '000', 1, 1, 3, 2);
+(1001, 'Karen', 'Lozano', 'Chávez', '000', 1, 1, 3, 2),
+(1003, 'Yazmin', 'Espinoza', 'Laureano', 'pendiente', 0, 1, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -113,14 +114,15 @@ CREATE TABLE IF NOT EXISTS `grupos` (
   `fecha_inicio` date NOT NULL,
   `instructores_id` int(11) NOT NULL,
   `clases_id` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `grupos`
 --
 
 INSERT INTO `grupos` (`id`, `duracion`, `descripcion`, `horario`, `fecha_inicio`, `instructores_id`, `clases_id`) VALUES
-(1, '1 hora', 'Lunes, Miércoles y Viernes', '6:00 p.m', '2014-11-24', 1, 1);
+(1, '0 hrs.', 'Sin asignar', '0 hrs.', '2014-11-20', 1, 1),
+(2, '1 hrs.', 'Lunes, Miércoles y Viernes', '6:00 p.m', '2014-11-28', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -327,7 +329,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1002;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1004;
 --
 -- AUTO_INCREMENT de la tabla `clientes_pagos`
 --
@@ -342,7 +344,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 -- AUTO_INCREMENT de la tabla `grupos`
 --
 ALTER TABLE `grupos`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `grupos_detalles`
 --

@@ -42,6 +42,7 @@ Partial Class Principal
         Me.CerrarSesiónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnGrupos = New System.Windows.Forms.Button()
+        Me.imagenes = New System.Windows.Forms.ImageList(Me.components)
         Me.btnInstructores = New System.Windows.Forms.Button()
         Me.btnNuevocliente = New System.Windows.Forms.Button()
         Me.btnVentas = New System.Windows.Forms.Button()
@@ -54,7 +55,6 @@ Partial Class Principal
         Me.OsSkin1 = New SkinSoft.OSSkin.OSSkin(Me.components)
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.imagenes = New System.Windows.Forms.ImageList(Me.components)
         Me.MenuStrip1.SuspendLayout()
         CType(Me.OsSkin1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -62,11 +62,11 @@ Partial Class Principal
         'MenuStrip1
         '
         Me.MenuStrip1.BackColor = System.Drawing.Color.Honeydew
-        Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI Emoji", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MenuStrip1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProductosToolStripMenuItem, Me.UsuariosToolStripMenuItem, Me.InstructoresToolStripMenuItem, Me.ClientesToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.CerrarSesiónToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1006, 25)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1006, 24)
         Me.MenuStrip1.TabIndex = 1
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -74,46 +74,46 @@ Partial Class Principal
         '
         Me.ProductosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltasToolStripMenuItem, Me.VentasToolStripMenuItem})
         Me.ProductosToolStripMenuItem.Name = "ProductosToolStripMenuItem"
-        Me.ProductosToolStripMenuItem.Size = New System.Drawing.Size(88, 21)
+        Me.ProductosToolStripMenuItem.Size = New System.Drawing.Size(90, 20)
         Me.ProductosToolStripMenuItem.Text = "Productos"
         '
         'AltasToolStripMenuItem
         '
         Me.AltasToolStripMenuItem.Name = "AltasToolStripMenuItem"
-        Me.AltasToolStripMenuItem.Size = New System.Drawing.Size(121, 22)
+        Me.AltasToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
         Me.AltasToolStripMenuItem.Text = "Stock"
         '
         'VentasToolStripMenuItem
         '
         Me.VentasToolStripMenuItem.Name = "VentasToolStripMenuItem"
-        Me.VentasToolStripMenuItem.Size = New System.Drawing.Size(121, 22)
+        Me.VentasToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
         Me.VentasToolStripMenuItem.Text = "Ventas"
         '
         'UsuariosToolStripMenuItem
         '
         Me.UsuariosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IngresarToolStripMenuItem})
         Me.UsuariosToolStripMenuItem.Name = "UsuariosToolStripMenuItem"
-        Me.UsuariosToolStripMenuItem.Size = New System.Drawing.Size(79, 21)
+        Me.UsuariosToolStripMenuItem.Size = New System.Drawing.Size(82, 20)
         Me.UsuariosToolStripMenuItem.Text = "Usuarios"
         '
         'IngresarToolStripMenuItem
         '
         Me.IngresarToolStripMenuItem.Name = "IngresarToolStripMenuItem"
-        Me.IngresarToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
-        Me.IngresarToolStripMenuItem.Text = "Ingresar"
+        Me.IngresarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.IngresarToolStripMenuItem.Text = "Capturar"
         '
         'InstructoresToolStripMenuItem
         '
         Me.InstructoresToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IngresarNuevoToolStripMenuItem, Me.AsignarGrupoToolStripMenuItem1})
         Me.InstructoresToolStripMenuItem.Name = "InstructoresToolStripMenuItem"
-        Me.InstructoresToolStripMenuItem.Size = New System.Drawing.Size(100, 21)
+        Me.InstructoresToolStripMenuItem.Size = New System.Drawing.Size(100, 20)
         Me.InstructoresToolStripMenuItem.Text = "Instructores"
         '
         'IngresarNuevoToolStripMenuItem
         '
         Me.IngresarNuevoToolStripMenuItem.Name = "IngresarNuevoToolStripMenuItem"
         Me.IngresarNuevoToolStripMenuItem.Size = New System.Drawing.Size(173, 22)
-        Me.IngresarNuevoToolStripMenuItem.Text = "Ingresar"
+        Me.IngresarNuevoToolStripMenuItem.Text = "Capturar"
         '
         'AsignarGrupoToolStripMenuItem1
         '
@@ -125,54 +125,56 @@ Partial Class Principal
         '
         Me.ClientesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IngresarClienteToolStripMenuItem, Me.AsignarGrupoToolStripMenuItem, Me.PagosToolStripMenuItem, Me.ImprimirCredencialToolStripMenuItem})
         Me.ClientesToolStripMenuItem.Name = "ClientesToolStripMenuItem"
-        Me.ClientesToolStripMenuItem.Size = New System.Drawing.Size(73, 21)
+        Me.ClientesToolStripMenuItem.Size = New System.Drawing.Size(76, 20)
         Me.ClientesToolStripMenuItem.Text = "Clientes"
         '
         'IngresarClienteToolStripMenuItem
         '
         Me.IngresarClienteToolStripMenuItem.Name = "IngresarClienteToolStripMenuItem"
-        Me.IngresarClienteToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
-        Me.IngresarClienteToolStripMenuItem.Text = "Ingresar"
+        Me.IngresarClienteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F10
+        Me.IngresarClienteToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
+        Me.IngresarClienteToolStripMenuItem.Text = "Capturar"
         '
         'AsignarGrupoToolStripMenuItem
         '
         Me.AsignarGrupoToolStripMenuItem.Name = "AsignarGrupoToolStripMenuItem"
-        Me.AsignarGrupoToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
+        Me.AsignarGrupoToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
         Me.AsignarGrupoToolStripMenuItem.Text = "Asignar grupo"
         '
         'PagosToolStripMenuItem
         '
         Me.PagosToolStripMenuItem.Name = "PagosToolStripMenuItem"
-        Me.PagosToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
+        Me.PagosToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F11
+        Me.PagosToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
         Me.PagosToolStripMenuItem.Text = "Pagos"
         '
         'ImprimirCredencialToolStripMenuItem
         '
         Me.ImprimirCredencialToolStripMenuItem.Name = "ImprimirCredencialToolStripMenuItem"
-        Me.ImprimirCredencialToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
+        Me.ImprimirCredencialToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
         Me.ImprimirCredencialToolStripMenuItem.Text = "Imprimir credencial"
         '
         'ReportesToolStripMenuItem
         '
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
-        Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(81, 21)
+        Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(84, 20)
         Me.ReportesToolStripMenuItem.Text = "Reportes"
         '
         'CerrarSesiónToolStripMenuItem
         '
         Me.CerrarSesiónToolStripMenuItem.Name = "CerrarSesiónToolStripMenuItem"
-        Me.CerrarSesiónToolStripMenuItem.Size = New System.Drawing.Size(111, 21)
+        Me.CerrarSesiónToolStripMenuItem.Size = New System.Drawing.Size(113, 20)
         Me.CerrarSesiónToolStripMenuItem.Text = "Cerrar sesión"
         '
         'SalirToolStripMenuItem
         '
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(50, 21)
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
         Me.SalirToolStripMenuItem.Text = "Salir"
         '
         'btnGrupos
         '
-        Me.btnGrupos.Font = New System.Drawing.Font("Segoe UI Emoji", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGrupos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGrupos.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnGrupos.ImageKey = "grupo.png"
         Me.btnGrupos.ImageList = Me.imagenes
@@ -184,9 +186,20 @@ Partial Class Principal
         Me.btnGrupos.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnGrupos.UseVisualStyleBackColor = True
         '
+        'imagenes
+        '
+        Me.imagenes.ImageStream = CType(resources.GetObject("imagenes.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.imagenes.TransparentColor = System.Drawing.Color.Transparent
+        Me.imagenes.Images.SetKeyName(0, "grupo.png")
+        Me.imagenes.Images.SetKeyName(1, "pagar.png")
+        Me.imagenes.Images.SetKeyName(2, "venta.png")
+        Me.imagenes.Images.SetKeyName(3, "addcliente2.png")
+        Me.imagenes.Images.SetKeyName(4, "addinstructor.png")
+        Me.imagenes.Images.SetKeyName(5, "clases.png")
+        '
         'btnInstructores
         '
-        Me.btnInstructores.Font = New System.Drawing.Font("Segoe UI Emoji", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnInstructores.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnInstructores.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnInstructores.ImageKey = "addinstructor.png"
         Me.btnInstructores.ImageList = Me.imagenes
@@ -200,7 +213,7 @@ Partial Class Principal
         '
         'btnNuevocliente
         '
-        Me.btnNuevocliente.Font = New System.Drawing.Font("Segoe UI Emoji", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNuevocliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevocliente.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnNuevocliente.ImageKey = "addcliente2.png"
         Me.btnNuevocliente.ImageList = Me.imagenes
@@ -214,7 +227,7 @@ Partial Class Principal
         '
         'btnVentas
         '
-        Me.btnVentas.Font = New System.Drawing.Font("Segoe UI Emoji", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVentas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVentas.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnVentas.ImageKey = "venta.png"
         Me.btnVentas.ImageList = Me.imagenes
@@ -228,7 +241,7 @@ Partial Class Principal
         '
         'btnClases
         '
-        Me.btnClases.Font = New System.Drawing.Font("Segoe UI Emoji", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClases.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClases.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnClases.ImageKey = "clases.png"
         Me.btnClases.ImageList = Me.imagenes
@@ -242,7 +255,7 @@ Partial Class Principal
         '
         'btnPagocliente
         '
-        Me.btnPagocliente.Font = New System.Drawing.Font("Segoe UI Emoji", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPagocliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPagocliente.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnPagocliente.ImageKey = "pagar.png"
         Me.btnPagocliente.ImageList = Me.imagenes
@@ -258,11 +271,11 @@ Partial Class Principal
         '
         Me.lblEmpleado1.AutoSize = True
         Me.lblEmpleado1.BackColor = System.Drawing.Color.Transparent
-        Me.lblEmpleado1.Font = New System.Drawing.Font("Segoe UI Emoji", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEmpleado1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblEmpleado1.ForeColor = System.Drawing.Color.OrangeRed
         Me.lblEmpleado1.Location = New System.Drawing.Point(8, 669)
         Me.lblEmpleado1.Name = "lblEmpleado1"
-        Me.lblEmpleado1.Size = New System.Drawing.Size(91, 21)
+        Me.lblEmpleado1.Size = New System.Drawing.Size(94, 20)
         Me.lblEmpleado1.TabIndex = 8
         Me.lblEmpleado1.Text = "Empleado:"
         '
@@ -270,22 +283,22 @@ Partial Class Principal
         '
         Me.lblEmpleado.AutoSize = True
         Me.lblEmpleado.BackColor = System.Drawing.Color.Transparent
-        Me.lblEmpleado.Font = New System.Drawing.Font("Segoe UI Emoji", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEmpleado.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblEmpleado.ForeColor = System.Drawing.Color.OrangeRed
         Me.lblEmpleado.Location = New System.Drawing.Point(113, 672)
         Me.lblEmpleado.Name = "lblEmpleado"
-        Me.lblEmpleado.Size = New System.Drawing.Size(0, 17)
+        Me.lblEmpleado.Size = New System.Drawing.Size(0, 16)
         Me.lblEmpleado.TabIndex = 9
         '
         'lblFecha1
         '
         Me.lblFecha1.AutoSize = True
         Me.lblFecha1.BackColor = System.Drawing.Color.Transparent
-        Me.lblFecha1.Font = New System.Drawing.Font("Segoe UI Emoji", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFecha1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblFecha1.ForeColor = System.Drawing.Color.Black
         Me.lblFecha1.Location = New System.Drawing.Point(393, 669)
         Me.lblFecha1.Name = "lblFecha1"
-        Me.lblFecha1.Size = New System.Drawing.Size(59, 21)
+        Me.lblFecha1.Size = New System.Drawing.Size(64, 20)
         Me.lblFecha1.TabIndex = 10
         Me.lblFecha1.Text = "Fecha:"
         '
@@ -293,11 +306,11 @@ Partial Class Principal
         '
         Me.lblFecha.AutoSize = True
         Me.lblFecha.BackColor = System.Drawing.Color.Transparent
-        Me.lblFecha.Font = New System.Drawing.Font("Segoe UI Emoji", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblFecha.ForeColor = System.Drawing.Color.Maroon
         Me.lblFecha.Location = New System.Drawing.Point(461, 664)
         Me.lblFecha.Name = "lblFecha"
-        Me.lblFecha.Size = New System.Drawing.Size(0, 25)
+        Me.lblFecha.Size = New System.Drawing.Size(0, 24)
         Me.lblFecha.TabIndex = 11
         '
         'OsSkin1
@@ -329,17 +342,6 @@ Partial Class Principal
         Me.Label2.Size = New System.Drawing.Size(236, 86)
         Me.Label2.TabIndex = 13
         Me.Label2.Text = "Fitness"
-        '
-        'imagenes
-        '
-        Me.imagenes.ImageStream = CType(resources.GetObject("imagenes.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        Me.imagenes.TransparentColor = System.Drawing.Color.Transparent
-        Me.imagenes.Images.SetKeyName(0, "grupo.png")
-        Me.imagenes.Images.SetKeyName(1, "pagar.png")
-        Me.imagenes.Images.SetKeyName(2, "venta.png")
-        Me.imagenes.Images.SetKeyName(3, "addcliente2.png")
-        Me.imagenes.Images.SetKeyName(4, "addinstructor.png")
-        Me.imagenes.Images.SetKeyName(5, "clases.png")
         '
         'Principal
         '

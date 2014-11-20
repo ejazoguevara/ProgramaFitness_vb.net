@@ -1,4 +1,6 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports System.Threading
+
 Public Class Clientes
 
     Dim dt As New DataTable
@@ -7,6 +9,8 @@ Public Class Clientes
     Dim reader As MySqlDataReader
     Dim SQLString, SQLString2 As String
     Dim id As Integer
+    Dim datos As New DataSet
+
 
     Private Const server As String = "localhost"
     Private Const BD As String = "elvirasgym"
@@ -19,11 +23,17 @@ Public Class Clientes
 
     'Llena el Datagrid con la información de usuarios
     Sub LlenarBindingSource()
-        BDobj.da = New MySqlDataAdapter("select id, nombre, apellido_paterno, apellido_materno, grupo_id, pagos_id from clientes order by id", BDobj.cnn)
-        BDobj.dt = New DataTable
-        BDobj.dt.Clear()
-        BDobj.da.Fill(BDobj.dt)
-        BindingSource1.DataSource = BDobj.dt
+        'SQLString = "SELECT clientes.id, clientes.nombre, clientes.apellido_paterno, clientes.apellido_materno, pagos.tipo FROM clientes left join pagos on clientes.pagos_id = pagos.id order by clientes.id"
+        'BDobj.cmd = New MySqlCommand(SQLString, BDobj.cnn)
+        'BDobj.da.SelectCommand = BDobj.cmd
+        'BDobj.da.Fill(datos)
+        'BindingSource1.DataSource = datos
+        'DTclientes.DataSource = BindingSource1
+
+        BDobj.da = New MySqlDataAdapter("SELECT clientes.id, clientes.nombre, clientes.apellido_paterno, clientes.apellido_materno, pagos.tipo FROM clientes left join pagos on clientes.pagos_id = pagos.id order by clientes.id", BDobj.cnn)
+        datos = New DataSet
+        BDobj.da.Fill(datos)
+        BindingSource1.DataSource = datos.Tables(0)
         Me.DTclientes.DataSource = BindingSource1
         DTclientes.AlternatingRowsDefaultCellStyle.BackColor = Color.LightCyan
         Me.DTclientes.DefaultCellStyle.Font = New Font("Tahoma", 11)
@@ -58,12 +68,15 @@ Public Class Clientes
         BDobj.open()
         llenar_Combo()
         Dim tab As Integer = tabcliente.SelectedIndex
+        Me.Show()
         If tab = 0 Then
             LlenarBindingSource()
         End If
+        bloquear()
+        cbxTipo.Enabled = False
     End Sub
 
-    Private Sub DTclientes_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles DTclientes.KeyDown
+    Private Sub DTclientes_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs)
         Dim fila As Integer
         fila = DTclientes.CurrentRow.Index
         If e.KeyCode = Keys.Enter Then
@@ -144,7 +157,18 @@ Public Class Clientes
         g.DrawRectangle(pen, New Rectangle(txtApellidop.Location, txtApellidop.Size))
         g.DrawRectangle(pen, New Rectangle(txtApellidom.Location, txtApellidom.Size))
         g.DrawRectangle(pen, New Rectangle(cbxTipo.Location, cbxTipo.Size))
+        pen.Dispose()
+    End Sub
+
+    Private Sub reservaclase_Paint(ByVal sender As Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles reservaclase.Paint
+        Dim g As Graphics = e.Graphics
+        Dim pen As New Pen(Color.RoyalBlue, 2.0)
+        g.DrawRectangle(pen, New Rectangle(txtDNI2.Location, txtDNI.Size))
+        g.DrawRectangle(pen, New Rectangle(txtNombre2.Location, txtNombre.Size))
+        g.DrawRectangle(pen, New Rectangle(txtApellidop2.Location, txtApellidop.Size))
+        g.DrawRectangle(pen, New Rectangle(txtApellidom2.Location, txtApellidom.Size))
         g.DrawRectangle(pen, New Rectangle(cbxClase.Location, cbxClase.Size))
+        g.DrawRectangle(pen, New Rectangle(cbxGrupo.Location, cbxClase.Size))
         pen.Dispose()
     End Sub
 
@@ -194,16 +218,15 @@ Public Class Clientes
         fila = DTclientes.RowCount()
         id = CInt(DTclientes.Item(0, fila - 1).Value)
         limpiar()
-        'activar()
+        activar()
         txtDNI.Text = id + 1
         txtDNI.Enabled = False
-        'btnAgregar.Enabled = True
-        'btnCambiar.Enabled = False
+        cbxTipo.Enabled = True
         txtNombre.Focus()
     End Sub
 
     Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscar.Click
-        
+
     End Sub
 
     Sub buscar()
@@ -220,5 +243,36 @@ Public Class Clientes
             txtDNI.Focus()
         End If
         reader.Close()
+    End Sub
+
+
+    Private Sub btnAgregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAgregar.Click
+        'Checa que ninguna caja de texto este vacia
+        Dim bandera As Boolean
+        For Each x As Control In gbxDos.Controls
+            If TypeOf x Is TextBox Then
+                If x.Text = "" Then
+                    bandera = True
+                End If
+            End If
+        Next
+        If bandera = False Then
+            SQLString = String.Format("INSERT INTO clientes (nombre, apellido_paterno, apellido_materno, foto, activo, grupo_id, pagos_id, descuentos_id ) " & _
+                                            " values ('{0}','{1}','{2}','{3}',{4},{5},{6},{7})", _
+                                            Trim(txtNombre.Text), Trim(txtApellidop.Text), Trim(txtApellidom.Text), Trim("pendiente"), Trim(0), Trim(1), Trim(cbxTipo.SelectedValue), Trim(1))
+            If BDobj.executeSQL(SQLString) Then
+                MsgBox("Registro agregado con éxito...")
+                btnNuevo.PerformClick()
+                LlenarBindingSource()
+            End If
+        End If
+    End Sub
+
+    Private Sub btnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminar.Click
+        Dim fila, id As Integer
+        fila = DTclientes.CurrentRow.Index
+        id = CInt(DTclientes.Item(0, fila).Value)
+        SQLString = String.Format("DELETE FROM contacto WHERE id_contacto = " & id)
+        BDobj.executeSQL(SQLString)
     End Sub
 End Class

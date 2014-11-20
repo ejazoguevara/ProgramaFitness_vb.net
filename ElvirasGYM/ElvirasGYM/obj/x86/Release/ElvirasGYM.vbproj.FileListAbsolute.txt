@@ -42,3 +42,4 @@ C:\Users\Efrain\Documents\ProgramaFitness_vb.net\ElvirasGYM\ElvirasGYM\obj\x86\R
 C:\Users\Efrain\Documents\ProgramaFitness_vb.net\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.vbproj.GenerateResource.Cache
 C:\Users\Efrain\Documents\ProgramaFitness_vb.net\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.exe
 C:\Users\Efrain\Documents\ProgramaFitness_vb.net\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.pdb
+C:\Users\Efrain\Documents\ProgramaFitness_vb.net\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.vbprojResolveAssemblyReference.cache

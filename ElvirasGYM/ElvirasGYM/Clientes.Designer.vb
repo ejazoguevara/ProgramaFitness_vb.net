@@ -46,38 +46,43 @@ Partial Class Clientes
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnTomafoto = New System.Windows.Forms.Button()
         Me.Foto = New System.Windows.Forms.ImageList(Me.components)
-        Me.DTclientes = New System.Windows.Forms.DataGridView()
         Me.pagosclientes = New System.Windows.Forms.TabPage()
         Me.imprimircarnet = New System.Windows.Forms.TabPage()
-        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.reservaclase = New System.Windows.Forms.TabPage()
-        Me.btnBuscar2 = New System.Windows.Forms.Button()
-        Me.txtDNI2 = New System.Windows.Forms.TextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.cbxGrupo = New System.Windows.Forms.ComboBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.DTgrupo = New System.Windows.Forms.DataGridView()
+        Me.cbxClase = New System.Windows.Forms.ComboBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.txtNombre2 = New System.Windows.Forms.TextBox()
         Me.txtApellidom2 = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtApellidop2 = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.cbxClase = New System.Windows.Forms.ComboBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.DTgrupo = New System.Windows.Forms.DataGridView()
-        Me.BindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label11 = New System.Windows.Forms.Label()
+        Me.btnBuscar2 = New System.Windows.Forms.Button()
+        Me.txtDNI2 = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DNI = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Apellidop = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Apellidom = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TipoPago = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DTclientes = New System.Windows.Forms.DataGridView()
         Me.tabcliente.SuspendLayout()
         Me.datosclientes.SuspendLayout()
         Me.gbxDos.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DTclientes, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.reservaclase.SuspendLayout()
         CType(Me.DTgrupo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DTclientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tabcliente
@@ -95,6 +100,7 @@ Partial Class Clientes
         '
         'datosclientes
         '
+        Me.datosclientes.Controls.Add(Me.DTclientes)
         Me.datosclientes.Controls.Add(Me.txtNombre)
         Me.datosclientes.Controls.Add(Me.gbxDos)
         Me.datosclientes.Controls.Add(Me.btnBuscar)
@@ -109,7 +115,6 @@ Partial Class Clientes
         Me.datosclientes.Controls.Add(Me.Label1)
         Me.datosclientes.Controls.Add(Me.Panel1)
         Me.datosclientes.Controls.Add(Me.btnTomafoto)
-        Me.datosclientes.Controls.Add(Me.DTclientes)
         Me.datosclientes.Font = New System.Drawing.Font("Segoe UI Symbol", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.datosclientes.Location = New System.Drawing.Point(4, 24)
         Me.datosclientes.Name = "datosclientes"
@@ -194,7 +199,7 @@ Partial Class Clientes
         Me.cbxTipo.FormattingEnabled = True
         Me.cbxTipo.Location = New System.Drawing.Point(410, 58)
         Me.cbxTipo.Name = "cbxTipo"
-        Me.cbxTipo.Size = New System.Drawing.Size(121, 25)
+        Me.cbxTipo.Size = New System.Drawing.Size(113, 25)
         Me.cbxTipo.TabIndex = 5
         '
         'Label6
@@ -212,7 +217,7 @@ Partial Class Clientes
         Me.txtApellidom.MaxLength = 20
         Me.txtApellidom.Name = "txtApellidom"
         Me.txtApellidom.Size = New System.Drawing.Size(156, 25)
-        Me.txtApellidom.TabIndex = 3
+        Me.txtApellidom.TabIndex = 4
         '
         'Label4
         '
@@ -229,7 +234,7 @@ Partial Class Clientes
         Me.txtApellidop.MaxLength = 20
         Me.txtApellidop.Name = "txtApellidop"
         Me.txtApellidop.Size = New System.Drawing.Size(156, 25)
-        Me.txtApellidop.TabIndex = 4
+        Me.txtApellidop.TabIndex = 3
         '
         'Label3
         '
@@ -270,7 +275,7 @@ Partial Class Clientes
         '
         Me.Panel1.BackColor = System.Drawing.Color.Honeydew
         Me.Panel1.Controls.Add(Me.PictureBox1)
-        Me.Panel1.Location = New System.Drawing.Point(543, 0)
+        Me.Panel1.Location = New System.Drawing.Point(530, 0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(152, 118)
         Me.Panel1.TabIndex = 4
@@ -278,7 +283,7 @@ Partial Class Clientes
         'PictureBox1
         '
         Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(28, 3)
+        Me.PictureBox1.Location = New System.Drawing.Point(26, 3)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(99, 115)
         Me.PictureBox1.TabIndex = 4
@@ -288,7 +293,7 @@ Partial Class Clientes
         '
         Me.btnTomafoto.ImageKey = "tomarfoto.png"
         Me.btnTomafoto.ImageList = Me.Foto
-        Me.btnTomafoto.Location = New System.Drawing.Point(543, 121)
+        Me.btnTomafoto.Location = New System.Drawing.Point(530, 121)
         Me.btnTomafoto.Name = "btnTomafoto"
         Me.btnTomafoto.Size = New System.Drawing.Size(152, 42)
         Me.btnTomafoto.TabIndex = 10
@@ -299,18 +304,6 @@ Partial Class Clientes
         Me.Foto.ImageStream = CType(resources.GetObject("Foto.ImageStream"), System.Windows.Forms.ImageListStreamer)
         Me.Foto.TransparentColor = System.Drawing.Color.Transparent
         Me.Foto.Images.SetKeyName(0, "tomarfoto.png")
-        '
-        'DTclientes
-        '
-        Me.DTclientes.AllowUserToAddRows = False
-        Me.DTclientes.AllowUserToDeleteRows = False
-        Me.DTclientes.BackgroundColor = System.Drawing.Color.Honeydew
-        Me.DTclientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DTclientes.Location = New System.Drawing.Point(6, 169)
-        Me.DTclientes.Name = "DTclientes"
-        Me.DTclientes.ReadOnly = True
-        Me.DTclientes.Size = New System.Drawing.Size(689, 178)
-        Me.DTclientes.TabIndex = 11
         '
         'pagosclientes
         '
@@ -334,7 +327,7 @@ Partial Class Clientes
         'reservaclase
         '
         Me.reservaclase.Controls.Add(Me.Button1)
-        Me.reservaclase.Controls.Add(Me.ComboBox1)
+        Me.reservaclase.Controls.Add(Me.cbxGrupo)
         Me.reservaclase.Controls.Add(Me.Label11)
         Me.reservaclase.Controls.Add(Me.DTgrupo)
         Me.reservaclase.Controls.Add(Me.cbxClase)
@@ -357,32 +350,67 @@ Partial Class Clientes
         Me.reservaclase.Text = "Reservar clase"
         Me.reservaclase.UseVisualStyleBackColor = True
         '
-        'btnBuscar2
+        'Button1
         '
-        Me.btnBuscar2.ImageKey = "buscar.png"
-        Me.btnBuscar2.ImageList = Me.imagenes
-        Me.btnBuscar2.Location = New System.Drawing.Point(115, 9)
-        Me.btnBuscar2.Name = "btnBuscar2"
-        Me.btnBuscar2.Size = New System.Drawing.Size(53, 43)
-        Me.btnBuscar2.TabIndex = 19
-        Me.btnBuscar2.UseVisualStyleBackColor = True
+        Me.Button1.Location = New System.Drawing.Point(554, 35)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(131, 115)
+        Me.Button1.TabIndex = 34
+        Me.Button1.Text = "Reservar clase"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button1.UseVisualStyleBackColor = True
         '
-        'txtDNI2
+        'cbxGrupo
         '
-        Me.txtDNI2.Location = New System.Drawing.Point(47, 19)
-        Me.txtDNI2.MaxLength = 4
-        Me.txtDNI2.Name = "txtDNI2"
-        Me.txtDNI2.Size = New System.Drawing.Size(56, 23)
-        Me.txtDNI2.TabIndex = 18
+        Me.cbxGrupo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxGrupo.Enabled = False
+        Me.cbxGrupo.FormattingEnabled = True
+        Me.cbxGrupo.Location = New System.Drawing.Point(375, 94)
+        Me.cbxGrupo.Name = "cbxGrupo"
+        Me.cbxGrupo.Size = New System.Drawing.Size(156, 23)
+        Me.cbxGrupo.TabIndex = 31
         '
-        'Label8
+        'Label11
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(6, 22)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(34, 15)
-        Me.Label8.TabIndex = 21
-        Me.Label8.Text = "DNI:"
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(314, 97)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(49, 15)
+        Me.Label11.TabIndex = 32
+        Me.Label11.Text = "Grupo:"
+        '
+        'DTgrupo
+        '
+        Me.DTgrupo.AllowUserToAddRows = False
+        Me.DTgrupo.AllowUserToDeleteRows = False
+        Me.DTgrupo.BackgroundColor = System.Drawing.Color.Honeydew
+        Me.DTgrupo.ColumnHeadersHeight = 25
+        Me.DTgrupo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.DTgrupo.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DNI, Me.Nombre, Me.Apellidop, Me.Apellidom, Me.TipoPago})
+        Me.DTgrupo.Location = New System.Drawing.Point(9, 201)
+        Me.DTgrupo.Name = "DTgrupo"
+        Me.DTgrupo.ReadOnly = True
+        Me.DTgrupo.RowHeadersWidth = 40
+        Me.DTgrupo.Size = New System.Drawing.Size(676, 171)
+        Me.DTgrupo.TabIndex = 30
+        '
+        'cbxClase
+        '
+        Me.cbxClase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxClase.FormattingEnabled = True
+        Me.cbxClase.Location = New System.Drawing.Point(375, 60)
+        Me.cbxClase.Name = "cbxClase"
+        Me.cbxClase.Size = New System.Drawing.Size(156, 23)
+        Me.cbxClase.TabIndex = 28
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(314, 63)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(44, 15)
+        Me.Label7.TabIndex = 29
+        Me.Label7.Text = "Clase:"
         '
         'txtNombre2
         '
@@ -435,54 +463,32 @@ Partial Class Clientes
         Me.Label10.TabIndex = 25
         Me.Label10.Text = "Nombre:"
         '
-        'cbxClase
+        'btnBuscar2
         '
-        Me.cbxClase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxClase.FormattingEnabled = True
-        Me.cbxClase.Location = New System.Drawing.Point(375, 60)
-        Me.cbxClase.Name = "cbxClase"
-        Me.cbxClase.Size = New System.Drawing.Size(156, 23)
-        Me.cbxClase.TabIndex = 28
+        Me.btnBuscar2.ImageKey = "buscar.png"
+        Me.btnBuscar2.ImageList = Me.imagenes
+        Me.btnBuscar2.Location = New System.Drawing.Point(115, 9)
+        Me.btnBuscar2.Name = "btnBuscar2"
+        Me.btnBuscar2.Size = New System.Drawing.Size(53, 43)
+        Me.btnBuscar2.TabIndex = 19
+        Me.btnBuscar2.UseVisualStyleBackColor = True
         '
-        'Label7
+        'txtDNI2
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(314, 63)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(44, 15)
-        Me.Label7.TabIndex = 29
-        Me.Label7.Text = "Clase:"
+        Me.txtDNI2.Location = New System.Drawing.Point(47, 19)
+        Me.txtDNI2.MaxLength = 4
+        Me.txtDNI2.Name = "txtDNI2"
+        Me.txtDNI2.Size = New System.Drawing.Size(56, 23)
+        Me.txtDNI2.TabIndex = 18
         '
-        'DTgrupo
+        'Label8
         '
-        Me.DTgrupo.AllowUserToAddRows = False
-        Me.DTgrupo.AllowUserToDeleteRows = False
-        Me.DTgrupo.BackgroundColor = System.Drawing.Color.Honeydew
-        Me.DTgrupo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DTgrupo.Location = New System.Drawing.Point(9, 201)
-        Me.DTgrupo.Name = "DTgrupo"
-        Me.DTgrupo.ReadOnly = True
-        Me.DTgrupo.Size = New System.Drawing.Size(676, 171)
-        Me.DTgrupo.TabIndex = 30
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.Enabled = False
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(375, 94)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(156, 23)
-        Me.ComboBox1.TabIndex = 31
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(314, 97)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(49, 15)
-        Me.Label11.TabIndex = 32
-        Me.Label11.Text = "Grupo:"
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(6, 22)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(34, 15)
+        Me.Label8.TabIndex = 21
+        Me.Label8.Text = "DNI:"
         '
         'GroupBox1
         '
@@ -494,15 +500,72 @@ Partial Class Clientes
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Seleccione un grupo:"
         '
-        'Button1
+        'DNI
         '
-        Me.Button1.Location = New System.Drawing.Point(554, 35)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(131, 115)
-        Me.Button1.TabIndex = 34
-        Me.Button1.Text = "Reservar clase"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.DNI.Frozen = True
+        Me.DNI.HeaderText = "DNI"
+        Me.DNI.MaxInputLength = 5
+        Me.DNI.Name = "DNI"
+        Me.DNI.ReadOnly = True
+        Me.DNI.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DNI.Width = 55
+        '
+        'Nombre
+        '
+        Me.Nombre.Frozen = True
+        Me.Nombre.HeaderText = "Nombre"
+        Me.Nombre.MaxInputLength = 30
+        Me.Nombre.MinimumWidth = 100
+        Me.Nombre.Name = "Nombre"
+        Me.Nombre.ReadOnly = True
+        Me.Nombre.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        'Apellidop
+        '
+        Me.Apellidop.Frozen = True
+        Me.Apellidop.HeaderText = "Apellido Paterno"
+        Me.Apellidop.MaxInputLength = 50
+        Me.Apellidop.MinimumWidth = 100
+        Me.Apellidop.Name = "Apellidop"
+        Me.Apellidop.ReadOnly = True
+        Me.Apellidop.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Apellidop.Width = 136
+        '
+        'Apellidom
+        '
+        Me.Apellidom.Frozen = True
+        Me.Apellidom.HeaderText = "Apellido Materno"
+        Me.Apellidom.MaxInputLength = 50
+        Me.Apellidom.MinimumWidth = 100
+        Me.Apellidom.Name = "Apellidom"
+        Me.Apellidom.ReadOnly = True
+        Me.Apellidom.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Apellidom.Width = 140
+        '
+        'TipoPago
+        '
+        Me.TipoPago.Frozen = True
+        Me.TipoPago.HeaderText = "Tipo de Pago"
+        Me.TipoPago.MaxInputLength = 30
+        Me.TipoPago.MinimumWidth = 50
+        Me.TipoPago.Name = "TipoPago"
+        Me.TipoPago.ReadOnly = True
+        Me.TipoPago.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.TipoPago.Width = 114
+        '
+        'DTclientes
+        '
+        Me.DTclientes.AllowUserToAddRows = False
+        Me.DTclientes.AllowUserToDeleteRows = False
+        Me.DTclientes.BackgroundColor = System.Drawing.Color.Honeydew
+        Me.DTclientes.ColumnHeadersHeight = 25
+        Me.DTclientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.DTclientes.Location = New System.Drawing.Point(6, 169)
+        Me.DTclientes.Name = "DTclientes"
+        Me.DTclientes.ReadOnly = True
+        Me.DTclientes.RowHeadersWidth = 40
+        Me.DTclientes.Size = New System.Drawing.Size(676, 171)
+        Me.DTclientes.TabIndex = 31
         '
         'Clientes
         '
@@ -522,12 +585,12 @@ Partial Class Clientes
         Me.gbxDos.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DTclientes, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.reservaclase.ResumeLayout(False)
         Me.reservaclase.PerformLayout()
         CType(Me.DTgrupo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DTclientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -535,7 +598,6 @@ Partial Class Clientes
     Friend WithEvents datosclientes As System.Windows.Forms.TabPage
     Friend WithEvents pagosclientes As System.Windows.Forms.TabPage
     Friend WithEvents imprimircarnet As System.Windows.Forms.TabPage
-    Friend WithEvents DTclientes As System.Windows.Forms.DataGridView
     Friend WithEvents btnTomafoto As System.Windows.Forms.Button
     Friend WithEvents imagenes As System.Windows.Forms.ImageList
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
@@ -559,7 +621,7 @@ Partial Class Clientes
     Friend WithEvents BindingSource1 As System.Windows.Forms.BindingSource
     Friend WithEvents reservaclase As System.Windows.Forms.TabPage
     Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents cbxGrupo As System.Windows.Forms.ComboBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents DTgrupo As System.Windows.Forms.DataGridView
     Friend WithEvents cbxClase As System.Windows.Forms.ComboBox
@@ -575,4 +637,10 @@ Partial Class Clientes
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents BindingSource2 As System.Windows.Forms.BindingSource
+    Friend WithEvents DNI As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Nombre As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Apellidop As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Apellidom As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents TipoPago As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DTclientes As System.Windows.Forms.DataGridView
 End Class
