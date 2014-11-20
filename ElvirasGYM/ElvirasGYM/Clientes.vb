@@ -68,15 +68,9 @@ Public Class Clientes
         fila = DTclientes.CurrentRow.Index
         If e.KeyCode = Keys.Enter Then
             txtDNI.Text = DTclientes.Item(0, fila).Value
-            'txtNombre.Text = DTclientes.Item(1, fila).Value
-            'txtApellidop.Text = DTclientes.Item(2, fila).Value
-            'txtApellidom.Text = DTclientes.Item(3, fila).Value
             txtDNI.Enabled = False
-            btnBuscar.PerformClick()
+            buscar()
             'activar()
-            'txtId.Enabled = False
-            'btnAgregar.Enabled = False
-            'btnCambiar.Enabled = True
         End If
     End Sub
 
@@ -90,12 +84,12 @@ Public Class Clientes
         cbxTipo.ForeColor = Color.Black
     End Sub
 
-    Private Sub cbxGrupo_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbxClase.GotFocus
+    Private Sub cbxGrupo_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs)
         cbxClase.BackColor = Color.Honeydew
         cbxClase.ForeColor = Color.Black
     End Sub
 
-    Private Sub cbxGrupo_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbxClase.LostFocus
+    Private Sub cbxGrupo_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs)
         cbxClase.BackColor = Color.White
         cbxClase.ForeColor = Color.Black
     End Sub
@@ -209,6 +203,10 @@ Public Class Clientes
     End Sub
 
     Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscar.Click
+        
+    End Sub
+
+    Sub buscar()
         SQLString = String.Format("SELECT * FROM clientes WHERE id = " & Trim(txtDNI.Text))
         reader = BDobj.executeReader(SQLString)
         If reader.Read = True Then
