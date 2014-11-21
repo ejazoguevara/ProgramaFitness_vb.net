@@ -23,11 +23,12 @@ Partial Class Clientes
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Clientes))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.tabcliente = New System.Windows.Forms.TabControl()
         Me.datosclientes = New System.Windows.Forms.TabPage()
         Me.btnGuardar = New System.Windows.Forms.Button()
+        Me.imgBotones = New System.Windows.Forms.ImageList(Me.components)
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.DTclientes = New System.Windows.Forms.DataGridView()
         Me.btnAgregar = New System.Windows.Forms.Button()
@@ -41,9 +42,9 @@ Partial Class Clientes
         Me.btnTomafoto = New System.Windows.Forms.Button()
         Me.Foto = New System.Windows.Forms.ImageList(Me.components)
         Me.panelCliente = New System.Windows.Forms.Panel()
+        Me.txtBuscar = New System.Windows.Forms.TextBox()
         Me.txtNombre = New System.Windows.Forms.TextBox()
-        Me.btnBuscar = New System.Windows.Forms.Button()
-        Me.imagenes = New System.Windows.Forms.ImageList(Me.components)
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.cbxTipo = New System.Windows.Forms.ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtApellidom = New System.Windows.Forms.TextBox()
@@ -70,6 +71,7 @@ Partial Class Clientes
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.btnBuscar2 = New System.Windows.Forms.Button()
+        Me.imagenes = New System.Windows.Forms.ImageList(Me.components)
         Me.txtDNI2 = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -126,6 +128,9 @@ Partial Class Clientes
         'btnGuardar
         '
         Me.btnGuardar.Font = New System.Drawing.Font("Segoe UI Symbol", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnGuardar.ImageKey = "save.png"
+        Me.btnGuardar.ImageList = Me.imgBotones
         Me.btnGuardar.Location = New System.Drawing.Point(555, 46)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(99, 87)
@@ -134,9 +139,21 @@ Partial Class Clientes
         Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnGuardar.UseVisualStyleBackColor = True
         '
+        'imgBotones
+        '
+        Me.imgBotones.ImageStream = CType(resources.GetObject("imgBotones.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.imgBotones.TransparentColor = System.Drawing.Color.Transparent
+        Me.imgBotones.Images.SetKeyName(0, "delete.png")
+        Me.imgBotones.Images.SetKeyName(1, "save.png")
+        Me.imgBotones.Images.SetKeyName(2, "addcliente.png")
+        Me.imgBotones.Images.SetKeyName(3, "new104.png")
+        '
         'btnEliminar
         '
         Me.btnEliminar.Font = New System.Drawing.Font("Segoe UI Symbol", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnEliminar.ImageKey = "delete.png"
+        Me.btnEliminar.ImageList = Me.imgBotones
         Me.btnEliminar.Location = New System.Drawing.Point(555, 139)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(99, 87)
@@ -152,16 +169,17 @@ Partial Class Clientes
         Me.DTclientes.AllowUserToResizeColumns = False
         Me.DTclientes.AllowUserToResizeRows = False
         Me.DTclientes.BackgroundColor = System.Drawing.Color.Honeydew
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Azure
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI Symbol", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.MidnightBlue
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DTclientes.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Azure
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI Symbol", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.MidnightBlue
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DTclientes.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DTclientes.ColumnHeadersHeight = 25
         Me.DTclientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.DTclientes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke
         Me.DTclientes.Location = New System.Drawing.Point(6, 214)
         Me.DTclientes.MultiSelect = False
         Me.DTclientes.Name = "DTclientes"
@@ -175,6 +193,9 @@ Partial Class Clientes
         'btnAgregar
         '
         Me.btnAgregar.Font = New System.Drawing.Font("Segoe UI Symbol", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnAgregar.ImageKey = "addcliente.png"
+        Me.btnAgregar.ImageList = Me.imgBotones
         Me.btnAgregar.Location = New System.Drawing.Point(555, 232)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(99, 88)
@@ -186,6 +207,9 @@ Partial Class Clientes
         'btnNuevo
         '
         Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI Symbol", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnNuevo.ImageKey = "new104.png"
+        Me.btnNuevo.ImageList = Me.imgBotones
         Me.btnNuevo.Location = New System.Drawing.Point(555, 326)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(99, 88)
@@ -238,7 +262,7 @@ Partial Class Clientes
         '
         Me.Panel1.BackColor = System.Drawing.Color.Honeydew
         Me.Panel1.Controls.Add(Me.PictureBox1)
-        Me.Panel1.Location = New System.Drawing.Point(397, 4)
+        Me.Panel1.Location = New System.Drawing.Point(396, 4)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(152, 118)
         Me.Panel1.TabIndex = 4
@@ -246,7 +270,7 @@ Partial Class Clientes
         'PictureBox1
         '
         Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(28, 2)
+        Me.PictureBox1.Location = New System.Drawing.Point(27, 2)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(99, 115)
         Me.PictureBox1.TabIndex = 4
@@ -256,7 +280,7 @@ Partial Class Clientes
         '
         Me.btnTomafoto.ImageKey = "tomarfoto.png"
         Me.btnTomafoto.ImageList = Me.Foto
-        Me.btnTomafoto.Location = New System.Drawing.Point(397, 125)
+        Me.btnTomafoto.Location = New System.Drawing.Point(396, 125)
         Me.btnTomafoto.Name = "btnTomafoto"
         Me.btnTomafoto.Size = New System.Drawing.Size(152, 42)
         Me.btnTomafoto.TabIndex = 10
@@ -272,8 +296,9 @@ Partial Class Clientes
         '
         Me.panelCliente.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.panelCliente.BackColor = System.Drawing.Color.Azure
+        Me.panelCliente.Controls.Add(Me.txtBuscar)
         Me.panelCliente.Controls.Add(Me.txtNombre)
-        Me.panelCliente.Controls.Add(Me.btnBuscar)
+        Me.panelCliente.Controls.Add(Me.Label12)
         Me.panelCliente.Controls.Add(Me.cbxTipo)
         Me.panelCliente.Controls.Add(Me.Label6)
         Me.panelCliente.Controls.Add(Me.txtApellidom)
@@ -284,33 +309,35 @@ Partial Class Clientes
         Me.panelCliente.Size = New System.Drawing.Size(542, 205)
         Me.panelCliente.TabIndex = 32
         '
+        'txtBuscar
+        '
+        Me.txtBuscar.Font = New System.Drawing.Font("Segoe UI Symbol", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtBuscar.ForeColor = System.Drawing.Color.Gainsboro
+        Me.txtBuscar.Location = New System.Drawing.Point(190, 23)
+        Me.txtBuscar.MaxLength = 4
+        Me.txtBuscar.Name = "txtBuscar"
+        Me.txtBuscar.Size = New System.Drawing.Size(155, 23)
+        Me.txtBuscar.TabIndex = 34
+        Me.txtBuscar.Text = "Presiona F1"
+        '
         'txtNombre
         '
         Me.txtNombre.Location = New System.Drawing.Point(134, 60)
         Me.txtNombre.MaxLength = 20
         Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(156, 25)
+        Me.txtNombre.Size = New System.Drawing.Size(211, 25)
         Me.txtNombre.TabIndex = 2
         '
-        'btnBuscar
+        'Label12
         '
-        Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnBuscar.ImageKey = "buscar.png"
-        Me.btnBuscar.ImageList = Me.imagenes
-        Me.btnBuscar.Location = New System.Drawing.Point(134, 13)
-        Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(63, 43)
-        Me.btnBuscar.TabIndex = 1
-        Me.btnBuscar.Text = "F1"
-        Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnBuscar.UseVisualStyleBackColor = True
-        '
-        'imagenes
-        '
-        Me.imagenes.ImageStream = CType(resources.GetObject("imagenes.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        Me.imagenes.TransparentColor = System.Drawing.Color.Transparent
-        Me.imagenes.Images.SetKeyName(0, "tomarfoto2.png")
-        Me.imagenes.Images.SetKeyName(1, "buscar.png")
+        Me.Label12.AutoSize = True
+        Me.Label12.BackColor = System.Drawing.Color.Azure
+        Me.Label12.ForeColor = System.Drawing.Color.Red
+        Me.Label12.Location = New System.Drawing.Point(131, 28)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(56, 17)
+        Me.Label12.TabIndex = 35
+        Me.Label12.Text = "Buscar:"
         '
         'cbxTipo
         '
@@ -335,7 +362,7 @@ Partial Class Clientes
         Me.txtApellidom.Location = New System.Drawing.Point(134, 132)
         Me.txtApellidom.MaxLength = 20
         Me.txtApellidom.Name = "txtApellidom"
-        Me.txtApellidom.Size = New System.Drawing.Size(156, 25)
+        Me.txtApellidom.Size = New System.Drawing.Size(211, 25)
         Me.txtApellidom.TabIndex = 4
         '
         'txtApellidop
@@ -343,7 +370,7 @@ Partial Class Clientes
         Me.txtApellidop.Location = New System.Drawing.Point(134, 94)
         Me.txtApellidop.MaxLength = 20
         Me.txtApellidop.Name = "txtApellidop"
-        Me.txtApellidop.Size = New System.Drawing.Size(156, 25)
+        Me.txtApellidop.Size = New System.Drawing.Size(211, 25)
         Me.txtApellidop.TabIndex = 3
         '
         'txtDNI
@@ -578,6 +605,16 @@ Partial Class Clientes
         Me.btnBuscar2.TabIndex = 19
         Me.btnBuscar2.UseVisualStyleBackColor = True
         '
+        'imagenes
+        '
+        Me.imagenes.ImageStream = CType(resources.GetObject("imagenes.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.imagenes.TransparentColor = System.Drawing.Color.Transparent
+        Me.imagenes.Images.SetKeyName(0, "tomarfoto2.png")
+        Me.imagenes.Images.SetKeyName(1, "buscar.png")
+        Me.imagenes.Images.SetKeyName(2, "addcliente2.png")
+        Me.imagenes.Images.SetKeyName(3, "delete.png")
+        Me.imagenes.Images.SetKeyName(4, "save.png")
+        '
         'txtDNI2
         '
         Me.txtDNI2.Location = New System.Drawing.Point(47, 19)
@@ -641,7 +678,6 @@ Partial Class Clientes
     Friend WithEvents imagenes As System.Windows.Forms.ImageList
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents btnBuscar As System.Windows.Forms.Button
     Friend WithEvents cbxTipo As System.Windows.Forms.ComboBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents txtApellidom As System.Windows.Forms.TextBox
@@ -683,4 +719,7 @@ Partial Class Clientes
     Friend WithEvents DTclientes As System.Windows.Forms.DataGridView
     Friend WithEvents panelCliente As System.Windows.Forms.Panel
     Friend WithEvents btnGuardar As System.Windows.Forms.Button
+    Friend WithEvents imgBotones As System.Windows.Forms.ImageList
+    Friend WithEvents txtBuscar As System.Windows.Forms.TextBox
+    Friend WithEvents Label12 As System.Windows.Forms.Label
 End Class

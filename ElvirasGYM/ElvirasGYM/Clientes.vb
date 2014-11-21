@@ -47,6 +47,26 @@ Public Class Clientes
         BDobj.dt = Nothing
     End Sub
 
+    Private Sub Aplicar_Filtro()
+        ' verificar que el DataSource no esté vacio  
+        If BindingSource1.DataSource Is Nothing Then
+            ' si no hay registros cambiar el color del TextBox
+            'txtBuscar.BackColor = Color.Red
+            Exit Sub
+        End If
+
+        Try
+            Dim filtro As String = String.Empty
+            'Se filtra por nombre, apellido paterno y apellido materno
+            filtro = "[Nombre] like '%" & txtBuscar.Text.Trim & "%' or  [Apellido Paterno] like '%" & txtBuscar.Text.Trim & "%' or [Apellido Materno] like '%" & txtBuscar.Text.Trim & "%'"
+            BindingSource1.Filter = filtro
+            DTclientes.Rows(0).Selected = True
+        Catch ex As Exception 'Errores
+            'MsgBox(ex.Message.ToString, MsgBoxStyle.Critical)
+        End Try
+    End Sub
+
+
     'Llena el combobox de grupo desde la base de datos
     Private Sub llenar_Combo()
         BDobj.cmd = New MySqlCommand
@@ -74,21 +94,28 @@ Public Class Clientes
         If tab = 0 Then
             LlenarBindingSource()
         End If
-        btnNuevo.PerformClick()
-        'bloquear()
+        'btnNuevo.PerformClick()
+        bloquear()
         cbxTipo.Enabled = False
+    End Sub
+
+
+    Private Sub txtBuscar_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtBuscar.TextChanged
+        Aplicar_Filtro()
     End Sub
 
     Private Sub DTclientes_KeyDown1(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles DTclientes.KeyDown
         Dim fila As Integer
-        fila = DTclientes.CurrentRow.Index
         If e.KeyCode = Keys.Enter Then
+            fila = DTclientes.CurrentRow.Index
             txtDNI.Text = DTclientes.Item(0, fila).Value
             txtDNI.Enabled = False
             buscar()
             'activar()
         ElseIf e.KeyCode = Keys.Delete Then
             btnEliminar.PerformClick()
+        ElseIf e.KeyCode = Keys.F2 Then
+            btnNuevo.PerformClick()
         End If
     End Sub
 
@@ -135,6 +162,22 @@ Public Class Clientes
         txtNombre.BackColor = Color.Honeydew
         txtNombre.ForeColor = Color.Black
 
+    End Sub
+
+    Private Sub txtNombre_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtNombre.KeyPress
+        Validar.letras(e.KeyChar)
+    End Sub
+
+    Private Sub txtApellidop_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtApellidop.KeyPress
+        Validar.letras(e.KeyChar)
+    End Sub
+
+    Private Sub txtApellidom_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtApellidom.KeyPress
+        Validar.letras(e.KeyChar)
+    End Sub
+
+    Private Sub txtBuscar_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtBuscar.KeyPress
+        Validar.letras(e.KeyChar)
     End Sub
 
     Private Sub txtNombre_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtNombre.LostFocus
@@ -188,7 +231,9 @@ Public Class Clientes
 
     'Bloquea cajas de texto
     Sub bloquear()
-        For Each c As Control In datosclientes.Controls
+        cbxTipo.Enabled = False
+        btnTomafoto.Enabled = False
+        For Each c As Control In panelCliente.Controls
             If TypeOf c Is TextBox Then
                 c.Enabled = False
             End If
@@ -197,7 +242,9 @@ Public Class Clientes
 
     'Activa cajas de texto
     Sub activar()
-        For Each c As Control In datosclientes.Controls
+        cbxTipo.Enabled = True
+        btnTomafoto.Enabled = True
+        For Each c As Control In panelCliente.Controls
             If TypeOf c Is TextBox Then
                 c.Enabled = True
             End If
@@ -228,19 +275,26 @@ Public Class Clientes
 
 
     Private Sub btnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevo.Click
-        Dim id, fila As Integer
-        fila = DTclientes.RowCount()
-        id = CInt(DTclientes.Item(0, fila - 1).Value)
+        Dim dni As Integer
+
         'Buscar DNI en la Base de datos el último
+        SQLString = String.Format("SELECT * FROM clientes order by DNI")
+        reader = BDobj.executeReader(SQLString)
+        While reader.Read = True
+            dni = CInt(reader("DNI").ToString)
+        End While
         limpiar()
         activar()
-        txtDNI.Text = id + 1
+        txtDNI.Text = dni + 1
         txtDNI.Enabled = False
+        txtBuscar.Enabled = False
+        txtBuscar.Text = "Presiona F1"
+        txtBuscar.ForeColor = Color.Gainsboro
         cbxTipo.Enabled = True
         txtNombre.Focus()
     End Sub
 
-    Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscar.Click
+    Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
     End Sub
 
@@ -299,7 +353,9 @@ Public Class Clientes
 
     Private Sub tabcliente_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles tabcliente.KeyDown
         If e.KeyCode = Keys.F1 Then
-            btnBuscar.PerformClick()
+            bloquear()
+            txtBuscar.Text = ""
+            txtBuscar.Focus()
         ElseIf e.KeyCode = Keys.F2 Then
             btnNuevo.PerformClick()
         ElseIf e.KeyCode = Keys.F3 Then
@@ -307,5 +363,9 @@ Public Class Clientes
         ElseIf e.KeyCode = Keys.F5 Then
             btnGuardar.PerformClick()
         End If
+    End Sub
+
+    Private Sub btnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardar.Click
+
     End Sub
 End Class
