@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-11-2014 a las 22:19:47
+-- Tiempo de generación: 21-11-2014 a las 07:52:13
 -- Versión del servidor: 5.6.20
 -- Versión de PHP: 5.5.15
 
@@ -47,6 +47,7 @@ INSERT INTO `clases` (`id`, `nombre`) VALUES
 
 CREATE TABLE IF NOT EXISTS `clientes` (
 `id` int(11) NOT NULL,
+  `DNI` int(4) NOT NULL,
   `nombre` varchar(45) NOT NULL,
   `apellido_paterno` varchar(45) NOT NULL,
   `apellido_materno` varchar(45) NOT NULL,
@@ -61,9 +62,9 @@ CREATE TABLE IF NOT EXISTS `clientes` (
 -- Volcado de datos para la tabla `clientes`
 --
 
-INSERT INTO `clientes` (`id`, `nombre`, `apellido_paterno`, `apellido_materno`, `foto`, `activo`, `grupo_id`, `pagos_id`, `descuentos_id`) VALUES
-(1001, 'Karen', 'Lozano', 'Chávez', '000', 1, 1, 3, 2),
-(1003, 'Yazmin', 'Espinoza', 'Laureano', 'pendiente', 0, 1, 2, 1);
+INSERT INTO `clientes` (`id`, `DNI`, `nombre`, `apellido_paterno`, `apellido_materno`, `foto`, `activo`, `grupo_id`, `pagos_id`, `descuentos_id`) VALUES
+(1, 1001, 'Karen', 'Lozano', 'Chávez', '000', 1, 1, 3, 2),
+(2, 1002, 'Yazmin', 'Espinoza', 'Laureano', 'pendiente', 0, 1, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -184,6 +185,7 @@ INSERT INTO `pagos` (`id`, `tipo`) VALUES
 
 CREATE TABLE IF NOT EXISTS `productos` (
 `id` int(11) NOT NULL,
+  `DNI` int(4) NOT NULL,
   `nombre` varchar(45) NOT NULL,
   `descripcion` varchar(45) NOT NULL,
   `cantidad` int(11) NOT NULL,

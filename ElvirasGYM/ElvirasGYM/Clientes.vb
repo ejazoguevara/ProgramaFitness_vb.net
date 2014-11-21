@@ -23,18 +23,22 @@ Public Class Clientes
 
     'Llena el Datagrid con la información de usuarios
     Sub LlenarBindingSource()
-        'SQLString = "SELECT clientes.id, clientes.nombre, clientes.apellido_paterno, clientes.apellido_materno, pagos.tipo FROM clientes left join pagos on clientes.pagos_id = pagos.id order by clientes.id"
-        'BDobj.cmd = New MySqlCommand(SQLString, BDobj.cnn)
-        'BDobj.da.SelectCommand = BDobj.cmd
-        'BDobj.da.Fill(datos)
-        'BindingSource1.DataSource = datos
-        'DTclientes.DataSource = BindingSource1
-
-        BDobj.da = New MySqlDataAdapter("SELECT clientes.id, clientes.nombre, clientes.apellido_paterno, clientes.apellido_materno, pagos.tipo FROM clientes left join pagos on clientes.pagos_id = pagos.id order by clientes.id", BDobj.cnn)
-        datos = New DataSet
-        BDobj.da.Fill(datos)
-        BindingSource1.DataSource = datos.Tables(0)
+        BDobj.da = New MySqlDataAdapter("SELECT clientes.id as ID, clientes.nombre as Nombre, clientes.apellido_paterno as 'Apellido Paterno', clientes.apellido_materno as 'Apellido Materno', pagos.tipo as 'Tipo de Pago' FROM clientes left join pagos on clientes.pagos_id = pagos.id order by clientes.id", BDobj.cnn)
+        BDobj.dt = New DataTable
+        BDobj.dt.Clear()
+        BDobj.da.Fill(BDobj.dt)
+        BindingSource1.DataSource = BDobj.dt
         Me.DTclientes.DataSource = BindingSource1
+        DTclientes.Columns(0).Width = 50
+        DTclientes.Columns(1).Width = 130
+        DTclientes.Columns(2).Width = 140
+        DTclientes.Columns(3).Width = 140
+        DTclientes.Columns(4).Width = 100
+        DTclientes.Columns(0).Resizable = DataGridViewTriState.False
+        DTclientes.Columns(1).Resizable = DataGridViewTriState.False
+        DTclientes.Columns(2).Resizable = DataGridViewTriState.False
+        DTclientes.Columns(3).Resizable = DataGridViewTriState.False
+        DTclientes.Columns(4).Resizable = DataGridViewTriState.False
         DTclientes.AlternatingRowsDefaultCellStyle.BackColor = Color.LightCyan
         Me.DTclientes.DefaultCellStyle.Font = New Font("Tahoma", 11)
         DTclientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect
@@ -48,12 +52,10 @@ Public Class Clientes
         BDobj.cmd = New MySqlCommand
         BDobj.da = New MySqlDataAdapter
         BDobj.dt = New DataTable
-
         BDobj.cmd.Connection = BDobj.cnn
         BDobj.cmd.CommandText = "SELECT id, tipo FROM pagos order by id"
         BDobj.da.SelectCommand = BDobj.cmd
         BDobj.da.Fill(BDobj.dt)
-
         cbxTipo.DataSource = BDobj.dt
         cbxTipo.ValueMember = "id"
         cbxTipo.DisplayMember = "tipo"
@@ -217,6 +219,7 @@ Public Class Clientes
         Dim id, fila As Integer
         fila = DTclientes.RowCount()
         id = CInt(DTclientes.Item(0, fila - 1).Value)
+        'Buscar DNI en la Base de datos el último
         limpiar()
         activar()
         txtDNI.Text = id + 1
@@ -249,7 +252,7 @@ Public Class Clientes
     Private Sub btnAgregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAgregar.Click
         'Checa que ninguna caja de texto este vacia
         Dim bandera As Boolean
-        For Each x As Control In gbxDos.Controls
+        For Each x As Control In panelCliente.Controls
             If TypeOf x Is TextBox Then
                 If x.Text = "" Then
                     bandera = True
@@ -265,6 +268,8 @@ Public Class Clientes
                 btnNuevo.PerformClick()
                 LlenarBindingSource()
             End If
+        Else
+            MsgBox("Te faltan datos....")
         End If
     End Sub
 
@@ -275,4 +280,6 @@ Public Class Clientes
         SQLString = String.Format("DELETE FROM contacto WHERE id_contacto = " & id)
         BDobj.executeSQL(SQLString)
     End Sub
+
+   
 End Class

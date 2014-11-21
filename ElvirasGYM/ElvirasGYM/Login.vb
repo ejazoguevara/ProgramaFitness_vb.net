@@ -62,14 +62,13 @@ Public Class Login
                     If BDobjeto.executeSQL(SQLString) Then
                         Principal.Show()
                     End If
-                    'Thread.Sleep(500)
-                    Me.Hide()
-                Else
-                    MsgBox("Usuario y/o Contraseña no encontrado")
-                    txtUser.Text = ""
-                    txtPass.Text = ""
-                    txtUser.Focus()
+                    Me.Hide()      
                 End If
+            Else
+                MsgBox("Usuario y/o Contraseña no encontrado")
+                txtUser.Text = ""
+                txtPass.Text = ""
+                txtUser.Focus()
             End If
         End If
     End Sub
