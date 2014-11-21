@@ -23,7 +23,7 @@ Public Class Clientes
 
     'Llena el Datagrid con la información de usuarios
     Sub LlenarBindingSource()
-        BDobj.da = New MySqlDataAdapter("SELECT clientes.id as ID, clientes.nombre as Nombre, clientes.apellido_paterno as 'Apellido Paterno', clientes.apellido_materno as 'Apellido Materno', pagos.tipo as 'Tipo de Pago' FROM clientes left join pagos on clientes.pagos_id = pagos.id order by clientes.id", BDobj.cnn)
+        BDobj.da = New MySqlDataAdapter("SELECT clientes.DNI as DNI, clientes.nombre as Nombre, clientes.apellido_paterno as 'Apellido Paterno', clientes.apellido_materno as 'Apellido Materno', pagos.tipo as 'Tipo de Pago' FROM clientes left join pagos on clientes.pagos_id = pagos.id order by clientes.id", BDobj.cnn)
         BDobj.dt = New DataTable
         BDobj.dt.Clear()
         BDobj.da.Fill(BDobj.dt)
@@ -34,11 +34,11 @@ Public Class Clientes
         DTclientes.Columns(2).Width = 140
         DTclientes.Columns(3).Width = 140
         DTclientes.Columns(4).Width = 100
-        DTclientes.Columns(0).Resizable = DataGridViewTriState.False
-        DTclientes.Columns(1).Resizable = DataGridViewTriState.False
-        DTclientes.Columns(2).Resizable = DataGridViewTriState.False
-        DTclientes.Columns(3).Resizable = DataGridViewTriState.False
-        DTclientes.Columns(4).Resizable = DataGridViewTriState.False
+        'DTclientes.Columns(0).Resizable = DataGridViewTriState.False
+        'DTclientes.Columns(1).Resizable = DataGridViewTriState.False
+        'DTclientes.Columns(2).Resizable = DataGridViewTriState.False
+        'DTclientes.Columns(3).Resizable = DataGridViewTriState.False
+        'DTclientes.Columns(4).Resizable = DataGridViewTriState.False
         DTclientes.AlternatingRowsDefaultCellStyle.BackColor = Color.LightCyan
         Me.DTclientes.DefaultCellStyle.Font = New Font("Tahoma", 11)
         DTclientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect
@@ -74,11 +74,12 @@ Public Class Clientes
         If tab = 0 Then
             LlenarBindingSource()
         End If
-        bloquear()
+        btnNuevo.PerformClick()
+        'bloquear()
         cbxTipo.Enabled = False
     End Sub
 
-    Private Sub DTclientes_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs)
+    Private Sub DTclientes_KeyDown1(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles DTclientes.KeyDown
         Dim fila As Integer
         fila = DTclientes.CurrentRow.Index
         If e.KeyCode = Keys.Enter Then
@@ -86,7 +87,18 @@ Public Class Clientes
             txtDNI.Enabled = False
             buscar()
             'activar()
+        ElseIf e.KeyCode = Keys.Delete Then
+            btnEliminar.PerformClick()
         End If
+    End Sub
+
+    Private Sub DTclientes_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DTclientes.CellDoubleClick
+        Dim fila As Integer
+        fila = DTclientes.CurrentRow.Index
+        txtDNI.Text = DTclientes.Item(0, fila).Value
+        txtDNI.Enabled = False
+        buscar()
+        'activar()
     End Sub
 
     Private Sub cbxTipo_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbxTipo.GotFocus
@@ -194,7 +206,7 @@ Public Class Clientes
 
     'Limpia las cajas de texto
     Sub limpiar()
-        For Each c As Control In datosclientes.Controls
+        For Each c As Control In panelCliente.Controls
             If TypeOf c Is TextBox Then
                 c.Text = ""
             End If
@@ -204,7 +216,7 @@ Public Class Clientes
     'Verifica que ninguna caja de texto este vacia
     Function valida_blanco() As Boolean
         Dim _bandera As Boolean
-        For Each c As Control In datosclientes.Controls
+        For Each c As Control In panelCliente.Controls
             If TypeOf c Is TextBox Then
                 If c.Text = "" Then
                     _bandera = True
@@ -233,7 +245,7 @@ Public Class Clientes
     End Sub
 
     Sub buscar()
-        SQLString = String.Format("SELECT * FROM clientes WHERE id = " & Trim(txtDNI.Text))
+        SQLString = String.Format("SELECT * FROM clientes WHERE DNI = " & Trim(txtDNI.Text))
         reader = BDobj.executeReader(SQLString)
         If reader.Read = True Then
             txtNombre.Text = reader("nombre").ToString
@@ -265,8 +277,8 @@ Public Class Clientes
                                             Trim(txtNombre.Text), Trim(txtApellidop.Text), Trim(txtApellidom.Text), Trim("pendiente"), Trim(0), Trim(1), Trim(cbxTipo.SelectedValue), Trim(1))
             If BDobj.executeSQL(SQLString) Then
                 MsgBox("Registro agregado con éxito...")
-                btnNuevo.PerformClick()
                 LlenarBindingSource()
+                btnNuevo.PerformClick()
             End If
         Else
             MsgBox("Te faltan datos....")
@@ -274,12 +286,26 @@ Public Class Clientes
     End Sub
 
     Private Sub btnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminar.Click
-        Dim fila, id As Integer
+        Dim fila, dni As Integer
+        Dim op As Integer
         fila = DTclientes.CurrentRow.Index
-        id = CInt(DTclientes.Item(0, fila).Value)
-        SQLString = String.Format("DELETE FROM contacto WHERE id_contacto = " & id)
-        BDobj.executeSQL(SQLString)
+        dni = CInt(DTclientes.Item(0, fila).Value)
+        op = MessageBox.Show("Esta seguro de eliminar el registro con DNI: " & dni, "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+        If op = 1 Then
+            SQLString = String.Format("DELETE FROM clientes WHERE DNI = " & dni)
+            BDobj.executeSQL(SQLString)
+        End If
     End Sub
 
-   
+    Private Sub tabcliente_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles tabcliente.KeyDown
+        If e.KeyCode = Keys.F1 Then
+            btnBuscar.PerformClick()
+        ElseIf e.KeyCode = Keys.F2 Then
+            btnNuevo.PerformClick()
+        ElseIf e.KeyCode = Keys.F3 Then
+            btnAgregar.PerformClick()
+        ElseIf e.KeyCode = Keys.F5 Then
+            btnGuardar.PerformClick()
+        End If
+    End Sub
 End Class

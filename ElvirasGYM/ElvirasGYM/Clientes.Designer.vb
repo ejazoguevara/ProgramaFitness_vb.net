@@ -23,14 +23,15 @@ Partial Class Clientes
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Clientes))
         Me.tabcliente = New System.Windows.Forms.TabControl()
         Me.datosclientes = New System.Windows.Forms.TabPage()
-        Me.DTclientes = New System.Windows.Forms.DataGridView()
+        Me.btnGuardar = New System.Windows.Forms.Button()
         Me.btnEliminar = New System.Windows.Forms.Button()
-        Me.btnNuevo = New System.Windows.Forms.Button()
+        Me.DTclientes = New System.Windows.Forms.DataGridView()
         Me.btnAgregar = New System.Windows.Forms.Button()
-        Me.cbxTipo = New System.Windows.Forms.ComboBox()
+        Me.btnNuevo = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -43,6 +44,7 @@ Partial Class Clientes
         Me.txtNombre = New System.Windows.Forms.TextBox()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.imagenes = New System.Windows.Forms.ImageList(Me.components)
+        Me.cbxTipo = New System.Windows.Forms.ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtApellidom = New System.Windows.Forms.TextBox()
         Me.txtApellidop = New System.Windows.Forms.TextBox()
@@ -73,7 +75,6 @@ Partial Class Clientes
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.BindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.tabcliente.SuspendLayout()
         Me.datosclientes.SuspendLayout()
         CType(Me.DTclientes, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -101,7 +102,7 @@ Partial Class Clientes
         '
         'datosclientes
         '
-        Me.datosclientes.Controls.Add(Me.Button2)
+        Me.datosclientes.Controls.Add(Me.btnGuardar)
         Me.datosclientes.Controls.Add(Me.btnEliminar)
         Me.datosclientes.Controls.Add(Me.DTclientes)
         Me.datosclientes.Controls.Add(Me.btnAgregar)
@@ -122,19 +123,16 @@ Partial Class Clientes
         Me.datosclientes.Text = "Datos personales"
         Me.datosclientes.UseVisualStyleBackColor = True
         '
-        'DTclientes
+        'btnGuardar
         '
-        Me.DTclientes.AllowUserToAddRows = False
-        Me.DTclientes.AllowUserToDeleteRows = False
-        Me.DTclientes.BackgroundColor = System.Drawing.Color.Honeydew
-        Me.DTclientes.ColumnHeadersHeight = 25
-        Me.DTclientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.DTclientes.Location = New System.Drawing.Point(6, 214)
-        Me.DTclientes.Name = "DTclientes"
-        Me.DTclientes.ReadOnly = True
-        Me.DTclientes.RowHeadersWidth = 40
-        Me.DTclientes.Size = New System.Drawing.Size(543, 200)
-        Me.DTclientes.TabIndex = 31
+        Me.btnGuardar.Font = New System.Drawing.Font("Segoe UI Symbol", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGuardar.Location = New System.Drawing.Point(555, 46)
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(99, 87)
+        Me.btnGuardar.TabIndex = 33
+        Me.btnGuardar.Text = "Guarda cambios (F5)"
+        Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnGuardar.UseVisualStyleBackColor = True
         '
         'btnEliminar
         '
@@ -143,20 +141,36 @@ Partial Class Clientes
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(99, 87)
         Me.btnEliminar.TabIndex = 9
-        Me.btnEliminar.Text = "Eliminar"
+        Me.btnEliminar.Text = "Eliminar (Supr)"
         Me.btnEliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnEliminar.UseVisualStyleBackColor = True
         '
-        'btnNuevo
+        'DTclientes
         '
-        Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI Symbol", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNuevo.Location = New System.Drawing.Point(555, 326)
-        Me.btnNuevo.Name = "btnNuevo"
-        Me.btnNuevo.Size = New System.Drawing.Size(99, 88)
-        Me.btnNuevo.TabIndex = 7
-        Me.btnNuevo.Text = "Nuevo"
-        Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnNuevo.UseVisualStyleBackColor = True
+        Me.DTclientes.AllowUserToAddRows = False
+        Me.DTclientes.AllowUserToDeleteRows = False
+        Me.DTclientes.AllowUserToResizeColumns = False
+        Me.DTclientes.AllowUserToResizeRows = False
+        Me.DTclientes.BackgroundColor = System.Drawing.Color.Honeydew
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Azure
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI Symbol", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.MidnightBlue
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DTclientes.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.DTclientes.ColumnHeadersHeight = 25
+        Me.DTclientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.DTclientes.Location = New System.Drawing.Point(6, 214)
+        Me.DTclientes.MultiSelect = False
+        Me.DTclientes.Name = "DTclientes"
+        Me.DTclientes.ReadOnly = True
+        Me.DTclientes.RowHeadersWidth = 40
+        Me.DTclientes.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DTclientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DTclientes.Size = New System.Drawing.Size(543, 200)
+        Me.DTclientes.TabIndex = 31
         '
         'btnAgregar
         '
@@ -165,18 +179,20 @@ Partial Class Clientes
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(99, 88)
         Me.btnAgregar.TabIndex = 8
-        Me.btnAgregar.Text = "Agregar"
+        Me.btnAgregar.Text = "Agregar (F3)"
         Me.btnAgregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnAgregar.UseVisualStyleBackColor = True
         '
-        'cbxTipo
+        'btnNuevo
         '
-        Me.cbxTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbxTipo.FormattingEnabled = True
-        Me.cbxTipo.Location = New System.Drawing.Point(134, 168)
-        Me.cbxTipo.Name = "cbxTipo"
-        Me.cbxTipo.Size = New System.Drawing.Size(156, 25)
-        Me.cbxTipo.TabIndex = 5
+        Me.btnNuevo.Font = New System.Drawing.Font("Segoe UI Symbol", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNuevo.Location = New System.Drawing.Point(555, 326)
+        Me.btnNuevo.Name = "btnNuevo"
+        Me.btnNuevo.Size = New System.Drawing.Size(99, 88)
+        Me.btnNuevo.TabIndex = 7
+        Me.btnNuevo.Text = "Nuevo (F2)"
+        Me.btnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnNuevo.UseVisualStyleBackColor = True
         '
         'Label4
         '
@@ -265,7 +281,7 @@ Partial Class Clientes
         Me.panelCliente.Controls.Add(Me.txtDNI)
         Me.panelCliente.Location = New System.Drawing.Point(7, 3)
         Me.panelCliente.Name = "panelCliente"
-        Me.panelCliente.Size = New System.Drawing.Size(306, 205)
+        Me.panelCliente.Size = New System.Drawing.Size(542, 205)
         Me.panelCliente.TabIndex = 32
         '
         'txtNombre
@@ -278,12 +294,15 @@ Partial Class Clientes
         '
         'btnBuscar
         '
+        Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnBuscar.ImageKey = "buscar.png"
         Me.btnBuscar.ImageList = Me.imagenes
         Me.btnBuscar.Location = New System.Drawing.Point(134, 13)
         Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(53, 43)
+        Me.btnBuscar.Size = New System.Drawing.Size(63, 43)
         Me.btnBuscar.TabIndex = 1
+        Me.btnBuscar.Text = "F1"
+        Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnBuscar.UseVisualStyleBackColor = True
         '
         'imagenes
@@ -292,6 +311,15 @@ Partial Class Clientes
         Me.imagenes.TransparentColor = System.Drawing.Color.Transparent
         Me.imagenes.Images.SetKeyName(0, "tomarfoto2.png")
         Me.imagenes.Images.SetKeyName(1, "buscar.png")
+        '
+        'cbxTipo
+        '
+        Me.cbxTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxTipo.FormattingEnabled = True
+        Me.cbxTipo.Location = New System.Drawing.Point(134, 168)
+        Me.cbxTipo.Name = "cbxTipo"
+        Me.cbxTipo.Size = New System.Drawing.Size(156, 25)
+        Me.cbxTipo.TabIndex = 5
         '
         'Label6
         '
@@ -340,7 +368,7 @@ Partial Class Clientes
         '
         Me.imprimircarnet.Location = New System.Drawing.Point(4, 24)
         Me.imprimircarnet.Name = "imprimircarnet"
-        Me.imprimircarnet.Size = New System.Drawing.Size(701, 420)
+        Me.imprimircarnet.Size = New System.Drawing.Size(660, 420)
         Me.imprimircarnet.TabIndex = 2
         Me.imprimircarnet.Text = "Imprimir carnet"
         Me.imprimircarnet.UseVisualStyleBackColor = True
@@ -404,11 +432,14 @@ Partial Class Clientes
         '
         Me.DTgrupo.AllowUserToAddRows = False
         Me.DTgrupo.AllowUserToDeleteRows = False
+        Me.DTgrupo.AllowUserToResizeColumns = False
+        Me.DTgrupo.AllowUserToResizeRows = False
         Me.DTgrupo.BackgroundColor = System.Drawing.Color.Honeydew
         Me.DTgrupo.ColumnHeadersHeight = 25
         Me.DTgrupo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.DTgrupo.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DNI, Me.Nombre, Me.Apellidop, Me.Apellidom, Me.TipoPago})
         Me.DTgrupo.Location = New System.Drawing.Point(9, 201)
+        Me.DTgrupo.MultiSelect = False
         Me.DTgrupo.Name = "DTgrupo"
         Me.DTgrupo.ReadOnly = True
         Me.DTgrupo.RowHeadersWidth = 40
@@ -574,17 +605,6 @@ Partial Class Clientes
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Seleccione un grupo:"
         '
-        'Button2
-        '
-        Me.Button2.Font = New System.Drawing.Font("Segoe UI Symbol", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(555, 46)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(99, 87)
-        Me.Button2.TabIndex = 33
-        Me.Button2.Text = "Guarda cambios"
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button2.UseVisualStyleBackColor = True
-        '
         'Clientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -662,5 +682,5 @@ Partial Class Clientes
     Friend WithEvents TipoPago As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DTclientes As System.Windows.Forms.DataGridView
     Friend WithEvents panelCliente As System.Windows.Forms.Panel
-    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents btnGuardar As System.Windows.Forms.Button
 End Class
