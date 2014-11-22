@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-11-2014 a las 07:52:13
+-- Tiempo de generación: 22-11-2014 a las 07:06:50
 -- Versión del servidor: 5.6.20
 -- Versión de PHP: 5.5.15
 
@@ -56,15 +56,17 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   `grupo_id` int(11) NOT NULL,
   `pagos_id` int(11) NOT NULL,
   `descuentos_id` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1004 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Volcado de datos para la tabla `clientes`
 --
 
 INSERT INTO `clientes` (`id`, `DNI`, `nombre`, `apellido_paterno`, `apellido_materno`, `foto`, `activo`, `grupo_id`, `pagos_id`, `descuentos_id`) VALUES
-(1, 1001, 'Karen', 'Lozano', 'Chávez', '000', 1, 1, 3, 2),
-(2, 1002, 'Yazmin', 'Espinoza', 'Laureano', 'pendiente', 0, 1, 2, 1);
+(1, 1001, 'Hetzelt Guadalupe', 'Jazo', 'Guevara', 'pendiente', 0, 1, 2, 1),
+(8, 1002, 'Cynthia', 'Rodriguez', 'Jimenez', 'pendiente', 0, 1, 2, 1),
+(9, 1003, 'Leticia', 'Ibarra', 'Gomez', 'pendiente', 0, 1, 3, 1),
+(10, 1004, 'Monica de Jesus', 'Fregoso', 'Osuna', 'pendiente', 0, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -122,8 +124,7 @@ CREATE TABLE IF NOT EXISTS `grupos` (
 --
 
 INSERT INTO `grupos` (`id`, `duracion`, `descripcion`, `horario`, `fecha_inicio`, `instructores_id`, `clases_id`) VALUES
-(1, '0 hrs.', 'Sin asignar', '0 hrs.', '2014-11-20', 1, 1),
-(2, '1 hrs.', 'Lunes, Miércoles y Viernes', '6:00 p.m', '2014-11-28', 1, 2);
+(1, '0 hrs', 'nada', 'nada', '2014-11-21', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -133,7 +134,8 @@ INSERT INTO `grupos` (`id`, `duracion`, `descripcion`, `horario`, `fecha_inicio`
 
 CREATE TABLE IF NOT EXISTS `grupos_detalles` (
 `id` int(11) NOT NULL,
-  `grupo_id` int(11) NOT NULL
+  `grupo_id` int(11) NOT NULL,
+  `clientes_id` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -331,7 +333,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1004;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `clientes_pagos`
 --

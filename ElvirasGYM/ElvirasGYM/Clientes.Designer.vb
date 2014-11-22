@@ -77,6 +77,8 @@ Partial Class Clientes
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.BindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.panelBuscar = New System.Windows.Forms.Panel()
         Me.tabcliente.SuspendLayout()
         Me.datosclientes.SuspendLayout()
         CType(Me.DTclientes, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -87,6 +89,7 @@ Partial Class Clientes
         CType(Me.DTgrupo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.panelBuscar.SuspendLayout()
         Me.SuspendLayout()
         '
         'tabcliente
@@ -296,9 +299,8 @@ Partial Class Clientes
         '
         Me.panelCliente.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.panelCliente.BackColor = System.Drawing.Color.Azure
-        Me.panelCliente.Controls.Add(Me.txtBuscar)
+        Me.panelCliente.Controls.Add(Me.panelBuscar)
         Me.panelCliente.Controls.Add(Me.txtNombre)
-        Me.panelCliente.Controls.Add(Me.Label12)
         Me.panelCliente.Controls.Add(Me.cbxTipo)
         Me.panelCliente.Controls.Add(Me.Label6)
         Me.panelCliente.Controls.Add(Me.txtApellidom)
@@ -312,13 +314,12 @@ Partial Class Clientes
         'txtBuscar
         '
         Me.txtBuscar.Font = New System.Drawing.Font("Segoe UI Symbol", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBuscar.ForeColor = System.Drawing.Color.Gainsboro
-        Me.txtBuscar.Location = New System.Drawing.Point(190, 23)
+        Me.txtBuscar.ForeColor = System.Drawing.Color.Black
+        Me.txtBuscar.Location = New System.Drawing.Point(60, 20)
         Me.txtBuscar.MaxLength = 4
         Me.txtBuscar.Name = "txtBuscar"
         Me.txtBuscar.Size = New System.Drawing.Size(155, 23)
         Me.txtBuscar.TabIndex = 34
-        Me.txtBuscar.Text = "Presiona F1"
         '
         'txtNombre
         '
@@ -333,7 +334,7 @@ Partial Class Clientes
         Me.Label12.AutoSize = True
         Me.Label12.BackColor = System.Drawing.Color.Azure
         Me.Label12.ForeColor = System.Drawing.Color.Red
-        Me.Label12.Location = New System.Drawing.Point(131, 28)
+        Me.Label12.Location = New System.Drawing.Point(1, 25)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(56, 17)
         Me.Label12.TabIndex = 35
@@ -642,6 +643,26 @@ Partial Class Clientes
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Seleccione un grupo:"
         '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Segoe UI Symbol", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(63, 4)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(66, 13)
+        Me.Label13.TabIndex = 36
+        Me.Label13.Text = "Presiona F1"
+        '
+        'panelBuscar
+        '
+        Me.panelBuscar.Controls.Add(Me.Label13)
+        Me.panelBuscar.Controls.Add(Me.txtBuscar)
+        Me.panelBuscar.Controls.Add(Me.Label12)
+        Me.panelBuscar.Location = New System.Drawing.Point(130, 3)
+        Me.panelBuscar.Name = "panelBuscar"
+        Me.panelBuscar.Size = New System.Drawing.Size(223, 44)
+        Me.panelBuscar.TabIndex = 37
+        '
         'Clientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -667,6 +688,8 @@ Partial Class Clientes
         CType(Me.DTgrupo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.panelBuscar.ResumeLayout(False)
+        Me.panelBuscar.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -722,4 +745,6 @@ Partial Class Clientes
     Friend WithEvents imgBotones As System.Windows.Forms.ImageList
     Friend WithEvents txtBuscar As System.Windows.Forms.TextBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents Label13 As System.Windows.Forms.Label
+    Friend WithEvents panelBuscar As System.Windows.Forms.Panel
 End Class
