@@ -23,6 +23,8 @@ Public Class Clientes
 
     'Llena el Datagrid con la información de usuarios
     Sub LlenarBindingSource()
+        BDobj.cnn.Close()
+        BDobj.open()
         BDobj.da = New MySqlDataAdapter("SELECT clientes.DNI as DNI, clientes.nombre as Nombre, clientes.apellido_paterno as 'Apellido Paterno', clientes.apellido_materno as 'Apellido Materno', pagos.tipo as 'Tipo de Pago' FROM clientes left join pagos on clientes.pagos_id = pagos.id order by clientes.id", BDobj.cnn)
         BDobj.dt = New DataTable
         BDobj.dt.Clear()
@@ -35,10 +37,6 @@ Public Class Clientes
         DTclientes.Columns(3).Width = 140
         DTclientes.Columns(4).Width = 100
         'DTclientes.Columns(0).Resizable = DataGridViewTriState.False
-        'DTclientes.Columns(1).Resizable = DataGridViewTriState.False
-        'DTclientes.Columns(2).Resizable = DataGridViewTriState.False
-        'DTclientes.Columns(3).Resizable = DataGridViewTriState.False
-        'DTclientes.Columns(4).Resizable = DataGridViewTriState.False
         DTclientes.AlternatingRowsDefaultCellStyle.BackColor = Color.LightCyan
         Me.DTclientes.DefaultCellStyle.Font = New Font("Tahoma", 11)
         DTclientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect
@@ -111,7 +109,10 @@ Public Class Clientes
             txtDNI.Text = DTclientes.Item(0, fila).Value
             txtDNI.Enabled = False
             buscar()
-            'activar()
+            activar()
+            btnGuardar.Enabled = True
+            btnAgregar.Enabled = False
+            txtNombre.Focus()
         ElseIf e.KeyCode = Keys.Delete Then
             btnEliminar.PerformClick()
         ElseIf e.KeyCode = Keys.F2 Then
@@ -123,9 +124,12 @@ Public Class Clientes
         Dim fila As Integer
         fila = DTclientes.CurrentRow.Index
         txtDNI.Text = DTclientes.Item(0, fila).Value
+        activar()
         txtDNI.Enabled = False
+        btnGuardar.Enabled = True
+        btnAgregar.Enabled = False
         buscar()
-        'activar()
+        txtNombre.Focus()
     End Sub
 
     Private Sub cbxTipo_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbxTipo.GotFocus
@@ -276,6 +280,9 @@ Public Class Clientes
 
     Private Sub btnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevo.Click
         Dim dni As Integer
+        BDobj.cnn.Close()
+        BDobj.open()
+        'BDobj.da = Nothing
 
         'Buscar DNI en la Base de datos el último
         SQLString = String.Format("SELECT * FROM clientes order by DNI")
@@ -285,12 +292,15 @@ Public Class Clientes
         End While
         limpiar()
         activar()
+        LlenarBindingSource()
         txtDNI.Text = dni + 1
         txtDNI.Enabled = False
         txtBuscar.Enabled = False
-        txtBuscar.Text = "Presiona F1"
-        txtBuscar.ForeColor = Color.Gainsboro
+        txtBuscar.Text = ""
+        'txtBuscar.ForeColor = Color.Gainsboro
         cbxTipo.Enabled = True
+        btnGuardar.Enabled = False
+        btnAgregar.Enabled = True
         txtNombre.Focus()
     End Sub
 
@@ -326,9 +336,9 @@ Public Class Clientes
             End If
         Next
         If bandera = False Then
-            SQLString = String.Format("INSERT INTO clientes (nombre, apellido_paterno, apellido_materno, foto, activo, grupo_id, pagos_id, descuentos_id ) " & _
-                                            " values ('{0}','{1}','{2}','{3}',{4},{5},{6},{7})", _
-                                            Trim(txtNombre.Text), Trim(txtApellidop.Text), Trim(txtApellidom.Text), Trim("pendiente"), Trim(0), Trim(1), Trim(cbxTipo.SelectedValue), Trim(1))
+            SQLString = String.Format("INSERT INTO clientes (DNI, nombre, apellido_paterno, apellido_materno, foto, activo, grupo_id, pagos_id, descuentos_id ) " & _
+                                            " values ({0},'{1}','{2}','{3}','{4}',{5},{6},{7},{8})", _
+                                            Trim(txtDNI.Text), Trim(txtNombre.Text), Trim(txtApellidop.Text), Trim(txtApellidom.Text), Trim("pendiente"), Trim(0), Trim(1), Trim(cbxTipo.SelectedValue), Trim(1))
             If BDobj.executeSQL(SQLString) Then
                 MsgBox("Registro agregado con éxito...")
                 LlenarBindingSource()
@@ -345,16 +355,18 @@ Public Class Clientes
         fila = DTclientes.CurrentRow.Index
         dni = CInt(DTclientes.Item(0, fila).Value)
         op = MessageBox.Show("Esta seguro de eliminar el registro con DNI: " & dni, "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
-        If op = 1 Then
+        If op = 6 Then
             SQLString = String.Format("DELETE FROM clientes WHERE DNI = " & dni)
             BDobj.executeSQL(SQLString)
+            LlenarBindingSource()
         End If
     End Sub
 
     Private Sub tabcliente_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles tabcliente.KeyDown
         If e.KeyCode = Keys.F1 Then
             bloquear()
-            txtBuscar.Text = ""
+            'txtBuscar.Text = ""
+            txtBuscar.Enabled = True
             txtBuscar.Focus()
         ElseIf e.KeyCode = Keys.F2 Then
             btnNuevo.PerformClick()
@@ -366,6 +378,24 @@ Public Class Clientes
     End Sub
 
     Private Sub btnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardar.Click
-
+        'Checa que ninguna caja de texto este vacia
+        Dim bandera As Boolean
+        For Each x As Control In panelCliente.Controls
+            If TypeOf x Is TextBox Then
+                If x.Text = "" Then
+                    bandera = True
+                End If
+            End If
+        Next
+        If bandera = False And txtBuscar.Text = "" Then
+            SQLString = String.Format("UPDATE clientes SET nombre = '" & Trim(txtNombre.Text) & "', apellido_paterno = '" & Trim(txtApellidop.Text) & "', apellido_materno = '" & Trim(txtApellidom.Text) & "', pagos_id = " & Trim(cbxTipo.SelectedValue) & " WHERE DNI = " & Trim(txtDNI.Text) & "")
+            If BDobj.executeSQL(SQLString) Then
+                MsgBox("Registro modificado...")
+                LlenarBindingSource()
+                btnNuevo.PerformClick()
+            End If
+        Else
+            MsgBox("Faltan datos...")
+        End If
     End Sub
 End Class
