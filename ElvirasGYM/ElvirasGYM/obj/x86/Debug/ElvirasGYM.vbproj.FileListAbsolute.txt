@@ -18,3 +18,4 @@ C:\Users\Efrain\documents\visual studio 2010\Projects\ElvirasGYM\ElvirasGYM\obj\
 C:\Users\Efrain\documents\visual studio 2010\Projects\ElvirasGYM\ElvirasGYM\obj\x86\Debug\ElvirasGYM.vbproj.GenerateResource.Cache
 C:\Users\Efrain\Documents\Visual Studio 2010\Projects\ElvirasGYM\ElvirasGYM\obj\x86\Debug\ElvirasGYM.Login.resources
 C:\Users\Efrain\Documents\ProgramaFitness_vb.net\ElvirasGYM\ElvirasGYM\obj\x86\Debug\ElvirasGYM.xml
+C:\Users\jesus\Documents\ProgramaFitness_vb.net\ElvirasGYM\ElvirasGYM\obj\x86\Debug\ElvirasGYM.xml
