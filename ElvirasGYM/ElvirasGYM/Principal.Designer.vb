@@ -99,7 +99,7 @@ Partial Class Principal
         'IngresarToolStripMenuItem
         '
         Me.IngresarToolStripMenuItem.Name = "IngresarToolStripMenuItem"
-        Me.IngresarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.IngresarToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
         Me.IngresarToolStripMenuItem.Text = "Capturar"
         '
         'InstructoresToolStripMenuItem
@@ -317,7 +317,7 @@ Partial Class Principal
         '
         Me.OsSkin1.HostForm = Nothing
         Me.OsSkin1.License = CType(resources.GetObject("OsSkin1.License"), SkinSoft.OSSkin.Licensing.OSSkinLicense)
-        Me.OsSkin1.Style = SkinSoft.OSSkin.SkinStyle.MetroBlue
+        Me.OsSkin1.Style = SkinSoft.OSSkin.SkinStyle.AeroSilver
         Me.OsSkin1.TargetControls = SkinSoft.OSSkin.TargetControls.Controls
         '
         'Label1

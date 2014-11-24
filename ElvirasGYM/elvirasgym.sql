@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2014 a las 02:01:22
+-- Tiempo de generación: 24-11-2014 a las 18:29:41
 -- Versión del servidor: 5.6.20
 -- Versión de PHP: 5.5.15
 
@@ -19,6 +19,18 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `elvirasgym`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `asistencia`
+--
+
+CREATE TABLE IF NOT EXISTS `asistencia` (
+`id` int(4) NOT NULL,
+  `clientes_id` int(4) NOT NULL,
+  `fecha` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -250,6 +262,12 @@ CREATE TABLE IF NOT EXISTS `ventas_detalles` (
 --
 
 --
+-- Indices de la tabla `asistencia`
+--
+ALTER TABLE `asistencia`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `clases`
 --
 ALTER TABLE `clases`
@@ -325,6 +343,11 @@ ALTER TABLE `ventas_detalles`
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
+--
+-- AUTO_INCREMENT de la tabla `asistencia`
+--
+ALTER TABLE `asistencia`
+MODIFY `id` int(4) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `clases`
 --

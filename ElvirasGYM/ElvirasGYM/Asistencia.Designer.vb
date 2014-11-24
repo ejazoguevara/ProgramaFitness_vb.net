@@ -31,6 +31,12 @@ Partial Class Asistencia
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.dni = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.foto = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ApellidoP = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ApellidoM = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DTclientes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -58,21 +64,22 @@ Partial Class Asistencia
         Me.DTclientes.AllowUserToAddRows = False
         Me.DTclientes.AllowUserToDeleteRows = False
         Me.DTclientes.AllowUserToResizeColumns = False
-        Me.DTclientes.AllowUserToResizeRows = False
         Me.DTclientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.DTclientes.Location = New System.Drawing.Point(15, 65)
+        Me.DTclientes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dni, Me.foto, Me.Nombre, Me.ApellidoP, Me.ApellidoM, Me.Fecha})
+        Me.DTclientes.Location = New System.Drawing.Point(2, 65)
         Me.DTclientes.Name = "DTclientes"
         Me.DTclientes.ReadOnly = True
-        Me.DTclientes.Size = New System.Drawing.Size(371, 282)
+        Me.DTclientes.RowTemplate.Height = 40
+        Me.DTclientes.Size = New System.Drawing.Size(636, 282)
         Me.DTclientes.TabIndex = 1
         '
         'lblFecha
         '
         Me.lblFecha.AutoSize = True
-        Me.lblFecha.Font = New System.Drawing.Font("Segoe UI Emoji", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblFecha.Location = New System.Drawing.Point(301, 14)
         Me.lblFecha.Name = "lblFecha"
-        Me.lblFecha.Size = New System.Drawing.Size(0, 25)
+        Me.lblFecha.Size = New System.Drawing.Size(0, 24)
         Me.lblFecha.TabIndex = 2
         '
         'btnBuscar
@@ -91,19 +98,63 @@ Partial Class Asistencia
         Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
         Me.ImageList1.Images.SetKeyName(0, "buscar.png")
         '
+        'dni
+        '
+        Me.dni.Frozen = True
+        Me.dni.HeaderText = "DNI"
+        Me.dni.Name = "dni"
+        Me.dni.ReadOnly = True
+        '
+        'foto
+        '
+        Me.foto.Frozen = True
+        Me.foto.HeaderText = "Foto"
+        Me.foto.Name = "foto"
+        Me.foto.ReadOnly = True
+        Me.foto.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.foto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        '
+        'Nombre
+        '
+        Me.Nombre.Frozen = True
+        Me.Nombre.HeaderText = "Nombre"
+        Me.Nombre.Name = "Nombre"
+        Me.Nombre.ReadOnly = True
+        '
+        'ApellidoP
+        '
+        Me.ApellidoP.Frozen = True
+        Me.ApellidoP.HeaderText = "Apellido Paterno"
+        Me.ApellidoP.Name = "ApellidoP"
+        Me.ApellidoP.ReadOnly = True
+        '
+        'ApellidoM
+        '
+        Me.ApellidoM.Frozen = True
+        Me.ApellidoM.HeaderText = "Apellido Materno"
+        Me.ApellidoM.Name = "ApellidoM"
+        Me.ApellidoM.ReadOnly = True
+        '
+        'Fecha
+        '
+        Me.Fecha.Frozen = True
+        Me.Fecha.HeaderText = "Fecha"
+        Me.Fecha.Name = "Fecha"
+        Me.Fecha.ReadOnly = True
+        '
         'Asistencia
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(403, 356)
+        Me.ClientSize = New System.Drawing.Size(639, 356)
         Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.lblFecha)
         Me.Controls.Add(Me.DTclientes)
         Me.Controls.Add(Me.txtDNI)
         Me.Controls.Add(Me.Label1)
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(419, 395)
-        Me.MinimumSize = New System.Drawing.Size(419, 395)
+        Me.MaximumSize = New System.Drawing.Size(655, 395)
+        Me.MinimumSize = New System.Drawing.Size(655, 395)
         Me.Name = "Asistencia"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Asistencia"
@@ -120,4 +171,10 @@ Partial Class Asistencia
     Friend WithEvents btnBuscar As System.Windows.Forms.Button
     Friend WithEvents BindingSource1 As System.Windows.Forms.BindingSource
     Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
+    Friend WithEvents dni As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents foto As System.Windows.Forms.DataGridViewImageColumn
+    Friend WithEvents Nombre As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ApellidoP As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ApellidoM As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Fecha As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

@@ -16,30 +16,16 @@ Public Class Asistencia
     'Instancia para la clase 
     Dim BDobj As New BDMysql(server, BD, user, pass)
 
-    Sub LlenarBindingSource()
-        BDobj.da = New MySqlDataAdapter("SELECT DNI, nombre, apellido_paterno, apellido_materno FROM clientes WHERE DNI = " & Trim(txtDNI.Text), BDobj.cnn)
-        'BDobj.dt = New DataTable
-        'BDobj.dt.Clear()
-        BDobj.da.Fill(BDobj.dt)
-        BindingSource1.DataSource = BDobj.dt
-        Me.DTclientes.DataSource = BindingSource1
-        DTclientes.Columns(0).Width = 50
-        DTclientes.Columns(1).Width = 130
-        DTclientes.Columns(2).Width = 140
-        DTclientes.Columns(3).Width = 140
-        'DTclientes.Columns(0).Resizable = DataGridViewTriState.False
-        DTclientes.AlternatingRowsDefaultCellStyle.BackColor = Color.LightCyan
-        Me.DTclientes.DefaultCellStyle.Font = New Font("Tahoma", 11)
-        DTclientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        BDobj.cmd = Nothing
-        BDobj.da = Nothing
-        BDobj.dt = Nothing
-    End Sub
-
 
     Private Sub Asistencia_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         lblFecha.Text = Date.Now.ToShortDateString
         BDobj.open()
+        DTclientes.Columns(0).Width = 40
+        DTclientes.Columns(1).Width = 60
+        DTclientes.Columns(2).Width = 100
+        DTclientes.Columns(3).Width = 140
+        DTclientes.Columns(4).Width = 140
+        DTclientes.Columns(5).Width = 100
     End Sub
 
     Private Sub txtDNI_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtDNI.KeyDown
@@ -53,7 +39,29 @@ Public Class Asistencia
     End Sub
 
     Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscar.Click
-        LlenarBindingSource()
+        Dim ruta As Image
+        Dim foto As Bitmap
+        If txtDNI.Text = "" Then
+            MsgBox("Capture el DNI del cliente")
+            txtDNI.Focus()
+            Exit Sub
+        End If
+        Dim fecha As String = CDate(lblFecha.Text).ToString("yyyy-MM-dd")
+        SQLString = String.Format("SELECT DNI, nombre, apellido_paterno, apellido_materno, foto FROM clientes WHERE DNI = " & Trim(txtDNI.Text))
+        reader = BDobj.executeReader(SQLString)
+        If reader.Read = True Then
+            If reader("foto") = "pendiente" Then
+                foto = Nothing
+            Else
+                ruta = Image.FromFile("..\Fotoclientes\foto" & txtDNI.Text & ".jpg")
+                foto = New Bitmap(ruta, 32, 32)
+            End If
+            DTclientes.Rows.Add(reader("DNI"), foto, reader("nombre"), reader("apellido_paterno"), reader("apellido_materno"), fecha)
+        Else
+            MsgBox("No se encontro un registro")
+            txtDNI.Focus()
+        End If
+        reader.Close()
         txtDNI.Text = ""
         txtDNI.Focus()
     End Sub

@@ -41,7 +41,7 @@ Partial Class ListaClientes
         Me.DTclientes.Location = New System.Drawing.Point(14, 47)
         Me.DTclientes.Name = "DTclientes"
         Me.DTclientes.ReadOnly = True
-        Me.DTclientes.Size = New System.Drawing.Size(371, 246)
+        Me.DTclientes.Size = New System.Drawing.Size(528, 302)
         Me.DTclientes.TabIndex = 4
         '
         'txtBuscar
@@ -66,10 +66,14 @@ Partial Class ListaClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(413, 314)
+        Me.ClientSize = New System.Drawing.Size(554, 361)
         Me.Controls.Add(Me.DTclientes)
         Me.Controls.Add(Me.txtBuscar)
         Me.Controls.Add(Me.Label1)
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(570, 400)
+        Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(570, 400)
         Me.Name = "ListaClientes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ListaClientes"
