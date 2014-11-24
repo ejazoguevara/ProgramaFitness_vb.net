@@ -78,6 +78,12 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Asistencia.Designer.vb">
+      <DependentUpon>Asistencia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Asistencia.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="BDMysql.vb" />
     <Compile Include="Camara.Designer.vb">
       <DependentUpon>Camara.vb</DependentUpon>
@@ -89,6 +95,12 @@
       <DependentUpon>Clientes.vb</DependentUpon>
     </Compile>
     <Compile Include="Clientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaClientes.Designer.vb">
+      <DependentUpon>ListaClientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ListaClientes.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.vb">
@@ -129,11 +141,17 @@
     <Compile Include="WebCam.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Asistencia.resx">
+      <DependentUpon>Asistencia.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Camara.resx">
       <DependentUpon>Camara.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Clientes.resx">
       <DependentUpon>Clientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaClientes.resx">
+      <DependentUpon>ListaClientes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.vb</DependentUpon>

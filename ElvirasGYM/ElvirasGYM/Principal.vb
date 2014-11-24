@@ -18,13 +18,15 @@ Public Class Principal
         lblFecha1.BackColor = Color.Transparent
         lblEmpleado1.BackColor = Color.Transparent
         conectar.open()
-        Thread.Sleep(500)
+        Thread.Sleep(300)
         Sql = "SELECT * FROM usuarios WHERE activo = 1"
         datos = conectar.executeReader(Sql)
         If datos.Read = True Then
             lblEmpleado.Text = datos("nombre").ToString & " " & datos("apellidos").ToString
         End If
         datos.Close()
+        Thread.Sleep(300)
+        Asistencia.Show()
     End Sub
 
     Private Sub SalirToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SalirToolStripMenuItem.Click

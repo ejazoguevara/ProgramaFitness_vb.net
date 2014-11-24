@@ -67,3 +67,5 @@ H:\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.Resources.resources
 H:\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.Principal.resources
 H:\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.vbproj.GenerateResource.Cache
 C:\Users\Efrain\Documents\ProgramaFitness_vb.net\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.Camara.resources
+C:\Users\Efrain\Documents\ProgramaFitness_vb.net\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.Asistencia.resources
+C:\Users\Efrain\Documents\ProgramaFitness_vb.net\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.ListaClientes.resources
