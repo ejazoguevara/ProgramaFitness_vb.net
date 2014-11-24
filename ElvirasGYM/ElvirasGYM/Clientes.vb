@@ -9,6 +9,7 @@ Public Class Clientes
     Dim reader As MySqlDataReader
     Dim SQLString, SQLString2 As String
     Dim id As Integer
+    Dim imagen As String
     Dim datos As New DataSet
 
 
@@ -297,6 +298,7 @@ Public Class Clientes
         txtDNI.Enabled = False
         txtBuscar.Enabled = False
         txtBuscar.Text = ""
+        imgFoto.Image = Nothing
         'txtBuscar.ForeColor = Color.Gainsboro
         cbxTipo.Enabled = True
         btnGuardar.Enabled = False
@@ -309,6 +311,8 @@ Public Class Clientes
     End Sub
 
     Sub buscar()
+        Dim ruta As Image
+        Dim imagen2 As Bitmap
         SQLString = String.Format("SELECT * FROM clientes WHERE DNI = " & Trim(txtDNI.Text))
         reader = BDobj.executeReader(SQLString)
         If reader.Read = True Then
@@ -316,6 +320,13 @@ Public Class Clientes
             txtApellidop.Text = reader("apellido_paterno").ToString
             txtApellidom.Text = reader("apellido_materno").ToString
             cbxTipo.SelectedValue = reader("pagos_id").ToString
+            If reader("foto") = "pendiente" Then
+                imgFoto.Image = Nothing
+            Else
+                ruta = Image.FromFile("..\Fotoclientes\foto" & txtDNI.Text & ".jpg")
+                imagen2 = New Bitmap(ruta, 114, 115)
+                imgFoto.Image = imagen2
+            End If
         Else
             MsgBox("No se encontro un registro")
             limpiar()
@@ -335,10 +346,15 @@ Public Class Clientes
                 End If
             End If
         Next
+        If imgFoto.Image Is Nothing Then
+            imagen = "pendinte"
+        Else
+            imagen = "foto" & txtDNI.Text & ".jpg"
+        End If
         If bandera = False Then
             SQLString = String.Format("INSERT INTO clientes (DNI, nombre, apellido_paterno, apellido_materno, foto, activo, grupo_id, pagos_id, descuentos_id ) " & _
                                             " values ({0},'{1}','{2}','{3}','{4}',{5},{6},{7},{8})", _
-                                            Trim(txtDNI.Text), Trim(txtNombre.Text), Trim(txtApellidop.Text), Trim(txtApellidom.Text), Trim("pendiente"), Trim(0), Trim(1), Trim(cbxTipo.SelectedValue), Trim(1))
+                                            Trim(txtDNI.Text), Trim(txtNombre.Text), Trim(txtApellidop.Text), Trim(txtApellidom.Text), Trim(imagen), Trim(0), Trim(1), Trim(cbxTipo.SelectedValue), Trim(1))
             If BDobj.executeSQL(SQLString) Then
                 MsgBox("Registro agregado con éxito...")
                 LlenarBindingSource()
@@ -387,8 +403,13 @@ Public Class Clientes
                 End If
             End If
         Next
+        If imgFoto.Image Is Nothing Then
+            imagen = "pendinte"
+        Else
+            imagen = "foto" & txtDNI.Text & ".jpg"
+        End If
         If bandera = False And txtBuscar.Text = "" Then
-            SQLString = String.Format("UPDATE clientes SET nombre = '" & Trim(txtNombre.Text) & "', apellido_paterno = '" & Trim(txtApellidop.Text) & "', apellido_materno = '" & Trim(txtApellidom.Text) & "', pagos_id = " & Trim(cbxTipo.SelectedValue) & " WHERE DNI = " & Trim(txtDNI.Text) & "")
+            SQLString = String.Format("UPDATE clientes SET nombre = '" & Trim(txtNombre.Text) & "', apellido_paterno = '" & Trim(txtApellidop.Text) & "', apellido_materno = '" & Trim(txtApellidom.Text) & "', pagos_id = " & Trim(cbxTipo.SelectedValue) & " foto = '" & Trim(imagen) & " WHERE DNI = " & Trim(txtDNI.Text) & "")
             If BDobj.executeSQL(SQLString) Then
                 MsgBox("Registro modificado...")
                 LlenarBindingSource()
@@ -397,5 +418,9 @@ Public Class Clientes
         Else
             MsgBox("Faltan datos...")
         End If
+    End Sub
+
+    Private Sub btnTomafoto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnTomafoto.Click
+        Camara.Show()
     End Sub
 End Class

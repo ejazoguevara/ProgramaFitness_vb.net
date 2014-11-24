@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-11-2014 a las 07:06:50
+-- Tiempo de generación: 24-11-2014 a las 02:01:22
 -- Versión del servidor: 5.6.20
 -- Versión de PHP: 5.5.15
 
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   `grupo_id` int(11) NOT NULL,
   `pagos_id` int(11) NOT NULL,
   `descuentos_id` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- Volcado de datos para la tabla `clientes`
@@ -66,7 +66,8 @@ INSERT INTO `clientes` (`id`, `DNI`, `nombre`, `apellido_paterno`, `apellido_mat
 (1, 1001, 'Hetzelt Guadalupe', 'Jazo', 'Guevara', 'pendiente', 0, 1, 2, 1),
 (8, 1002, 'Cynthia', 'Rodriguez', 'Jimenez', 'pendiente', 0, 1, 2, 1),
 (9, 1003, 'Leticia', 'Ibarra', 'Gomez', 'pendiente', 0, 1, 3, 1),
-(10, 1004, 'Monica de Jesus', 'Fregoso', 'Osuna', 'pendiente', 0, 1, 1, 1);
+(10, 1004, 'Monica de Jesus', 'Fregoso', 'Osuna', 'pendiente', 0, 1, 1, 1),
+(11, 1005, 'Efrain', 'Jazo', 'Guevara', 'foto1005.jpg', 0, 1, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -117,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `grupos` (
   `fecha_inicio` date NOT NULL,
   `instructores_id` int(11) NOT NULL,
   `clases_id` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Volcado de datos para la tabla `grupos`
@@ -333,7 +334,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT de la tabla `clientes_pagos`
 --
@@ -348,7 +349,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 -- AUTO_INCREMENT de la tabla `grupos`
 --
 ALTER TABLE `grupos`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `grupos_detalles`
 --

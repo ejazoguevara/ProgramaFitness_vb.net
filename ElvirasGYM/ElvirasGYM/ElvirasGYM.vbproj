@@ -79,10 +79,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BDMysql.vb" />
-    <Compile Include="ClienteNuevo.Designer.vb">
-      <DependentUpon>ClienteNuevo.vb</DependentUpon>
+    <Compile Include="Camara.Designer.vb">
+      <DependentUpon>Camara.vb</DependentUpon>
     </Compile>
-    <Compile Include="ClienteNuevo.vb">
+    <Compile Include="Camara.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Clientes.Designer.vb">
@@ -126,10 +126,11 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Validar.vb" />
+    <Compile Include="WebCam.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ClienteNuevo.resx">
-      <DependentUpon>ClienteNuevo.vb</DependentUpon>
+    <EmbeddedResource Include="Camara.resx">
+      <DependentUpon>Camara.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Clientes.resx">
       <DependentUpon>Clientes.vb</DependentUpon>
