@@ -55,6 +55,7 @@ Partial Class Principal
         Me.OsSkin1 = New SkinSoft.OSSkin.OSSkin(Me.components)
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.AsistenciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.OsSkin1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -123,7 +124,7 @@ Partial Class Principal
         '
         'ClientesToolStripMenuItem
         '
-        Me.ClientesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IngresarClienteToolStripMenuItem, Me.AsignarGrupoToolStripMenuItem, Me.PagosToolStripMenuItem, Me.ImprimirCredencialToolStripMenuItem})
+        Me.ClientesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IngresarClienteToolStripMenuItem, Me.AsignarGrupoToolStripMenuItem, Me.PagosToolStripMenuItem, Me.AsistenciaToolStripMenuItem, Me.ImprimirCredencialToolStripMenuItem})
         Me.ClientesToolStripMenuItem.Name = "ClientesToolStripMenuItem"
         Me.ClientesToolStripMenuItem.Size = New System.Drawing.Size(76, 20)
         Me.ClientesToolStripMenuItem.Text = "Clientes"
@@ -317,8 +318,7 @@ Partial Class Principal
         '
         Me.OsSkin1.HostForm = Nothing
         Me.OsSkin1.License = CType(resources.GetObject("OsSkin1.License"), SkinSoft.OSSkin.Licensing.OSSkinLicense)
-        Me.OsSkin1.Style = SkinSoft.OSSkin.SkinStyle.AeroSilver
-        Me.OsSkin1.TargetControls = SkinSoft.OSSkin.TargetControls.Controls
+        Me.OsSkin1.Style = SkinSoft.OSSkin.SkinStyle.MetroBlue
         '
         'Label1
         '
@@ -342,6 +342,13 @@ Partial Class Principal
         Me.Label2.Size = New System.Drawing.Size(236, 86)
         Me.Label2.TabIndex = 13
         Me.Label2.Text = "Fitness"
+        '
+        'AsistenciaToolStripMenuItem
+        '
+        Me.AsistenciaToolStripMenuItem.Name = "AsistenciaToolStripMenuItem"
+        Me.AsistenciaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F12
+        Me.AsistenciaToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
+        Me.AsistenciaToolStripMenuItem.Text = "Asistencia"
         '
         'Principal
         '
@@ -410,4 +417,5 @@ Partial Class Principal
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents imagenes As System.Windows.Forms.ImageList
+    Friend WithEvents AsistenciaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

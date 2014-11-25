@@ -25,8 +25,7 @@ Public Class Principal
             lblEmpleado.Text = datos("nombre").ToString & " " & datos("apellidos").ToString
         End If
         datos.Close()
-        Thread.Sleep(300)
-        Asistencia.Show()
+        
     End Sub
 
     Private Sub SalirToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SalirToolStripMenuItem.Click
@@ -57,5 +56,9 @@ Public Class Principal
     Private Sub btnPagocliente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPagocliente.Click
         Clientes.Show()
         Clientes.tabcliente.SelectTab(1)
+    End Sub
+
+    Private Sub AsistenciaToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AsistenciaToolStripMenuItem.Click
+        Asistencia.Show()
     End Sub
 End Class
