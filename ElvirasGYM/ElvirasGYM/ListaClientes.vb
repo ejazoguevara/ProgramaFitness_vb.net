@@ -17,7 +17,7 @@ Public Class ListaClientes
     Dim BDobj As New BDMysql(server, BD, user, pass)
 
     Sub LlenarBindingSource()
-        BDobj.da = New MySqlDataAdapter("SELECT DNI, nombre, apellido_paterno, apellido_materno FROM clientes", BDobj.cnn)
+        BDobj.da = New MySqlDataAdapter("SELECT DNI as DNI, nombre as Nombre, apellido_paterno as 'Apellido Paterno', apellido_materno as 'Apellido Materno' FROM clientes", BDobj.cnn)
         BDobj.dt = New DataTable
         BDobj.dt.Clear()
         BDobj.da.Fill(BDobj.dt)
