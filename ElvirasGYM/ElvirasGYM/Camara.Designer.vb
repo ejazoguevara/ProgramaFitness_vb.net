@@ -28,6 +28,7 @@ Partial Class Camara
         Me.btnCapturar = New System.Windows.Forms.Button()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.btnIniciar = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -43,15 +44,15 @@ Partial Class Camara
         '
         'PictureBox1
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(24, 11)
+        Me.PictureBox1.Location = New System.Drawing.Point(44, 10)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(200, 200)
+        Me.PictureBox1.Size = New System.Drawing.Size(150, 200)
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
         'btnCapturar
         '
-        Me.btnCapturar.Location = New System.Drawing.Point(26, 250)
+        Me.btnCapturar.Location = New System.Drawing.Point(102, 250)
         Me.btnCapturar.Name = "btnCapturar"
         Me.btnCapturar.Size = New System.Drawing.Size(75, 54)
         Me.btnCapturar.TabIndex = 1
@@ -61,7 +62,7 @@ Partial Class Camara
         '
         'btnGuardar
         '
-        Me.btnGuardar.Location = New System.Drawing.Point(171, 250)
+        Me.btnGuardar.Location = New System.Drawing.Point(190, 250)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(75, 54)
         Me.btnGuardar.TabIndex = 2
@@ -72,11 +73,22 @@ Partial Class Camara
         'Timer1
         '
         '
+        'btnIniciar
+        '
+        Me.btnIniciar.Location = New System.Drawing.Point(12, 250)
+        Me.btnIniciar.Name = "btnIniciar"
+        Me.btnIniciar.Size = New System.Drawing.Size(75, 54)
+        Me.btnIniciar.TabIndex = 3
+        Me.btnIniciar.Text = "Iniciar"
+        Me.btnIniciar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnIniciar.UseVisualStyleBackColor = True
+        '
         'Camara
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(279, 316)
+        Me.Controls.Add(Me.btnIniciar)
         Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.btnCapturar)
         Me.Controls.Add(Me.Panel1)
@@ -97,4 +109,5 @@ Partial Class Camara
     Friend WithEvents btnCapturar As System.Windows.Forms.Button
     Friend WithEvents btnGuardar As System.Windows.Forms.Button
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents btnIniciar As System.Windows.Forms.Button
 End Class

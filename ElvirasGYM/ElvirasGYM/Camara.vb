@@ -24,4 +24,8 @@
         Clientes.imgFoto.Image = imagen
         Me.Dispose()
     End Sub
+
+    Private Sub btnIniciar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnIniciar.Click
+        webcam.Iniciar(Timer1, Me)
+    End Sub
 End Class

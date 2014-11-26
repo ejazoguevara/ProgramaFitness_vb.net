@@ -27,16 +27,16 @@ Partial Class Asistencia
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtDNI = New System.Windows.Forms.TextBox()
         Me.DTclientes = New System.Windows.Forms.DataGridView()
-        Me.lblFecha = New System.Windows.Forms.Label()
-        Me.btnBuscar = New System.Windows.Forms.Button()
-        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
-        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.dni = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.foto = New System.Windows.Forms.DataGridViewImageColumn()
         Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ApellidoP = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ApellidoM = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.lblFecha = New System.Windows.Forms.Label()
+        Me.btnBuscar = New System.Windows.Forms.Button()
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         CType(Me.DTclientes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -69,34 +69,13 @@ Partial Class Asistencia
         Me.DTclientes.Location = New System.Drawing.Point(2, 65)
         Me.DTclientes.Name = "DTclientes"
         Me.DTclientes.ReadOnly = True
+        Me.DTclientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        Me.DTclientes.RowHeadersVisible = False
+        Me.DTclientes.RowHeadersWidth = 42
         Me.DTclientes.RowTemplate.Height = 40
+        Me.DTclientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DTclientes.Size = New System.Drawing.Size(636, 282)
         Me.DTclientes.TabIndex = 1
-        '
-        'lblFecha
-        '
-        Me.lblFecha.AutoSize = True
-        Me.lblFecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFecha.Location = New System.Drawing.Point(301, 14)
-        Me.lblFecha.Name = "lblFecha"
-        Me.lblFecha.Size = New System.Drawing.Size(0, 24)
-        Me.lblFecha.TabIndex = 2
-        '
-        'btnBuscar
-        '
-        Me.btnBuscar.ImageKey = "buscar.png"
-        Me.btnBuscar.ImageList = Me.ImageList1
-        Me.btnBuscar.Location = New System.Drawing.Point(190, 8)
-        Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(47, 47)
-        Me.btnBuscar.TabIndex = 3
-        Me.btnBuscar.UseVisualStyleBackColor = True
-        '
-        'ImageList1
-        '
-        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
-        Me.ImageList1.Images.SetKeyName(0, "buscar.png")
         '
         'dni
         '
@@ -141,6 +120,31 @@ Partial Class Asistencia
         Me.Fecha.HeaderText = "Fecha"
         Me.Fecha.Name = "Fecha"
         Me.Fecha.ReadOnly = True
+        '
+        'lblFecha
+        '
+        Me.lblFecha.AutoSize = True
+        Me.lblFecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFecha.Location = New System.Drawing.Point(301, 14)
+        Me.lblFecha.Name = "lblFecha"
+        Me.lblFecha.Size = New System.Drawing.Size(0, 24)
+        Me.lblFecha.TabIndex = 2
+        '
+        'btnBuscar
+        '
+        Me.btnBuscar.ImageKey = "buscar.png"
+        Me.btnBuscar.ImageList = Me.ImageList1
+        Me.btnBuscar.Location = New System.Drawing.Point(190, 8)
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.Size = New System.Drawing.Size(47, 47)
+        Me.btnBuscar.TabIndex = 3
+        Me.btnBuscar.UseVisualStyleBackColor = True
+        '
+        'ImageList1
+        '
+        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "buscar.png")
         '
         'Asistencia
         '

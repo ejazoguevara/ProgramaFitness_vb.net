@@ -41,6 +41,7 @@ Partial Class ListaClientes
         Me.DTclientes.Location = New System.Drawing.Point(14, 47)
         Me.DTclientes.Name = "DTclientes"
         Me.DTclientes.ReadOnly = True
+        Me.DTclientes.RowHeadersVisible = False
         Me.DTclientes.Size = New System.Drawing.Size(528, 302)
         Me.DTclientes.TabIndex = 4
         '

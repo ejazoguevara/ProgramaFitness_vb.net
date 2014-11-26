@@ -54,7 +54,7 @@ Public Class Asistencia
                 foto = Nothing
             Else
                 ruta = Image.FromFile("..\Fotoclientes\foto" & txtDNI.Text & ".jpg")
-                foto = New Bitmap(ruta, 32, 32)
+                foto = New Bitmap(ruta, 32, 40)
             End If
             DTclientes.Rows.Add(reader("DNI"), foto, reader("nombre"), reader("apellido_paterno"), reader("apellido_materno"), fecha)
         Else
