@@ -69,3 +69,4 @@ H:\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.vbproj.GenerateResource.Cach
 C:\Users\Efrain\Documents\ProgramaFitness_vb.net\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.Camara.resources
 C:\Users\Efrain\Documents\ProgramaFitness_vb.net\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.Asistencia.resources
 C:\Users\Efrain\Documents\ProgramaFitness_vb.net\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.ListaClientes.resources
+C:\Users\Efrain\Documents\ProgramaFitness_vb.net\ElvirasGYM\ElvirasGYM\obj\x86\Release\ElvirasGYM.prueba.resources
