@@ -40,19 +40,20 @@ Public Class prueba
     Private Sub Aplicar_Filtro()
         ' verificar que el DataSource no esté vacio  
         If cbxCliente.DataSource Is Nothing Then
-            ' si no hay registros cambiar el color del TextBox
-            'txtBuscar.BackColor = Color.Red
+            cbxCliente.BackColor = Color.Red
             Exit Sub
         End If
 
         Try
+            If txtFiltra.Text = "" Then
+                llenar_Combo()
+                Exit Sub
+            End If
             Dim filtro As String = String.Empty
-
             'Se filtra por nombre, apellido paterno y apellido materno
             filtro = "[Nombre] like '%" & txtFiltra.Text.Trim & "%'"
             BindingSource1.Filter = filtro
             cbxCliente.DataSource = BindingSource1
-            'DTclientes.Rows(0).Selected = True
         Catch ex As Exception 'Errores
             'MsgBox(ex.Message.ToString, MsgBoxStyle.Critical)
         End Try
