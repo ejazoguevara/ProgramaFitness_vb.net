@@ -2,7 +2,7 @@
 Public Class WebCam
     Dim capHwnd As Integer
     'Tamaño de la ventana del webcam
-    Dim ancho As Integer = 200
+    Dim ancho As Integer = 150
     Dim alto As Integer = 200
     '"libreria.DLL" = El nombre del API que se desea importar
     ' EntryPoint = indica el nombre exacto de la función del API que queremos usar
@@ -51,17 +51,19 @@ Public Class WebCam
     End Sub
 
     'guarda el frame que esta en memoria en un archivo JPG
-    Public Sub Capturar(ByVal picture As PictureBox)
-        Dim sfile_JPG As String = "..\Fotoclientes\foto" & Clientes.txtDNI.Text & ".jpg"
-        Dim obj_bitMap As New Bitmap(ancho, alto)
-        Try
-            picture.DrawToBitmap(obj_bitMap, New Rectangle(0, 0, ancho, alto))
-            obj_bitMap.Save(sfile_JPG, Imaging.ImageFormat.Jpeg)
-            MessageBox.Show("Imagen capturada en [" & sfile_JPG & " ]")
-        Catch ex As Exception
-            System.Console.WriteLine(ex)
-        End Try
-    End Sub
+    'Public Sub Capturar(ByVal picture As PictureBox)
+    '    Dim sfile_JPG As String = "..\Fotoclientes\foto" & Clientes.txtDNI.Text & ".jpg"
+    '    Dim obj_bitMap As New Bitmap(ancho, alto)
+    '    Try
+    '        If My.Computer.FileSystem.FileExists("..\Fotoclientes\foto" & Clientes.txtDNI.Text & ".jpg") Then
+    '            My.Computer.FileSystem.DeleteFile("..\Fotoclientes\foto" & Clientes.txtDNI.Text & ".jpg")
+    '        End If
+    '        picture.DrawToBitmap(obj_bitMap, New Rectangle(0, 0, ancho, alto))
+    '        MessageBox.Show("Imagen capturada en [" & sfile_JPG & " ]")
+    '    Catch ex As Exception
+    '        System.Console.WriteLine(ex)
+    '    End Try
+    'End Sub
 
     Public Sub Iniciar(ByVal timer As Timer, ByVal padre As Form)
         Try

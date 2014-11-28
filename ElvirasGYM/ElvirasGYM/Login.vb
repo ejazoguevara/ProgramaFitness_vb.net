@@ -67,6 +67,7 @@ Public Class Login
                     datos.Close()
                     If BDobjeto.executeSQL(SQLString) Then
                         Principal.Show()
+                        BDobjeto.cnn.Close()
                     End If
                     Me.Hide()      
                 End If

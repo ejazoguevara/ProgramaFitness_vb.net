@@ -44,9 +44,9 @@ Partial Class Camara
         '
         'PictureBox1
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(44, 10)
+        Me.PictureBox1.Location = New System.Drawing.Point(67, 37)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(150, 200)
+        Me.PictureBox1.Size = New System.Drawing.Size(120, 150)
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '

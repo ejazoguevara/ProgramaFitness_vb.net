@@ -37,6 +37,7 @@ Partial Class Principal
         Me.IngresarClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AsignarGrupoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PagosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AsistenciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImprimirCredencialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CerrarSesiónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -55,7 +56,9 @@ Partial Class Principal
         Me.OsSkin1 = New SkinSoft.OSSkin.OSSkin(Me.components)
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.AsistenciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.lblHora = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.OsSkin1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -148,6 +151,13 @@ Partial Class Principal
         Me.PagosToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F11
         Me.PagosToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
         Me.PagosToolStripMenuItem.Text = "Pagos"
+        '
+        'AsistenciaToolStripMenuItem
+        '
+        Me.AsistenciaToolStripMenuItem.Name = "AsistenciaToolStripMenuItem"
+        Me.AsistenciaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F12
+        Me.AsistenciaToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
+        Me.AsistenciaToolStripMenuItem.Text = "Asistencia"
         '
         'ImprimirCredencialToolStripMenuItem
         '
@@ -343,12 +353,33 @@ Partial Class Principal
         Me.Label2.TabIndex = 13
         Me.Label2.Text = "Fitness"
         '
-        'AsistenciaToolStripMenuItem
+        'Timer1
         '
-        Me.AsistenciaToolStripMenuItem.Name = "AsistenciaToolStripMenuItem"
-        Me.AsistenciaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F12
-        Me.AsistenciaToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
-        Me.AsistenciaToolStripMenuItem.Text = "Asistencia"
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 1
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.Black
+        Me.Label3.Location = New System.Drawing.Point(683, 669)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(53, 20)
+        Me.Label3.TabIndex = 14
+        Me.Label3.Text = "Hora:"
+        '
+        'lblHora
+        '
+        Me.lblHora.AutoSize = True
+        Me.lblHora.BackColor = System.Drawing.Color.Transparent
+        Me.lblHora.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblHora.ForeColor = System.Drawing.Color.Black
+        Me.lblHora.Location = New System.Drawing.Point(742, 669)
+        Me.lblHora.Name = "lblHora"
+        Me.lblHora.Size = New System.Drawing.Size(0, 20)
+        Me.lblHora.TabIndex = 15
         '
         'Principal
         '
@@ -358,6 +389,8 @@ Partial Class Principal
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(1006, 694)
         Me.ControlBox = False
+        Me.Controls.Add(Me.lblHora)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.lblFecha)
@@ -418,4 +451,7 @@ Partial Class Principal
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents imagenes As System.Windows.Forms.ImageList
     Friend WithEvents AsistenciaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents lblHora As System.Windows.Forms.Label
 End Class

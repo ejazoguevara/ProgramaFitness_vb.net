@@ -18,9 +18,8 @@
     End Sub
 
     Private Sub btnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardar.Click
-        webcam.Capturar(PictureBox1)
-        ruta = Image.FromFile("..\Fotoclientes\foto" & Clientes.txtDNI.Text & ".jpg")
-        imagen = New Bitmap(ruta, 114, 115)
+        imagen = New Bitmap(120, 150)
+        PictureBox1.DrawToBitmap(imagen, New Rectangle(0, 0, 120, 150))
         Clientes.imgFoto.Image = imagen
         Me.Dispose()
     End Sub

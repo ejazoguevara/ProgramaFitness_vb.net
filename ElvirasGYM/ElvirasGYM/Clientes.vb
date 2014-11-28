@@ -11,6 +11,7 @@ Public Class Clientes
     Dim id As Integer
     Dim imagen As String
     Dim datos As New DataSet
+    Dim exitefoto As Boolean = False
 
 
     Private Const server As String = "localhost"
@@ -323,7 +324,7 @@ Public Class Clientes
             If reader("foto") = "pendiente" Then
                 imgFoto.Image = Nothing
             Else
-                ruta = Image.FromFile("..\Fotoclientes\foto" & txtDNI.Text & ".jpg")
+                ruta = Image.FromFile("..\Fotoclientes\" & reader("foto"))
                 'imagen2 = New Bitmap(ruta, 114, 115)
                 imgFoto.SizeMode = PictureBoxSizeMode.StretchImage
                 imgFoto.Image = ruta
@@ -338,6 +339,8 @@ Public Class Clientes
 
 
     Private Sub btnAgregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAgregar.Click
+        Dim ruta As String = "..\Fotoclientes\foto" & txtDNI.Text & ".jpg"
+        Dim foto As New Bitmap(120, 150)
         'Checa que ninguna caja de texto este vacia
         Dim bandera As Boolean
         For Each x As Control In panelCliente.Controls
@@ -347,6 +350,8 @@ Public Class Clientes
                 End If
             End If
         Next
+        imgFoto.DrawToBitmap(Foto, New Rectangle(0, 0, 120, 150))
+        Foto.Save(ruta, Imaging.ImageFormat.Jpeg)
         If imgFoto.Image Is Nothing Then
             imagen = "pendinte"
         Else
@@ -395,6 +400,15 @@ Public Class Clientes
     End Sub
 
     Private Sub btnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardar.Click
+        Dim ruta As String = "..\Fotoclientes\foto" & txtDNI.Text & ".jpg"
+        Dim foto As New Bitmap(120, 150)
+        If My.Computer.FileSystem.FileExists("..\Fotoclientes\foto" & txtDNI.Text & ".jpg") Then
+            'My.Computer.FileSystem.DeleteFile("..\Fotoclientes\foto" & txtDNI.Text & ".jpg")
+            exitefoto = True
+            ruta = "..\Fotoclientes\foto" & txtDNI.Text & "-2.jpg"
+        End If
+        imgFoto.DrawToBitmap(foto, New Rectangle(0, 0, 120, 150))
+        foto.Save(ruta, Imaging.ImageFormat.Jpeg)
         'Checa que ninguna caja de texto este vacia
         Dim bandera As Boolean
         For Each x As Control In panelCliente.Controls
@@ -406,11 +420,13 @@ Public Class Clientes
         Next
         If imgFoto.Image Is Nothing Then
             imagen = "pendinte"
+        ElseIf exitefoto = True Then
+            imagen = "foto" & txtDNI.Text & "-2.jpg"
         Else
             imagen = "foto" & txtDNI.Text & ".jpg"
         End If
         If bandera = False And txtBuscar.Text = "" Then
-            SQLString = String.Format("UPDATE clientes SET nombre = '" & Trim(txtNombre.Text) & "', apellido_paterno = '" & Trim(txtApellidop.Text) & "', apellido_materno = '" & Trim(txtApellidom.Text) & "', pagos_id = " & Trim(cbxTipo.SelectedValue) & " foto = '" & Trim(imagen) & " WHERE DNI = " & Trim(txtDNI.Text) & "")
+            SQLString = String.Format("UPDATE clientes SET nombre = '" & Trim(txtNombre.Text) & "', apellido_paterno = '" & Trim(txtApellidop.Text) & "', apellido_materno = '" & Trim(txtApellidom.Text) & "', pagos_id = " & Trim(cbxTipo.SelectedValue) & ", foto = '" & Trim(imagen) & "' WHERE DNI = " & Trim(txtDNI.Text) & "")
             If BDobj.executeSQL(SQLString) Then
                 MsgBox("Registro modificado...")
                 LlenarBindingSource()
@@ -424,4 +440,9 @@ Public Class Clientes
     Private Sub btnTomafoto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnTomafoto.Click
         Camara.Show()
     End Sub
+
+    Private Sub btnCambiar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        imgFoto.Image = Nothing
+    End Sub
+
 End Class
