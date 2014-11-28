@@ -312,7 +312,7 @@ Public Class Clientes
 
     Sub buscar()
         Dim ruta As Image
-        Dim imagen2 As Bitmap
+        'Dim imagen2 As Bitmap
         SQLString = String.Format("SELECT * FROM clientes WHERE DNI = " & Trim(txtDNI.Text))
         reader = BDobj.executeReader(SQLString)
         If reader.Read = True Then
@@ -324,8 +324,9 @@ Public Class Clientes
                 imgFoto.Image = Nothing
             Else
                 ruta = Image.FromFile("..\Fotoclientes\foto" & txtDNI.Text & ".jpg")
-                imagen2 = New Bitmap(ruta, 114, 115)
-                imgFoto.Image = imagen2
+                'imagen2 = New Bitmap(ruta, 114, 115)
+                imgFoto.SizeMode = PictureBoxSizeMode.StretchImage
+                imgFoto.Image = ruta
             End If
         Else
             MsgBox("No se encontro un registro")

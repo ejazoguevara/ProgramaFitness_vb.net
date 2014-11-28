@@ -74,7 +74,7 @@ Partial Class Asistencia
         Me.DTclientes.RowHeadersWidth = 42
         Me.DTclientes.RowTemplate.Height = 40
         Me.DTclientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DTclientes.Size = New System.Drawing.Size(636, 282)
+        Me.DTclientes.Size = New System.Drawing.Size(604, 282)
         Me.DTclientes.TabIndex = 1
         '
         'dni
@@ -150,15 +150,15 @@ Partial Class Asistencia
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(639, 356)
+        Me.ClientSize = New System.Drawing.Size(609, 356)
         Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.lblFecha)
         Me.Controls.Add(Me.DTclientes)
         Me.Controls.Add(Me.txtDNI)
         Me.Controls.Add(Me.Label1)
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(655, 395)
-        Me.MinimumSize = New System.Drawing.Size(655, 395)
+        Me.MaximumSize = New System.Drawing.Size(625, 395)
+        Me.MinimumSize = New System.Drawing.Size(625, 395)
         Me.Name = "Asistencia"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Asistencia"

@@ -268,14 +268,14 @@ Partial Class Clientes
         Me.Panel1.Controls.Add(Me.imgFoto)
         Me.Panel1.Location = New System.Drawing.Point(396, 4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(152, 118)
+        Me.Panel1.Size = New System.Drawing.Size(152, 156)
         Me.Panel1.TabIndex = 4
         '
         'imgFoto
         '
         Me.imgFoto.Location = New System.Drawing.Point(19, 2)
         Me.imgFoto.Name = "imgFoto"
-        Me.imgFoto.Size = New System.Drawing.Size(114, 115)
+        Me.imgFoto.Size = New System.Drawing.Size(120, 150)
         Me.imgFoto.TabIndex = 4
         Me.imgFoto.TabStop = False
         '
@@ -283,7 +283,7 @@ Partial Class Clientes
         '
         Me.btnTomafoto.ImageKey = "tomarfoto.png"
         Me.btnTomafoto.ImageList = Me.Foto
-        Me.btnTomafoto.Location = New System.Drawing.Point(396, 125)
+        Me.btnTomafoto.Location = New System.Drawing.Point(396, 160)
         Me.btnTomafoto.Name = "btnTomafoto"
         Me.btnTomafoto.Size = New System.Drawing.Size(152, 42)
         Me.btnTomafoto.TabIndex = 10
