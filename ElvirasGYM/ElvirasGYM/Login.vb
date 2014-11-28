@@ -29,6 +29,12 @@ Public Class Login
         txtPass.ForeColor = Color.Black
     End Sub
 
+    Private Sub txtPass_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtPass.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            btnEntrar.PerformClick()
+        End If
+    End Sub
+
     Private Sub txtPass_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtPass.KeyPress
         Validar.letrasAndDecimal(e.KeyChar)
     End Sub
