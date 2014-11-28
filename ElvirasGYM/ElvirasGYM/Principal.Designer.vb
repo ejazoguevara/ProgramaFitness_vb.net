@@ -307,7 +307,7 @@ Partial Class Principal
         Me.lblFecha1.BackColor = System.Drawing.Color.Transparent
         Me.lblFecha1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblFecha1.ForeColor = System.Drawing.Color.Black
-        Me.lblFecha1.Location = New System.Drawing.Point(393, 669)
+        Me.lblFecha1.Location = New System.Drawing.Point(448, 669)
         Me.lblFecha1.Name = "lblFecha1"
         Me.lblFecha1.Size = New System.Drawing.Size(64, 20)
         Me.lblFecha1.TabIndex = 10
@@ -319,10 +319,11 @@ Partial Class Principal
         Me.lblFecha.BackColor = System.Drawing.Color.Transparent
         Me.lblFecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblFecha.ForeColor = System.Drawing.Color.Maroon
-        Me.lblFecha.Location = New System.Drawing.Point(461, 664)
+        Me.lblFecha.Location = New System.Drawing.Point(518, 667)
         Me.lblFecha.Name = "lblFecha"
-        Me.lblFecha.Size = New System.Drawing.Size(0, 24)
+        Me.lblFecha.Size = New System.Drawing.Size(50, 24)
         Me.lblFecha.TabIndex = 11
+        Me.lblFecha.Text = "date"
         '
         'OsSkin1
         '
@@ -375,11 +376,12 @@ Partial Class Principal
         Me.lblHora.AutoSize = True
         Me.lblHora.BackColor = System.Drawing.Color.Transparent
         Me.lblHora.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblHora.ForeColor = System.Drawing.Color.Black
+        Me.lblHora.ForeColor = System.Drawing.Color.Maroon
         Me.lblHora.Location = New System.Drawing.Point(742, 669)
         Me.lblHora.Name = "lblHora"
-        Me.lblHora.Size = New System.Drawing.Size(0, 20)
+        Me.lblHora.Size = New System.Drawing.Size(43, 20)
         Me.lblHora.TabIndex = 15
+        Me.lblHora.Text = "time"
         '
         'Principal
         '

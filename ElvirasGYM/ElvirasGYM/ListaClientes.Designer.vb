@@ -38,16 +38,16 @@ Partial Class ListaClientes
         Me.DTclientes.AllowUserToResizeColumns = False
         Me.DTclientes.AllowUserToResizeRows = False
         Me.DTclientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.DTclientes.Location = New System.Drawing.Point(14, 47)
+        Me.DTclientes.Location = New System.Drawing.Point(9, 47)
         Me.DTclientes.Name = "DTclientes"
         Me.DTclientes.ReadOnly = True
         Me.DTclientes.RowHeadersVisible = False
-        Me.DTclientes.Size = New System.Drawing.Size(471, 302)
+        Me.DTclientes.Size = New System.Drawing.Size(468, 302)
         Me.DTclientes.TabIndex = 4
         '
         'txtBuscar
         '
-        Me.txtBuscar.Location = New System.Drawing.Point(67, 10)
+        Me.txtBuscar.Location = New System.Drawing.Point(65, 15)
         Me.txtBuscar.MaxLength = 30
         Me.txtBuscar.Name = "txtBuscar"
         Me.txtBuscar.Size = New System.Drawing.Size(102, 20)
@@ -57,7 +57,7 @@ Partial Class ListaClientes
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI Symbol", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(11, 13)
+        Me.Label1.Location = New System.Drawing.Point(9, 18)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(52, 15)
         Me.Label1.TabIndex = 2
@@ -67,14 +67,14 @@ Partial Class ListaClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(534, 361)
+        Me.ClientSize = New System.Drawing.Size(484, 361)
         Me.Controls.Add(Me.DTclientes)
         Me.Controls.Add(Me.txtBuscar)
         Me.Controls.Add(Me.Label1)
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(550, 400)
+        Me.MaximumSize = New System.Drawing.Size(500, 400)
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(550, 400)
+        Me.MinimumSize = New System.Drawing.Size(500, 400)
         Me.Name = "ListaClientes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ListaClientes"

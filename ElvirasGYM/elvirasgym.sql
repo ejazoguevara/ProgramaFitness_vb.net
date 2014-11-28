@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2014 a las 18:29:41
+-- Tiempo de generación: 28-11-2014 a las 19:59:18
 -- Versión del servidor: 5.6.20
 -- Versión de PHP: 5.5.15
 
@@ -23,14 +23,24 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `asistencia`
+-- Estructura de tabla para la tabla `asistencias`
 --
 
-CREATE TABLE IF NOT EXISTS `asistencia` (
+CREATE TABLE IF NOT EXISTS `asistencias` (
 `id` int(4) NOT NULL,
   `clientes_id` int(4) NOT NULL,
   `fecha` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=11 ;
+
+--
+-- Volcado de datos para la tabla `asistencias`
+--
+
+INSERT INTO `asistencias` (`id`, `clientes_id`, `fecha`) VALUES
+(1, 1, '2014-11-28'),
+(2, 8, '2014-11-28'),
+(3, 9, '2014-11-28'),
+(8, 10, '2014-11-28');
 
 -- --------------------------------------------------------
 
@@ -262,9 +272,9 @@ CREATE TABLE IF NOT EXISTS `ventas_detalles` (
 --
 
 --
--- Indices de la tabla `asistencia`
+-- Indices de la tabla `asistencias`
 --
-ALTER TABLE `asistencia`
+ALTER TABLE `asistencias`
  ADD PRIMARY KEY (`id`);
 
 --
@@ -344,10 +354,10 @@ ALTER TABLE `ventas_detalles`
 --
 
 --
--- AUTO_INCREMENT de la tabla `asistencia`
+-- AUTO_INCREMENT de la tabla `asistencias`
 --
-ALTER TABLE `asistencia`
-MODIFY `id` int(4) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `asistencias`
+MODIFY `id` int(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `clases`
 --

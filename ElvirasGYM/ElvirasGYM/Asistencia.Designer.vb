@@ -27,11 +27,6 @@ Partial Class Asistencia
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtDNI = New System.Windows.Forms.TextBox()
         Me.DTclientes = New System.Windows.Forms.DataGridView()
-        Me.btnBuscar = New System.Windows.Forms.Button()
-        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
-        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.btnGuardar = New System.Windows.Forms.Button()
-        Me.btnSalir = New System.Windows.Forms.Button()
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dni = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.foto = New System.Windows.Forms.DataGridViewImageColumn()
@@ -39,6 +34,12 @@ Partial Class Asistencia
         Me.ApellidoP = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ApellidoM = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Fecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnBuscar = New System.Windows.Forms.Button()
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.btnGuardar = New System.Windows.Forms.Button()
+        Me.btnSalir = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.DTclientes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -47,7 +48,7 @@ Partial Class Asistencia
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI Symbol", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(12, 26)
+        Me.Label1.Location = New System.Drawing.Point(6, 57)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(80, 15)
         Me.Label1.TabIndex = 0
@@ -55,22 +56,24 @@ Partial Class Asistencia
         '
         'txtDNI
         '
-        Me.txtDNI.Location = New System.Drawing.Point(97, 23)
+        Me.txtDNI.Location = New System.Drawing.Point(105, 54)
         Me.txtDNI.MaxLength = 4
         Me.txtDNI.Name = "txtDNI"
-        Me.txtDNI.Size = New System.Drawing.Size(82, 20)
+        Me.txtDNI.Size = New System.Drawing.Size(95, 22)
         Me.txtDNI.TabIndex = 0
         '
         'DTclientes
         '
         Me.DTclientes.AllowUserToAddRows = False
+        Me.DTclientes.AllowUserToDeleteRows = False
         Me.DTclientes.AllowUserToResizeColumns = False
+        Me.DTclientes.BackgroundColor = System.Drawing.Color.Honeydew
         Me.DTclientes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.DTclientes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised
         Me.DTclientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.DTclientes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.dni, Me.foto, Me.Nombre, Me.ApellidoP, Me.ApellidoM, Me.Fecha})
         Me.DTclientes.GridColor = System.Drawing.Color.RoyalBlue
-        Me.DTclientes.Location = New System.Drawing.Point(2, 65)
+        Me.DTclientes.Location = New System.Drawing.Point(2, 87)
         Me.DTclientes.Name = "DTclientes"
         Me.DTclientes.ReadOnly = True
         Me.DTclientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
@@ -78,48 +81,8 @@ Partial Class Asistencia
         Me.DTclientes.RowHeadersWidth = 42
         Me.DTclientes.RowTemplate.Height = 40
         Me.DTclientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DTclientes.Size = New System.Drawing.Size(604, 343)
+        Me.DTclientes.Size = New System.Drawing.Size(705, 421)
         Me.DTclientes.TabIndex = 1
-        '
-        'btnBuscar
-        '
-        Me.btnBuscar.ImageKey = "buscar.png"
-        Me.btnBuscar.ImageList = Me.ImageList1
-        Me.btnBuscar.Location = New System.Drawing.Point(190, 8)
-        Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(47, 47)
-        Me.btnBuscar.TabIndex = 3
-        Me.btnBuscar.UseVisualStyleBackColor = True
-        '
-        'ImageList1
-        '
-        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
-        Me.ImageList1.Images.SetKeyName(0, "buscar.png")
-        Me.ImageList1.Images.SetKeyName(1, "save.png")
-        Me.ImageList1.Images.SetKeyName(2, "exit.png")
-        '
-        'btnGuardar
-        '
-        Me.btnGuardar.BackColor = System.Drawing.Color.Honeydew
-        Me.btnGuardar.ImageKey = "save.png"
-        Me.btnGuardar.ImageList = Me.ImageList1
-        Me.btnGuardar.Location = New System.Drawing.Point(506, 9)
-        Me.btnGuardar.Name = "btnGuardar"
-        Me.btnGuardar.Size = New System.Drawing.Size(47, 47)
-        Me.btnGuardar.TabIndex = 4
-        Me.btnGuardar.UseVisualStyleBackColor = False
-        '
-        'btnSalir
-        '
-        Me.btnSalir.BackColor = System.Drawing.SystemColors.Control
-        Me.btnSalir.ImageKey = "exit.png"
-        Me.btnSalir.ImageList = Me.ImageList1
-        Me.btnSalir.Location = New System.Drawing.Point(559, 9)
-        Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(47, 47)
-        Me.btnSalir.TabIndex = 5
-        Me.btnSalir.UseVisualStyleBackColor = False
         '
         'id
         '
@@ -172,20 +135,86 @@ Partial Class Asistencia
         Me.Fecha.Name = "Fecha"
         Me.Fecha.ReadOnly = True
         '
+        'btnBuscar
+        '
+        Me.btnBuscar.BackColor = System.Drawing.Color.LightGreen
+        Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnBuscar.ImageKey = "buscar.png"
+        Me.btnBuscar.ImageList = Me.ImageList1
+        Me.btnBuscar.Location = New System.Drawing.Point(465, 9)
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.Size = New System.Drawing.Size(75, 62)
+        Me.btnBuscar.TabIndex = 3
+        Me.btnBuscar.Text = "&Buscar"
+        Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnBuscar.UseVisualStyleBackColor = False
+        '
+        'ImageList1
+        '
+        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "buscar.png")
+        Me.ImageList1.Images.SetKeyName(1, "save.png")
+        Me.ImageList1.Images.SetKeyName(2, "exit.png")
+        '
+        'btnGuardar
+        '
+        Me.btnGuardar.BackColor = System.Drawing.Color.LightGreen
+        Me.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnGuardar.ImageKey = "save.png"
+        Me.btnGuardar.ImageList = Me.ImageList1
+        Me.btnGuardar.Location = New System.Drawing.Point(549, 9)
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(75, 62)
+        Me.btnGuardar.TabIndex = 4
+        Me.btnGuardar.Text = "&Guardar"
+        Me.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnGuardar.UseVisualStyleBackColor = False
+        '
+        'btnSalir
+        '
+        Me.btnSalir.BackColor = System.Drawing.Color.Coral
+        Me.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnSalir.ImageKey = "exit.png"
+        Me.btnSalir.ImageList = Me.ImageList1
+        Me.btnSalir.Location = New System.Drawing.Point(631, 9)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(75, 62)
+        Me.btnSalir.TabIndex = 5
+        Me.btnSalir.Text = "&Salir"
+        Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnSalir.UseVisualStyleBackColor = False
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI Symbol", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.Red
+        Me.Label2.Location = New System.Drawing.Point(114, 38)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(49, 12)
+        Me.Label2.TabIndex = 6
+        Me.Label2.Text = "F1 = Ayuda"
+        '
         'Asistencia
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(609, 411)
+        Me.CancelButton = Me.btnSalir
+        Me.ClientSize = New System.Drawing.Size(710, 511)
+        Me.ControlBox = False
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.DTclientes)
         Me.Controls.Add(Me.txtDNI)
         Me.Controls.Add(Me.Label1)
+        Me.Font = New System.Drawing.Font("Segoe UI Symbol", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(625, 450)
-        Me.MinimumSize = New System.Drawing.Size(625, 450)
+        Me.MaximumSize = New System.Drawing.Size(726, 550)
+        Me.MinimumSize = New System.Drawing.Size(726, 550)
         Me.Name = "Asistencia"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Asistencia"
@@ -210,4 +239,5 @@ Partial Class Asistencia
     Friend WithEvents ApellidoP As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents ApellidoM As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Fecha As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Label2 As System.Windows.Forms.Label
 End Class
