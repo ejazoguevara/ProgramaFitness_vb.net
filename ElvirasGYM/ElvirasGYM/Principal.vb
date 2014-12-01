@@ -7,6 +7,8 @@ Public Class Principal
     Private Const user As String = "root"
     Private Const pass As String = ""
 
+    Public pestania As Integer
+
     Dim datos As MySqlDataReader
 
     Dim conectar As New BDMysql(server, BD, user, pass)
@@ -55,6 +57,7 @@ Public Class Principal
 
     Private Sub btnNuevocliente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevocliente.Click
         Clientes.Show()
+        pestania = 0
         Clientes.tabcliente.SelectTab(0)
     End Sub
 
@@ -64,6 +67,7 @@ Public Class Principal
 
     Private Sub btnPagocliente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPagocliente.Click
         Clientes.Show()
+        pestania = 1
         Clientes.tabcliente.SelectTab(1)
     End Sub
 

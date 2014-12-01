@@ -66,6 +66,41 @@ Public Class Clientes
         End Try
     End Sub
 
+    Private Sub Aplicar_FiltroPagos()
+        ' verificar que el DataSource no esté vacio  
+        If BSourcepagos.DataSource Is Nothing Then
+            txtCliente.BackColor = Color.Red
+            Exit Sub
+        End If
+
+        Try
+            Dim filtro As String = String.Empty
+            'Se filtra por nombre, apellido paterno y apellido materno
+            filtro = "[Nombre Completo] like '%" & txtBuscar2.Text.Trim & "%' "
+            BSourcepagos.Filter = filtro
+            DTPclientes.Rows(0).Selected = True
+        Catch ex As Exception 'Errores
+            'MsgBox(ex.Message.ToString, MsgBoxStyle.Critical)
+        End Try
+    End Sub
+
+    'Llena el Tabla de clientes en pagos
+    Private Sub llenar_DTPclientes()
+        BDobj.da = New MySqlDataAdapter("SELECT DNI as DNI, CONCAT(nombre,' ',apellido_paterno,' ',apellido_materno) as 'Nombre Completo' FROM clientes WHERE DNI > 1001 order by DNI", BDobj.cnn)
+        BDobj.dt = New DataTable
+        BDobj.dt.Clear()
+        BDobj.da.Fill(BDobj.dt)
+        BSourcepagos.DataSource = BDobj.dt
+        Me.DTPclientes.DataSource = BSourcepagos
+        DTPclientes.Columns(0).Width = 60
+        DTPclientes.Columns(1).Width = 200
+        DTPclientes.AlternatingRowsDefaultCellStyle.BackColor = Color.LightCyan
+        'Me.DTPclientes.DefaultCellStyle.Font = New Font("Tahoma", 11)
+        DTPclientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        BDobj.cmd = Nothing
+        BDobj.da = Nothing
+        BDobj.dt = Nothing
+    End Sub
 
     'Llena el combobox de grupo desde la base de datos
     Private Sub llenar_Combo()
@@ -89,12 +124,10 @@ Public Class Clientes
     Private Sub Clientes_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         BDobj.open()
         llenar_Combo()
-        Dim tab As Integer = tabcliente.SelectedIndex
+        LlenarBindingSource()
+        llenar_DTPclientes()
+        cbxCantidad.SelectedIndex = 0
         Me.Show()
-        If tab = 0 Then
-            LlenarBindingSource()
-        End If
-        'btnNuevo.PerformClick()
         bloquear()
         cbxTipo.Enabled = False
     End Sub
@@ -307,10 +340,6 @@ Public Class Clientes
         txtNombre.Focus()
     End Sub
 
-    Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-    End Sub
-
     Sub buscar()
         Dim ruta As Image
         'Dim imagen2 As Bitmap
@@ -445,4 +474,12 @@ Public Class Clientes
         imgFoto.Image = Nothing
     End Sub
 
+  
+    Private Sub txtBuscar2_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtBuscar2.KeyPress
+        Validar.letrasAndDecimal(e.KeyChar)
+    End Sub
+
+    Private Sub txtBuscar2_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtBuscar2.TextChanged
+        Aplicar_FiltroPagos()
+    End Sub
 End Class

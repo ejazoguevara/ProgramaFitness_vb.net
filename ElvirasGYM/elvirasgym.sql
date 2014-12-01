@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-11-2014 a las 19:59:18
+-- Tiempo de generación: 01-12-2014 a las 08:19:19
 -- Versión del servidor: 5.6.20
 -- Versión de PHP: 5.5.15
 
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `asistencias` (
 `id` int(4) NOT NULL,
   `clientes_id` int(4) NOT NULL,
   `fecha` date NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=15 ;
 
 --
 -- Volcado de datos para la tabla `asistencias`
@@ -39,8 +39,8 @@ CREATE TABLE IF NOT EXISTS `asistencias` (
 INSERT INTO `asistencias` (`id`, `clientes_id`, `fecha`) VALUES
 (1, 1, '2014-11-28'),
 (2, 8, '2014-11-28'),
-(3, 9, '2014-11-28'),
-(8, 10, '2014-11-28');
+(13, 10, '2014-11-28'),
+(14, 11, '2014-11-28');
 
 -- --------------------------------------------------------
 
@@ -85,10 +85,10 @@ CREATE TABLE IF NOT EXISTS `clientes` (
 --
 
 INSERT INTO `clientes` (`id`, `DNI`, `nombre`, `apellido_paterno`, `apellido_materno`, `foto`, `activo`, `grupo_id`, `pagos_id`, `descuentos_id`) VALUES
-(1, 1001, 'Hetzelt Guadalupe', 'Jazo', 'Guevara', 'pendiente', 0, 1, 2, 1),
+(1, 1001, 'Cliente', 'General', 'Venta', 'pendiente', 0, 1, 1, 1),
 (8, 1002, 'Cynthia', 'Rodriguez', 'Jimenez', 'pendiente', 0, 1, 2, 1),
 (9, 1003, 'Leticia', 'Ibarra', 'Gomez', 'pendiente', 0, 1, 3, 1),
-(10, 1004, 'Monica de Jesus', 'Fregoso', 'Osuna', 'pendiente', 0, 1, 1, 1),
+(10, 1004, 'Monica de Jesus', 'Fregoso', 'Osuna', 'foto1004.jpg', 0, 1, 1, 1),
 (11, 1005, 'Efrain', 'Jazo', 'Guevara', 'foto1005.jpg', 0, 1, 3, 1);
 
 -- --------------------------------------------------------
@@ -101,8 +101,10 @@ CREATE TABLE IF NOT EXISTS `clientes_pagos` (
 `id` int(11) NOT NULL,
   `pagos_id` int(11) NOT NULL,
   `clientes_id` int(11) NOT NULL,
-  `fecha_actual` date NOT NULL,
-  `fecha_corte` date NOT NULL
+  `fecha_anterior` date NOT NULL,
+  `fecha_corte` date NOT NULL,
+  `fecha_pago` date NOT NULL,
+  `pago` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -115,16 +117,17 @@ CREATE TABLE IF NOT EXISTS `descuentos` (
 `id` int(11) NOT NULL,
   `nombre` varchar(45) NOT NULL,
   `descuento` double NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `descuentos`
 --
 
 INSERT INTO `descuentos` (`id`, `nombre`, `descuento`) VALUES
-(1, '10%', 0.1),
-(2, '20%', 0.2),
-(3, '30%', 0.3);
+(1, '0%', 0),
+(2, '10%', 0.1),
+(3, '20%', 0.2),
+(4, '30%', 0.3);
 
 -- --------------------------------------------------------
 
@@ -214,7 +217,8 @@ CREATE TABLE IF NOT EXISTS `productos` (
   `nombre` varchar(45) NOT NULL,
   `descripcion` varchar(45) NOT NULL,
   `cantidad` int(11) NOT NULL,
-  `precio` double NOT NULL
+  `precio` double NOT NULL,
+  `foto` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -357,7 +361,7 @@ ALTER TABLE `ventas_detalles`
 -- AUTO_INCREMENT de la tabla `asistencias`
 --
 ALTER TABLE `asistencias`
-MODIFY `id` int(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+MODIFY `id` int(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT de la tabla `clases`
 --
@@ -377,7 +381,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT de la tabla `descuentos`
 --
 ALTER TABLE `descuentos`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `grupos`
 --

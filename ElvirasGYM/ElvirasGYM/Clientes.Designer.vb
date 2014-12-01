@@ -24,7 +24,7 @@ Partial Class Clientes
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Clientes))
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.tabcliente = New System.Windows.Forms.TabControl()
         Me.datosclientes = New System.Windows.Forms.TabPage()
         Me.btnGuardar = New System.Windows.Forms.Button()
@@ -53,6 +53,28 @@ Partial Class Clientes
         Me.txtApellidop = New System.Windows.Forms.TextBox()
         Me.txtDNI = New System.Windows.Forms.TextBox()
         Me.pagosclientes = New System.Windows.Forms.TabPage()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.txtPago = New System.Windows.Forms.TextBox()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.lblNota = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.cbxDebe = New System.Windows.Forms.ComboBox()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.cbxCantidad = New System.Windows.Forms.ComboBox()
+        Me.DTPcorte = New System.Windows.Forms.DateTimePicker()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.fotocliente = New System.Windows.Forms.PictureBox()
+        Me.DTPpago = New System.Windows.Forms.DateTimePicker()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.cbxTipopago = New System.Windows.Forms.ComboBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.txtBuscar2 = New System.Windows.Forms.TextBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btnPagar = New System.Windows.Forms.Button()
+        Me.DTPclientes = New System.Windows.Forms.DataGridView()
         Me.imprimircarnet = New System.Windows.Forms.TabPage()
         Me.reservaclase = New System.Windows.Forms.TabPage()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -78,7 +100,13 @@ Partial Class Clientes
         Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.BindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BSourcepagos = New System.Windows.Forms.BindingSource(Me.components)
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.DTPHistorial = New System.Windows.Forms.DataGridView()
+        Me.FechasPago = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.pagos = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.txtCliente = New System.Windows.Forms.TextBox()
         Me.tabcliente.SuspendLayout()
         Me.datosclientes.SuspendLayout()
         CType(Me.DTclientes, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -86,10 +114,18 @@ Partial Class Clientes
         CType(Me.imgFoto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelCliente.SuspendLayout()
         Me.panelBuscar.SuspendLayout()
+        Me.pagosclientes.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        Me.Panel3.SuspendLayout()
+        CType(Me.fotocliente, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox2.SuspendLayout()
+        CType(Me.DTPclientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.reservaclase.SuspendLayout()
         CType(Me.DTgrupo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BSourcepagos, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox3.SuspendLayout()
+        CType(Me.DTPHistorial, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tabcliente
@@ -150,6 +186,7 @@ Partial Class Clientes
         Me.imgBotones.Images.SetKeyName(1, "save.png")
         Me.imgBotones.Images.SetKeyName(2, "addcliente.png")
         Me.imgBotones.Images.SetKeyName(3, "new104.png")
+        Me.imgBotones.Images.SetKeyName(4, "pagar.png")
         '
         'btnEliminar
         '
@@ -172,14 +209,14 @@ Partial Class Clientes
         Me.DTclientes.AllowUserToResizeColumns = False
         Me.DTclientes.AllowUserToResizeRows = False
         Me.DTclientes.BackgroundColor = System.Drawing.Color.Honeydew
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Azure
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI Symbol", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.MidnightBlue
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DTclientes.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.Azure
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI Symbol", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.MidnightBlue
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DTclientes.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.DTclientes.ColumnHeadersHeight = 25
         Me.DTclientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.DTclientes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke
@@ -265,6 +302,7 @@ Partial Class Clientes
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Honeydew
+        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel1.Controls.Add(Me.imgFoto)
         Me.Panel1.Location = New System.Drawing.Point(396, 4)
         Me.Panel1.Name = "Panel1"
@@ -404,6 +442,10 @@ Partial Class Clientes
         '
         'pagosclientes
         '
+        Me.pagosclientes.Controls.Add(Me.btnPagar)
+        Me.pagosclientes.Controls.Add(Me.GroupBox3)
+        Me.pagosclientes.Controls.Add(Me.Panel2)
+        Me.pagosclientes.Controls.Add(Me.GroupBox2)
         Me.pagosclientes.Location = New System.Drawing.Point(4, 24)
         Me.pagosclientes.Name = "pagosclientes"
         Me.pagosclientes.Padding = New System.Windows.Forms.Padding(3)
@@ -411,6 +453,238 @@ Partial Class Clientes
         Me.pagosclientes.TabIndex = 1
         Me.pagosclientes.Text = "Pagos"
         Me.pagosclientes.UseVisualStyleBackColor = True
+        '
+        'Panel2
+        '
+        Me.Panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Panel2.BackColor = System.Drawing.Color.Azure
+        Me.Panel2.Controls.Add(Me.txtCliente)
+        Me.Panel2.Controls.Add(Me.txtPago)
+        Me.Panel2.Controls.Add(Me.Label21)
+        Me.Panel2.Controls.Add(Me.lblNota)
+        Me.Panel2.Controls.Add(Me.Label20)
+        Me.Panel2.Controls.Add(Me.cbxDebe)
+        Me.Panel2.Controls.Add(Me.Label19)
+        Me.Panel2.Controls.Add(Me.cbxCantidad)
+        Me.Panel2.Controls.Add(Me.DTPcorte)
+        Me.Panel2.Controls.Add(Me.Label18)
+        Me.Panel2.Controls.Add(Me.Panel3)
+        Me.Panel2.Controls.Add(Me.DTPpago)
+        Me.Panel2.Controls.Add(Me.Label17)
+        Me.Panel2.Controls.Add(Me.cbxTipopago)
+        Me.Panel2.Controls.Add(Me.Label15)
+        Me.Panel2.Controls.Add(Me.Label14)
+        Me.Panel2.Controls.Add(Me.Label16)
+        Me.Panel2.Controls.Add(Me.txtBuscar2)
+        Me.Panel2.Location = New System.Drawing.Point(6, 6)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(648, 173)
+        Me.Panel2.TabIndex = 33
+        '
+        'txtPago
+        '
+        Me.txtPago.Font = New System.Drawing.Font("Segoe UI Symbol", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPago.Location = New System.Drawing.Point(127, 119)
+        Me.txtPago.Name = "txtPago"
+        Me.txtPago.Size = New System.Drawing.Size(110, 27)
+        Me.txtPago.TabIndex = 43
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(3, 124)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(125, 15)
+        Me.Label21.TabIndex = 42
+        Me.Label21.Text = "Capture el pago:  $"
+        '
+        'lblNota
+        '
+        Me.lblNota.AutoSize = True
+        Me.lblNota.ForeColor = System.Drawing.Color.DarkRed
+        Me.lblNota.Location = New System.Drawing.Point(3, 154)
+        Me.lblNota.Name = "lblNota"
+        Me.lblNota.Size = New System.Drawing.Size(437, 15)
+        Me.lblNota.TabIndex = 41
+        Me.lblNota.Text = "Nota: El pago, se asignara a las semanas o meses que deba el cliente."
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(240, 59)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(42, 15)
+        Me.Label20.TabIndex = 40
+        Me.Label20.Text = "Debe:"
+        '
+        'cbxDebe
+        '
+        Me.cbxDebe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxDebe.FormattingEnabled = True
+        Me.cbxDebe.Items.AddRange(New Object() {"0", "1", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"})
+        Me.cbxDebe.Location = New System.Drawing.Point(243, 77)
+        Me.cbxDebe.Name = "cbxDebe"
+        Me.cbxDebe.Size = New System.Drawing.Size(91, 23)
+        Me.cbxDebe.TabIndex = 39
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(143, 59)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(84, 15)
+        Me.Label19.TabIndex = 38
+        Me.Label19.Text = "N° Sem/Mes"
+        '
+        'cbxCantidad
+        '
+        Me.cbxCantidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxCantidad.FormattingEnabled = True
+        Me.cbxCantidad.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"})
+        Me.cbxCantidad.Location = New System.Drawing.Point(146, 77)
+        Me.cbxCantidad.Name = "cbxCantidad"
+        Me.cbxCantidad.Size = New System.Drawing.Size(91, 23)
+        Me.cbxCantidad.TabIndex = 37
+        '
+        'DTPcorte
+        '
+        Me.DTPcorte.Enabled = False
+        Me.DTPcorte.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DTPcorte.Location = New System.Drawing.Point(340, 77)
+        Me.DTPcorte.Name = "DTPcorte"
+        Me.DTPcorte.Size = New System.Drawing.Size(150, 23)
+        Me.DTPcorte.TabIndex = 36
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(338, 59)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(138, 15)
+        Me.Label18.TabIndex = 35
+        Me.Label18.Text = "Fecha próximo corte:"
+        '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.Honeydew
+        Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Panel3.Controls.Add(Me.fotocliente)
+        Me.Panel3.Location = New System.Drawing.Point(496, 3)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(152, 156)
+        Me.Panel3.TabIndex = 34
+        '
+        'fotocliente
+        '
+        Me.fotocliente.Location = New System.Drawing.Point(19, 2)
+        Me.fotocliente.Name = "fotocliente"
+        Me.fotocliente.Size = New System.Drawing.Size(120, 150)
+        Me.fotocliente.TabIndex = 4
+        Me.fotocliente.TabStop = False
+        '
+        'DTPpago
+        '
+        Me.DTPpago.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DTPpago.Location = New System.Drawing.Point(5, 77)
+        Me.DTPpago.Name = "DTPpago"
+        Me.DTPpago.Size = New System.Drawing.Size(135, 23)
+        Me.DTPpago.TabIndex = 30
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(3, 59)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(101, 15)
+        Me.Label17.TabIndex = 29
+        Me.Label17.Text = "Fecha de pago:"
+        '
+        'cbxTipopago
+        '
+        Me.cbxTipopago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxTipopago.FormattingEnabled = True
+        Me.cbxTipopago.Location = New System.Drawing.Point(375, 25)
+        Me.cbxTipopago.Name = "cbxTipopago"
+        Me.cbxTipopago.Size = New System.Drawing.Size(115, 23)
+        Me.cbxTipopago.TabIndex = 28
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(143, 7)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(124, 15)
+        Me.Label15.TabIndex = 27
+        Me.Label15.Text = "Nombre completo:"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(3, 7)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(98, 15)
+        Me.Label14.TabIndex = 26
+        Me.Label14.Text = "Buscar cliente:"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(372, 7)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(93, 15)
+        Me.Label16.TabIndex = 25
+        Me.Label16.Text = "Tipo de pago:"
+        '
+        'txtBuscar2
+        '
+        Me.txtBuscar2.Location = New System.Drawing.Point(5, 25)
+        Me.txtBuscar2.MaxLength = 30
+        Me.txtBuscar2.Name = "txtBuscar2"
+        Me.txtBuscar2.Size = New System.Drawing.Size(135, 23)
+        Me.txtBuscar2.TabIndex = 0
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.DTPclientes)
+        Me.GroupBox2.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.GroupBox2.Location = New System.Drawing.Point(3, 181)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(285, 236)
+        Me.GroupBox2.TabIndex = 35
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Clientes:"
+        '
+        'btnPagar
+        '
+        Me.btnPagar.Font = New System.Drawing.Font("Segoe UI Symbol", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPagar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnPagar.ImageKey = "pagar.png"
+        Me.btnPagar.ImageList = Me.imgBotones
+        Me.btnPagar.Location = New System.Drawing.Point(544, 203)
+        Me.btnPagar.Name = "btnPagar"
+        Me.btnPagar.Size = New System.Drawing.Size(99, 88)
+        Me.btnPagar.TabIndex = 8
+        Me.btnPagar.Text = "Pagar (F5)"
+        Me.btnPagar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnPagar.UseVisualStyleBackColor = True
+        '
+        'DTPclientes
+        '
+        Me.DTPclientes.AllowUserToAddRows = False
+        Me.DTPclientes.AllowUserToDeleteRows = False
+        Me.DTPclientes.AllowUserToResizeColumns = False
+        Me.DTPclientes.AllowUserToResizeRows = False
+        Me.DTPclientes.BackgroundColor = System.Drawing.Color.Honeydew
+        Me.DTPclientes.ColumnHeadersHeight = 40
+        Me.DTPclientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.DTPclientes.Location = New System.Drawing.Point(9, 22)
+        Me.DTPclientes.Name = "DTPclientes"
+        Me.DTPclientes.ReadOnly = True
+        Me.DTPclientes.RowHeadersVisible = False
+        Me.DTPclientes.RowHeadersWidth = 50
+        Me.DTPclientes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.DTPclientes.Size = New System.Drawing.Size(264, 201)
+        Me.DTPclientes.TabIndex = 34
         '
         'imprimircarnet
         '
@@ -490,6 +764,7 @@ Partial Class Clientes
         Me.DTgrupo.MultiSelect = False
         Me.DTgrupo.Name = "DTgrupo"
         Me.DTgrupo.ReadOnly = True
+        Me.DTgrupo.RowHeadersVisible = False
         Me.DTgrupo.RowHeadersWidth = 40
         Me.DTgrupo.Size = New System.Drawing.Size(587, 171)
         Me.DTgrupo.TabIndex = 30
@@ -635,6 +910,7 @@ Partial Class Clientes
         Me.imagenes.Images.SetKeyName(2, "addcliente2.png")
         Me.imagenes.Images.SetKeyName(3, "delete.png")
         Me.imagenes.Images.SetKeyName(4, "save.png")
+        Me.imagenes.Images.SetKeyName(5, "pagar.png")
         '
         'txtDNI2
         '
@@ -658,10 +934,80 @@ Partial Class Clientes
         Me.GroupBox1.ForeColor = System.Drawing.Color.MidnightBlue
         Me.GroupBox1.Location = New System.Drawing.Point(0, 173)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(701, 205)
+        Me.GroupBox1.Size = New System.Drawing.Size(657, 205)
         Me.GroupBox1.TabIndex = 33
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Seleccione un grupo:"
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.Button2)
+        Me.GroupBox3.Controls.Add(Me.DTPHistorial)
+        Me.GroupBox3.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.GroupBox3.Location = New System.Drawing.Point(282, 181)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(256, 236)
+        Me.GroupBox3.TabIndex = 36
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Historial de pagos:"
+        '
+        'Button2
+        '
+        Me.Button2.Font = New System.Drawing.Font("Segoe UI Symbol", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button2.ImageKey = "pagar.png"
+        Me.Button2.ImageList = Me.imgBotones
+        Me.Button2.Location = New System.Drawing.Point(541, 22)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(99, 88)
+        Me.Button2.TabIndex = 8
+        Me.Button2.Text = "Pagar (F5)"
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'DTPHistorial
+        '
+        Me.DTPHistorial.AllowUserToAddRows = False
+        Me.DTPHistorial.AllowUserToDeleteRows = False
+        Me.DTPHistorial.AllowUserToResizeColumns = False
+        Me.DTPHistorial.AllowUserToResizeRows = False
+        Me.DTPHistorial.BackgroundColor = System.Drawing.Color.Honeydew
+        Me.DTPHistorial.ColumnHeadersHeight = 40
+        Me.DTPHistorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.DTPHistorial.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.FechasPago, Me.pagos})
+        Me.DTPHistorial.Location = New System.Drawing.Point(6, 22)
+        Me.DTPHistorial.Name = "DTPHistorial"
+        Me.DTPHistorial.ReadOnly = True
+        Me.DTPHistorial.RowHeadersVisible = False
+        Me.DTPHistorial.RowHeadersWidth = 50
+        Me.DTPHistorial.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.DTPHistorial.Size = New System.Drawing.Size(244, 201)
+        Me.DTPHistorial.TabIndex = 34
+        '
+        'FechasPago
+        '
+        Me.FechasPago.Frozen = True
+        Me.FechasPago.HeaderText = "Fechas de Pago"
+        Me.FechasPago.Name = "FechasPago"
+        Me.FechasPago.ReadOnly = True
+        Me.FechasPago.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.FechasPago.Width = 150
+        '
+        'pagos
+        '
+        Me.pagos.Frozen = True
+        Me.pagos.HeaderText = "Pagos"
+        Me.pagos.Name = "pagos"
+        Me.pagos.ReadOnly = True
+        '
+        'txtCliente
+        '
+        Me.txtCliente.Enabled = False
+        Me.txtCliente.Location = New System.Drawing.Point(146, 25)
+        Me.txtCliente.MaxLength = 4
+        Me.txtCliente.Name = "txtCliente"
+        Me.txtCliente.Size = New System.Drawing.Size(223, 23)
+        Me.txtCliente.TabIndex = 44
         '
         'Clientes
         '
@@ -685,11 +1031,20 @@ Partial Class Clientes
         Me.panelCliente.PerformLayout()
         Me.panelBuscar.ResumeLayout(False)
         Me.panelBuscar.PerformLayout()
+        Me.pagosclientes.ResumeLayout(False)
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
+        CType(Me.fotocliente, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox2.ResumeLayout(False)
+        CType(Me.DTPclientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.reservaclase.ResumeLayout(False)
         Me.reservaclase.PerformLayout()
         CType(Me.DTgrupo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BSourcepagos, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox3.ResumeLayout(False)
+        CType(Me.DTPHistorial, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -733,7 +1088,7 @@ Partial Class Clientes
     Friend WithEvents txtDNI2 As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents BindingSource2 As System.Windows.Forms.BindingSource
+    Friend WithEvents BSourcepagos As System.Windows.Forms.BindingSource
     Friend WithEvents DNI As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Nombre As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Apellidop As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -747,4 +1102,32 @@ Partial Class Clientes
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents panelBuscar As System.Windows.Forms.Panel
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents Label16 As System.Windows.Forms.Label
+    Friend WithEvents txtBuscar2 As System.Windows.Forms.TextBox
+    Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents Label14 As System.Windows.Forms.Label
+    Friend WithEvents DTPpago As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label17 As System.Windows.Forms.Label
+    Friend WithEvents cbxTipopago As System.Windows.Forms.ComboBox
+    Friend WithEvents DTPclientes As System.Windows.Forms.DataGridView
+    Friend WithEvents Label20 As System.Windows.Forms.Label
+    Friend WithEvents cbxDebe As System.Windows.Forms.ComboBox
+    Friend WithEvents Label19 As System.Windows.Forms.Label
+    Friend WithEvents cbxCantidad As System.Windows.Forms.ComboBox
+    Friend WithEvents DTPcorte As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label18 As System.Windows.Forms.Label
+    Friend WithEvents Panel3 As System.Windows.Forms.Panel
+    Friend WithEvents fotocliente As System.Windows.Forms.PictureBox
+    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
+    Friend WithEvents Label21 As System.Windows.Forms.Label
+    Friend WithEvents lblNota As System.Windows.Forms.Label
+    Friend WithEvents btnPagar As System.Windows.Forms.Button
+    Friend WithEvents txtPago As System.Windows.Forms.TextBox
+    Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents DTPHistorial As System.Windows.Forms.DataGridView
+    Friend WithEvents FechasPago As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents pagos As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents txtCliente As System.Windows.Forms.TextBox
 End Class
