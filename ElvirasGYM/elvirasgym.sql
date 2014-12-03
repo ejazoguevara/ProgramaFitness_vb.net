@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-12-2014 a las 08:19:19
+-- Tiempo de generación: 03-12-2014 a las 23:22:09
 -- Versión del servidor: 5.6.20
 -- Versión de PHP: 5.5.15
 
@@ -176,14 +176,16 @@ CREATE TABLE IF NOT EXISTS `instructores` (
   `apellidos` varchar(45) NOT NULL,
   `sexo` enum('Masculino','Femenino') NOT NULL,
   `edad` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `instructores`
 --
 
 INSERT INTO `instructores` (`id`, `nombre`, `apellidos`, `sexo`, `edad`) VALUES
-(1, 'Jesus', 'Fregoso Osuna', 'Masculino', 21);
+(1, 'Jesus', 'Fregoso Osuna', 'Masculino', 21),
+(2, 'Eligio', 'Arreola Torres', 'Masculino', 20),
+(3, 'Orlando', 'Aguilera', 'Masculino', 20);
 
 -- --------------------------------------------------------
 
@@ -219,7 +221,15 @@ CREATE TABLE IF NOT EXISTS `productos` (
   `cantidad` int(11) NOT NULL,
   `precio` double NOT NULL,
   `foto` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Volcado de datos para la tabla `productos`
+--
+
+INSERT INTO `productos` (`id`, `DNI`, `nombre`, `descripcion`, `cantidad`, `precio`, `foto`) VALUES
+(1, 2001, 'Proteinas', 'Ganar musculo', 20, 350, ''),
+(2, 2002, 'Chocomilk', 'Malteada para ganar energia', 50, 25, '');
 
 -- --------------------------------------------------------
 
@@ -235,14 +245,17 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `contrasenia` varchar(15) NOT NULL,
   `activo` int(11) NOT NULL,
   `tipo` enum('Admin','Empleado') NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `apellidos`, `usuario`, `contrasenia`, `activo`, `tipo`) VALUES
-(1, 'Efrain', 'Jazo Guevara', 'Admin', '12345', 0, 'Admin');
+(1, 'Efrain', 'Jazo Guevara', 'Admin', '12345', 0, 'Admin'),
+(2, 'Eligio', 'Arreola Torres', 'earreola', '123', 0, 'Admin'),
+(3, 'Jesus', 'Fregoso Osuna', 'eloso', '123', 0, 'Admin'),
+(4, 'Ricardo', 'Osuna Castillo', 'riki', '123', 0, 'Empleado');
 
 -- --------------------------------------------------------
 
@@ -396,7 +409,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT de la tabla `instructores`
 --
 ALTER TABLE `instructores`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `pagos`
 --
@@ -406,12 +419,12 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `ventas`
 --

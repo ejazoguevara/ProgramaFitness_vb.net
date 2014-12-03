@@ -50,8 +50,12 @@ Public Class Principal
         conectar.open()
         Sql = "UPDATE usuarios SET Activo = 0"
         If conectar.executeSQL(Sql) Then
+            Login.txtUser.Text = ""
+            Login.txtPass.Text = ""
+            conectar.cnn.Close()
             Login.Show()
             Me.Dispose()
+            Login.txtUser.Focus()
         End If
     End Sub
 
@@ -76,4 +80,7 @@ Public Class Principal
     End Sub
 
     
+    Private Sub btnConsulta_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnConsulta.Click
+        ConsultaGeneral.Show()
+    End Sub
 End Class

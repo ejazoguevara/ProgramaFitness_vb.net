@@ -47,25 +47,25 @@ Partial Class Principal
         Me.btnInstructores = New System.Windows.Forms.Button()
         Me.btnNuevocliente = New System.Windows.Forms.Button()
         Me.btnVentas = New System.Windows.Forms.Button()
-        Me.btnClases = New System.Windows.Forms.Button()
         Me.btnPagocliente = New System.Windows.Forms.Button()
         Me.lblEmpleado1 = New System.Windows.Forms.Label()
         Me.lblEmpleado = New System.Windows.Forms.Label()
         Me.lblFecha1 = New System.Windows.Forms.Label()
         Me.lblFecha = New System.Windows.Forms.Label()
-        Me.OsSkin1 = New SkinSoft.OSSkin.OSSkin(Me.components)
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lblHora = New System.Windows.Forms.Label()
+        Me.btnConsulta = New System.Windows.Forms.Button()
+        Me.VisualStyler1 = New SkinSoft.VisualStyler.VisualStyler(Me.components)
         Me.MenuStrip1.SuspendLayout()
-        CType(Me.OsSkin1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.VisualStyler1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.BackColor = System.Drawing.Color.Honeydew
+        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.Control
         Me.MenuStrip1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProductosToolStripMenuItem, Me.UsuariosToolStripMenuItem, Me.InstructoresToolStripMenuItem, Me.ClientesToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.CerrarSesiónToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
@@ -189,9 +189,9 @@ Partial Class Principal
         Me.btnGrupos.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnGrupos.ImageKey = "grupo.png"
         Me.btnGrupos.ImageList = Me.imagenes
-        Me.btnGrupos.Location = New System.Drawing.Point(883, 358)
+        Me.btnGrupos.Location = New System.Drawing.Point(883, 364)
         Me.btnGrupos.Name = "btnGrupos"
-        Me.btnGrupos.Size = New System.Drawing.Size(111, 94)
+        Me.btnGrupos.Size = New System.Drawing.Size(111, 92)
         Me.btnGrupos.TabIndex = 2
         Me.btnGrupos.Text = "Grupos"
         Me.btnGrupos.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -207,6 +207,7 @@ Partial Class Principal
         Me.imagenes.Images.SetKeyName(3, "addcliente2.png")
         Me.imagenes.Images.SetKeyName(4, "addinstructor.png")
         Me.imagenes.Images.SetKeyName(5, "clases.png")
+        Me.imagenes.Images.SetKeyName(6, "commercial15.png")
         '
         'btnInstructores
         '
@@ -214,9 +215,9 @@ Partial Class Principal
         Me.btnInstructores.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnInstructores.ImageKey = "addinstructor.png"
         Me.btnInstructores.ImageList = Me.imagenes
-        Me.btnInstructores.Location = New System.Drawing.Point(883, 458)
+        Me.btnInstructores.Location = New System.Drawing.Point(883, 462)
         Me.btnInstructores.Name = "btnInstructores"
-        Me.btnInstructores.Size = New System.Drawing.Size(111, 94)
+        Me.btnInstructores.Size = New System.Drawing.Size(111, 92)
         Me.btnInstructores.TabIndex = 3
         Me.btnInstructores.Text = "Intructores"
         Me.btnInstructores.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -228,9 +229,9 @@ Partial Class Principal
         Me.btnNuevocliente.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnNuevocliente.ImageKey = "addcliente2.png"
         Me.btnNuevocliente.ImageList = Me.imagenes
-        Me.btnNuevocliente.Location = New System.Drawing.Point(883, 158)
+        Me.btnNuevocliente.Location = New System.Drawing.Point(883, 168)
         Me.btnNuevocliente.Name = "btnNuevocliente"
-        Me.btnNuevocliente.Size = New System.Drawing.Size(111, 94)
+        Me.btnNuevocliente.Size = New System.Drawing.Size(111, 92)
         Me.btnNuevocliente.TabIndex = 5
         Me.btnNuevocliente.Text = "Alta Clientes"
         Me.btnNuevocliente.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -242,27 +243,13 @@ Partial Class Principal
         Me.btnVentas.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnVentas.ImageKey = "venta.png"
         Me.btnVentas.ImageList = Me.imagenes
-        Me.btnVentas.Location = New System.Drawing.Point(883, 58)
+        Me.btnVentas.Location = New System.Drawing.Point(883, 70)
         Me.btnVentas.Name = "btnVentas"
-        Me.btnVentas.Size = New System.Drawing.Size(111, 94)
+        Me.btnVentas.Size = New System.Drawing.Size(111, 92)
         Me.btnVentas.TabIndex = 4
         Me.btnVentas.Text = "Ventas"
         Me.btnVentas.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnVentas.UseVisualStyleBackColor = True
-        '
-        'btnClases
-        '
-        Me.btnClases.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClases.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnClases.ImageKey = "clases.png"
-        Me.btnClases.ImageList = Me.imagenes
-        Me.btnClases.Location = New System.Drawing.Point(883, 558)
-        Me.btnClases.Name = "btnClases"
-        Me.btnClases.Size = New System.Drawing.Size(111, 94)
-        Me.btnClases.TabIndex = 7
-        Me.btnClases.Text = "Clases"
-        Me.btnClases.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnClases.UseVisualStyleBackColor = True
         '
         'btnPagocliente
         '
@@ -270,9 +257,9 @@ Partial Class Principal
         Me.btnPagocliente.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnPagocliente.ImageKey = "pagar.png"
         Me.btnPagocliente.ImageList = Me.imagenes
-        Me.btnPagocliente.Location = New System.Drawing.Point(883, 258)
+        Me.btnPagocliente.Location = New System.Drawing.Point(883, 266)
         Me.btnPagocliente.Name = "btnPagocliente"
-        Me.btnPagocliente.Size = New System.Drawing.Size(111, 94)
+        Me.btnPagocliente.Size = New System.Drawing.Size(111, 92)
         Me.btnPagocliente.TabIndex = 6
         Me.btnPagocliente.Text = "Pago Clientes"
         Me.btnPagocliente.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -324,12 +311,6 @@ Partial Class Principal
         Me.lblFecha.Size = New System.Drawing.Size(50, 24)
         Me.lblFecha.TabIndex = 11
         Me.lblFecha.Text = "date"
-        '
-        'OsSkin1
-        '
-        Me.OsSkin1.HostForm = Nothing
-        Me.OsSkin1.License = CType(resources.GetObject("OsSkin1.License"), SkinSoft.OSSkin.Licensing.OSSkinLicense)
-        Me.OsSkin1.Style = SkinSoft.OSSkin.SkinStyle.MetroBlue
         '
         'Label1
         '
@@ -383,6 +364,28 @@ Partial Class Principal
         Me.lblHora.TabIndex = 15
         Me.lblHora.Text = "time"
         '
+        'btnConsulta
+        '
+        Me.btnConsulta.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnConsulta.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnConsulta.ImageKey = "commercial15.png"
+        Me.btnConsulta.ImageList = Me.imagenes
+        Me.btnConsulta.Location = New System.Drawing.Point(883, 560)
+        Me.btnConsulta.Name = "btnConsulta"
+        Me.btnConsulta.Size = New System.Drawing.Size(111, 92)
+        Me.btnConsulta.TabIndex = 16
+        Me.btnConsulta.Text = "Consulta"
+        Me.btnConsulta.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnConsulta.UseVisualStyleBackColor = True
+        '
+        'VisualStyler1
+        '
+        Me.VisualStyler1.HostForm = Me
+        Me.VisualStyler1.License = CType(resources.GetObject("VisualStyler1.License"), SkinSoft.VisualStyler.Licensing.VisualStylerLicense)
+        Me.VisualStyler1.ShadowStyle = SkinSoft.VisualStyler.ShadowStyle.Medium
+        Me.VisualStyler1.TargetControls = SkinSoft.VisualStyler.TargetControls.Controls
+        Me.VisualStyler1.LoadVisualStyle(Nothing, "OSX (Tiger).vssf")
+        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -391,6 +394,7 @@ Partial Class Principal
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.ClientSize = New System.Drawing.Size(1006, 694)
         Me.ControlBox = False
+        Me.Controls.Add(Me.btnConsulta)
         Me.Controls.Add(Me.lblHora)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
@@ -402,7 +406,6 @@ Partial Class Principal
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.btnGrupos)
         Me.Controls.Add(Me.btnInstructores)
-        Me.Controls.Add(Me.btnClases)
         Me.Controls.Add(Me.btnNuevocliente)
         Me.Controls.Add(Me.btnPagocliente)
         Me.Controls.Add(Me.btnVentas)
@@ -416,7 +419,7 @@ Partial Class Principal
         Me.Text = "Elviras - Fitness"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        CType(Me.OsSkin1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.VisualStyler1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -433,7 +436,6 @@ Partial Class Principal
     Friend WithEvents btnInstructores As System.Windows.Forms.Button
     Friend WithEvents btnNuevocliente As System.Windows.Forms.Button
     Friend WithEvents btnVentas As System.Windows.Forms.Button
-    Friend WithEvents btnClases As System.Windows.Forms.Button
     Friend WithEvents btnPagocliente As System.Windows.Forms.Button
     Friend WithEvents lblEmpleado1 As System.Windows.Forms.Label
     Friend WithEvents lblEmpleado As System.Windows.Forms.Label
@@ -448,7 +450,6 @@ Partial Class Principal
     Friend WithEvents AsignarGrupoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PagosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ImprimirCredencialToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents OsSkin1 As SkinSoft.OSSkin.OSSkin
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents imagenes As System.Windows.Forms.ImageList
@@ -456,4 +457,6 @@ Partial Class Principal
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents lblHora As System.Windows.Forms.Label
+    Friend WithEvents btnConsulta As System.Windows.Forms.Button
+    Friend WithEvents VisualStyler1 As SkinSoft.VisualStyler.VisualStyler
 End Class

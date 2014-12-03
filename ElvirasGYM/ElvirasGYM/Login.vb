@@ -56,6 +56,7 @@ Public Class Login
             MessageBox.Show("Ponga un contraseña", "Error...", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txtPass.Focus()
         Else
+            BDobjeto.open()
             usuario = txtUser.Text
             password = txtPass.Text
             SQLString = "SELECT * FROM usuarios WHERE usuario = '" & usuario & "'" & " AND contrasenia = '" & password & "'"

@@ -30,8 +30,8 @@ Partial Class Login
         Me.txtPass = New System.Windows.Forms.TextBox()
         Me.btnEntrar = New System.Windows.Forms.Button()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
-        Me.OsSkin1 = New SkinSoft.OSSkin.OSSkin(Me.components)
-        CType(Me.OsSkin1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.VisualStyler1 = New SkinSoft.VisualStyler.VisualStyler(Me.components)
+        CType(Me.VisualStyler1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lbluser
@@ -93,12 +93,13 @@ Partial Class Login
         Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
         Me.ImageList1.Images.SetKeyName(0, "enter3.png")
         '
-        'OsSkin1
+        'VisualStyler1
         '
-        Me.OsSkin1.HostForm = Nothing
-        Me.OsSkin1.License = CType(resources.GetObject("OsSkin1.License"), SkinSoft.OSSkin.Licensing.OSSkinLicense)
-        Me.OsSkin1.Style = SkinSoft.OSSkin.SkinStyle.MetroBlue
-        Me.OsSkin1.TargetControls = SkinSoft.OSSkin.TargetControls.Controls
+        Me.VisualStyler1.HostForm = Me
+        Me.VisualStyler1.License = CType(resources.GetObject("VisualStyler1.License"), SkinSoft.VisualStyler.Licensing.VisualStylerLicense)
+        Me.VisualStyler1.ShadowStyle = SkinSoft.VisualStyler.ShadowStyle.Medium
+        Me.VisualStyler1.TargetControls = SkinSoft.VisualStyler.TargetControls.Controls
+        Me.VisualStyler1.LoadVisualStyle(Nothing, "Windows Metro (Blue).vssf")
         '
         'Login
         '
@@ -108,7 +109,7 @@ Partial Class Login
         Me.BackColor = System.Drawing.SystemColors.Window
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.ClientSize = New System.Drawing.Size(649, 461)
+        Me.ClientSize = New System.Drawing.Size(657, 463)
         Me.Controls.Add(Me.btnEntrar)
         Me.Controls.Add(Me.txtPass)
         Me.Controls.Add(Me.txtUser)
@@ -121,7 +122,7 @@ Partial Class Login
         Me.Name = "Login"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Iniciar sesión"
-        CType(Me.OsSkin1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.VisualStyler1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -131,7 +132,7 @@ Partial Class Login
     Friend WithEvents txtUser As System.Windows.Forms.TextBox
     Friend WithEvents txtPass As System.Windows.Forms.TextBox
     Friend WithEvents btnEntrar As System.Windows.Forms.Button
-    Friend WithEvents OsSkin1 As SkinSoft.OSSkin.OSSkin
     Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
+    Friend WithEvents VisualStyler1 As SkinSoft.VisualStyler.VisualStyler
 
 End Class
