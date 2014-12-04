@@ -85,6 +85,6 @@ Public Class prueba
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-
+        txtnombre.Text = DatePart(DateInterval.WeekOfYear, dtfecha.Value, FirstDayOfWeek.Monday, FirstWeekOfYear.FirstFullWeek)
     End Sub
 End Class

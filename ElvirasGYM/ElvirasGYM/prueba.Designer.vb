@@ -30,7 +30,7 @@ Partial Class prueba
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.dtfecha = New System.Windows.Forms.DateTimePicker()
         Me.txtnombre = New System.Windows.Forms.TextBox()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -52,7 +52,7 @@ Partial Class prueba
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(82, 83)
+        Me.Button1.Location = New System.Drawing.Point(176, 166)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 3
@@ -77,17 +77,17 @@ Partial Class prueba
         Me.Button3.Text = "Button3"
         Me.Button3.UseVisualStyleBackColor = True
         '
-        'DateTimePicker1
+        'dtfecha
         '
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(112, 161)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
-        Me.DateTimePicker1.TabIndex = 6
+        Me.dtfecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtfecha.Location = New System.Drawing.Point(176, 81)
+        Me.dtfecha.Name = "dtfecha"
+        Me.dtfecha.Size = New System.Drawing.Size(158, 20)
+        Me.dtfecha.TabIndex = 6
         '
         'txtnombre
         '
-        Me.txtnombre.Location = New System.Drawing.Point(176, 83)
+        Me.txtnombre.Location = New System.Drawing.Point(176, 123)
         Me.txtnombre.Name = "txtnombre"
         Me.txtnombre.Size = New System.Drawing.Size(263, 20)
         Me.txtnombre.TabIndex = 7
@@ -98,7 +98,7 @@ Partial Class prueba
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(534, 356)
         Me.Controls.Add(Me.txtnombre)
-        Me.Controls.Add(Me.DateTimePicker1)
+        Me.Controls.Add(Me.dtfecha)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
@@ -118,6 +118,6 @@ Partial Class prueba
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Public WithEvents BindingSource1 As System.Windows.Forms.BindingSource
-    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents dtfecha As System.Windows.Forms.DateTimePicker
     Friend WithEvents txtnombre As System.Windows.Forms.TextBox
 End Class
