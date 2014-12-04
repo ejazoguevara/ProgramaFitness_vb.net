@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-12-2014 a las 23:22:09
+-- Tiempo de generación: 05-12-2014 a las 00:31:26
 -- Versión del servidor: 5.6.20
 -- Versión de PHP: 5.5.15
 
@@ -88,7 +88,7 @@ INSERT INTO `clientes` (`id`, `DNI`, `nombre`, `apellido_paterno`, `apellido_mat
 (1, 1001, 'Cliente', 'General', 'Venta', 'pendiente', 0, 1, 1, 1),
 (8, 1002, 'Cynthia', 'Rodriguez', 'Jimenez', 'pendiente', 0, 1, 2, 1),
 (9, 1003, 'Leticia', 'Ibarra', 'Gomez', 'pendiente', 0, 1, 3, 1),
-(10, 1004, 'Monica de Jesus', 'Fregoso', 'Osuna', 'foto1004.jpg', 0, 1, 1, 1),
+(10, 1004, 'Monica de Jesus', 'Fregoso', 'Osuna', 'pendiente', 0, 1, 1, 1),
 (11, 1005, 'Efrain', 'Jazo', 'Guevara', 'foto1005.jpg', 0, 1, 3, 1);
 
 -- --------------------------------------------------------

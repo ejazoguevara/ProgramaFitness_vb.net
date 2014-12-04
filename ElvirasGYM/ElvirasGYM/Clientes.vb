@@ -8,7 +8,7 @@ Public Class Clientes
     Dim cmd As MySqlCommand
     Dim reader As MySqlDataReader
     Dim SQLString, SQLString2 As String
-    Dim id As Integer
+    Dim idCliente As Integer
     Dim imagen As String
     Dim datos As New DataSet
     Dim exitefoto As Boolean = False
@@ -25,23 +25,36 @@ Public Class Clientes
 
     'Llena el Datagrid con la información de usuarios
     Sub LlenarBindingSource()
-        BDobj.cnn.Close()
-        BDobj.open()
-        BDobj.da = New MySqlDataAdapter("SELECT clientes.DNI as DNI, clientes.nombre as Nombre, clientes.apellido_paterno as 'Apellido Paterno', clientes.apellido_materno as 'Apellido Materno', pagos.tipo as 'Tipo de Pago' FROM clientes left join pagos on clientes.pagos_id = pagos.id order by clientes.id", BDobj.cnn)
-        BDobj.dt = New DataTable
-        BDobj.dt.Clear()
-        BDobj.da.Fill(BDobj.dt)
-        BindingSource1.DataSource = BDobj.dt
-        Me.DTclientes.DataSource = BindingSource1
-        DTclientes.Columns(0).Width = 50
-        DTclientes.Columns(1).Width = 130
-        DTclientes.Columns(2).Width = 140
-        DTclientes.Columns(3).Width = 140
-        DTclientes.Columns(4).Width = 100
-        'DTclientes.Columns(0).Resizable = DataGridViewTriState.False
-        DTclientes.AlternatingRowsDefaultCellStyle.BackColor = Color.LightCyan
-        Me.DTclientes.DefaultCellStyle.Font = New Font("Tahoma", 11)
-        DTclientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        If tabcliente.SelectedIndex = 0 Then
+            BDobj.cnn.Close()
+            BDobj.open()
+            BDobj.da = New MySqlDataAdapter("SELECT clientes.DNI as DNI, clientes.nombre as Nombre, clientes.apellido_paterno as 'Apellido Paterno', clientes.apellido_materno as 'Apellido Materno', pagos.tipo as 'Tipo de Pago' FROM clientes left join pagos on clientes.pagos_id = pagos.id order by clientes.id", BDobj.cnn)
+            BDobj.dt = New DataTable
+            BDobj.dt.Clear()
+            BDobj.da.Fill(BDobj.dt)
+            BindingSource1.DataSource = BDobj.dt
+            Me.DTclientes.DataSource = BindingSource1
+            DTclientes.Columns(0).Width = 50
+            DTclientes.Columns(1).Width = 130
+            DTclientes.Columns(2).Width = 140
+            DTclientes.Columns(3).Width = 140
+            DTclientes.Columns(4).Width = 100
+            DTclientes.AlternatingRowsDefaultCellStyle.BackColor = Color.LightCyan
+            Me.DTclientes.DefaultCellStyle.Font = New Font("Tahoma", 11)
+            DTclientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        ElseIf tabcliente.SelectedIndex = 1 Then
+            BDobj.da = New MySqlDataAdapter("SELECT DNI as DNI, CONCAT(nombre,' ',apellido_paterno,' ',apellido_materno) as 'Nombre Completo' FROM clientes WHERE DNI > 1001 order by DNI", BDobj.cnn)
+            BDobj.dt = New DataTable
+            BDobj.dt.Clear()
+            BDobj.da.Fill(BDobj.dt)
+            BSourcepagos.DataSource = BDobj.dt
+            Me.DTPclientes.DataSource = BSourcepagos
+            DTPclientes.Columns(0).Width = 60
+            DTPclientes.Columns(1).Width = 200
+            DTPclientes.AlternatingRowsDefaultCellStyle.BackColor = Color.LightCyan
+            'Me.DTPclientes.DefaultCellStyle.Font = New Font("Tahoma", 11)
+            DTPclientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        End If
         BDobj.cmd = Nothing
         BDobj.da = Nothing
         BDobj.dt = Nothing
@@ -84,37 +97,33 @@ Public Class Clientes
         End Try
     End Sub
 
-    'Llena el Tabla de clientes en pagos
-    Private Sub llenar_DTPclientes()
-        BDobj.da = New MySqlDataAdapter("SELECT DNI as DNI, CONCAT(nombre,' ',apellido_paterno,' ',apellido_materno) as 'Nombre Completo' FROM clientes WHERE DNI > 1001 order by DNI", BDobj.cnn)
-        BDobj.dt = New DataTable
-        BDobj.dt.Clear()
-        BDobj.da.Fill(BDobj.dt)
-        BSourcepagos.DataSource = BDobj.dt
-        Me.DTPclientes.DataSource = BSourcepagos
-        DTPclientes.Columns(0).Width = 60
-        DTPclientes.Columns(1).Width = 200
-        DTPclientes.AlternatingRowsDefaultCellStyle.BackColor = Color.LightCyan
-        'Me.DTPclientes.DefaultCellStyle.Font = New Font("Tahoma", 11)
-        DTPclientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        BDobj.cmd = Nothing
-        BDobj.da = Nothing
-        BDobj.dt = Nothing
-    End Sub
-
     'Llena el combobox de grupo desde la base de datos
     Private Sub llenar_Combo()
-        BDobj.cmd = New MySqlCommand
-        BDobj.da = New MySqlDataAdapter
-        BDobj.dt = New DataTable
-        BDobj.cmd.Connection = BDobj.cnn
-        BDobj.cmd.CommandText = "SELECT id, tipo FROM pagos order by id"
-        BDobj.da.SelectCommand = BDobj.cmd
-        BDobj.da.Fill(BDobj.dt)
-        cbxTipo.DataSource = BDobj.dt
-        cbxTipo.ValueMember = "id"
-        cbxTipo.DisplayMember = "tipo"
-        cbxTipo.DropDownStyle = ComboBoxStyle.DropDownList
+        If tabcliente.SelectedIndex = 0 Then
+            BDobj.cmd = New MySqlCommand
+            BDobj.da = New MySqlDataAdapter
+            BDobj.dt = New DataTable
+            BDobj.cmd.Connection = BDobj.cnn
+            BDobj.cmd.CommandText = "SELECT id, tipo FROM pagos order by id"
+            BDobj.da.SelectCommand = BDobj.cmd
+            BDobj.da.Fill(BDobj.dt)
+            cbxTipo.DataSource = BDobj.dt
+            cbxTipo.ValueMember = "id"
+            cbxTipo.DisplayMember = "tipo"
+            cbxTipo.DropDownStyle = ComboBoxStyle.DropDownList
+        ElseIf tabcliente.SelectedIndex = 1 Then
+            BDobj.cmd = New MySqlCommand
+            BDobj.da = New MySqlDataAdapter
+            BDobj.dt = New DataTable
+            BDobj.cmd.Connection = BDobj.cnn
+            BDobj.cmd.CommandText = "SELECT id, tipo FROM pagos order by id"
+            BDobj.da.SelectCommand = BDobj.cmd
+            BDobj.da.Fill(BDobj.dt)
+            cbxTipopago.DataSource = BDobj.dt
+            cbxTipopago.ValueMember = "id"
+            cbxTipopago.DisplayMember = "tipo"
+            cbxTipopago.DropDownStyle = ComboBoxStyle.DropDownList
+        End If 
         BDobj.cmd = Nothing
         BDobj.da = Nothing
         BDobj.dt = Nothing
@@ -125,7 +134,7 @@ Public Class Clientes
         BDobj.open()
         llenar_Combo()
         LlenarBindingSource()
-        llenar_DTPclientes()
+        'llenar_DTPclientes()
         cbxCantidad.SelectedIndex = 0
         Me.Show()
         bloquear()
@@ -293,6 +302,17 @@ Public Class Clientes
     'Limpia las cajas de texto
     Sub limpiar()
         For Each c As Control In panelCliente.Controls
+            If TypeOf c Is TextBox Then
+                c.Text = ""
+            End If
+        Next
+    End Sub
+
+    'Limpia las cajas de texto
+    Sub limpiarPagos()
+        fotocliente.Image = Nothing
+        DTPHistorial.Rows.Clear()
+        For Each c As Control In Panel2.Controls
             If TypeOf c Is TextBox Then
                 c.Text = ""
             End If
@@ -474,6 +494,63 @@ Public Class Clientes
         imgFoto.Image = Nothing
     End Sub
 
+    Private Sub txtBuscar2_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtBuscar2.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            Dim fila, dni As Integer
+            fila = DTPclientes.CurrentRow.Index
+            dni = DTPclientes.Item(0, fila).Value
+            txtCliente.Text = DTPclientes.Item(1, fila).Value
+            buscar_formpago(dni)
+        End If
+    End Sub
+
+    Sub buscar_formpago(ByVal dni As Integer)
+        SQLString = String.Format("SELECT pagos.id as idPa, pagos.tipo, clientes.foto, clientes.id as idCli FROM pagos left join clientes ON clientes.pagos_id = pagos.id WHERE clientes.DNI = " & dni)
+        reader = BDobj.executeReader(SQLString)
+        If reader.Read Then
+            cbxTipopago.SelectedValue = reader("idPa").ToString
+            idCliente = reader("idCli")
+            If reader("foto") = "pendiente" Then
+                fotocliente.Image = Nothing
+            Else
+                Dim ruta = Image.FromFile("..\Fotoclientes\" & reader("foto"))
+                fotocliente.SizeMode = PictureBoxSizeMode.StretchImage
+                fotocliente.Image = ruta
+            End If
+            reader.Close()
+            DTPHistorial.Rows.Clear()
+            verifica_debe()
+        End If
+        reader.Close()
+    End Sub
+
+    Private Sub DTPclientes_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles DTPclientes.DoubleClick
+        Dim fila, dni As Integer
+        fila = DTPclientes.CurrentRow.Index
+        dni = DTPclientes.Item(0, fila).Value
+        txtCliente.Text = DTPclientes.Item(1, fila).Value
+        buscar_formpago(dni)
+    End Sub
+
+    Private Sub DTPclientes_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles DTPclientes.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            Dim fila, dni As Integer
+            fila = DTPclientes.CurrentRow.Index
+            dni = DTPclientes.Item(0, fila).Value
+            txtCliente.Text = DTPclientes.Item(1, fila).Value
+            buscar_formpago(dni)
+        End If
+    End Sub
+
+    Sub verifica_debe()
+        SQLString = String.Format("SELECT * FROM clientes_pagos WHERE clientes_id = " & idCliente)
+        If BDobj.existe(SQLString) Then
+            Exit Sub
+        Else
+            DTPHistorial.Rows.Add("No tiene pagos")
+            cbxDebe.SelectedIndex = 0
+        End If
+    End Sub
   
     Private Sub txtBuscar2_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtBuscar2.KeyPress
         Validar.letrasAndDecimal(e.KeyChar)
@@ -481,5 +558,45 @@ Public Class Clientes
 
     Private Sub txtBuscar2_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtBuscar2.TextChanged
         Aplicar_FiltroPagos()
+    End Sub
+
+    Private Sub tabcliente_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles tabcliente.SelectedIndexChanged
+        LlenarBindingSource()
+        llenar_Combo()
+    End Sub
+
+    Private Sub btnPagar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPagar.Click
+        Dim bandera As Boolean
+        For Each x As Control In Panel2.Controls
+            If TypeOf x Is TextBox Then
+                If x.Text = "" Then
+                    bandera = True
+                End If
+            End If
+        Next
+        If bandera = False Then
+            Dim fechaAn, fechaPa, fechaCo As String
+            fechaPa = CDate(DTPpago.Value.ToShortDateString).ToString("yyyy-MM-dd")
+            fechaCo = CDate(DTPcorte.Value.ToShortDateString).ToString("yyyy-MM-dd")
+            fechaAn = fechaPa
+            SQLString = String.Format("INSERT INTO clientes_pagos (pagos_id, clientes_id, fecha_anterior, fecha_corte, fecha_pago, pago) " & _
+                         "values({0},{1},'{2}','{3}','{4}',{5})", Trim(cbxTipopago.SelectedValue), Trim(idCliente), Trim(fechaAn), Trim(fechaCo), Trim(fechaPa), Trim(txtPago.Text))
+            If BDobj.executeSQL(SQLString) Then
+                MsgBox("El pago se registro exitosamente...")
+                limpiarPagos()
+                txtBuscar2.Focus()
+            End If
+        Else
+            MsgBox("Se necesitan los datos.")
+            txtBuscar2.Focus()
+        End If
+    End Sub
+
+    Private Sub DTPpago_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles DTPpago.TextChanged
+        If cbxTipopago.SelectedValue = 1 Then
+            DTPcorte.Value = DTPpago.Value.Date.AddDays(cbxCantidad.SelectedItem * 6)
+        ElseIf cbxTipopago.SelectedValue = 2 Then
+            DTPcorte.Value = DTPpago.Value.Date.AddMonths(cbxCantidad.SelectedItem)
+        End If
     End Sub
 End Class

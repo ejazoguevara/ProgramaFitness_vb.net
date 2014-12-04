@@ -53,7 +53,14 @@ Partial Class Clientes
         Me.txtApellidop = New System.Windows.Forms.TextBox()
         Me.txtDNI = New System.Windows.Forms.TextBox()
         Me.pagosclientes = New System.Windows.Forms.TabPage()
+        Me.btnPagar = New System.Windows.Forms.Button()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.DTPHistorial = New System.Windows.Forms.DataGridView()
+        Me.FechasPago = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.pagos = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.txtCliente = New System.Windows.Forms.TextBox()
         Me.txtPago = New System.Windows.Forms.TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.lblNota = New System.Windows.Forms.Label()
@@ -73,7 +80,6 @@ Partial Class Clientes
         Me.Label16 = New System.Windows.Forms.Label()
         Me.txtBuscar2 = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.btnPagar = New System.Windows.Forms.Button()
         Me.DTPclientes = New System.Windows.Forms.DataGridView()
         Me.imprimircarnet = New System.Windows.Forms.TabPage()
         Me.reservaclase = New System.Windows.Forms.TabPage()
@@ -101,12 +107,6 @@ Partial Class Clientes
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.BSourcepagos = New System.Windows.Forms.BindingSource(Me.components)
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.DTPHistorial = New System.Windows.Forms.DataGridView()
-        Me.FechasPago = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.pagos = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.txtCliente = New System.Windows.Forms.TextBox()
         Me.tabcliente.SuspendLayout()
         Me.datosclientes.SuspendLayout()
         CType(Me.DTclientes, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -115,6 +115,8 @@ Partial Class Clientes
         Me.panelCliente.SuspendLayout()
         Me.panelBuscar.SuspendLayout()
         Me.pagosclientes.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
+        CType(Me.DTPHistorial, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         CType(Me.fotocliente, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -124,8 +126,6 @@ Partial Class Clientes
         CType(Me.DTgrupo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BSourcepagos, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox3.SuspendLayout()
-        CType(Me.DTPHistorial, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tabcliente
@@ -454,6 +454,81 @@ Partial Class Clientes
         Me.pagosclientes.Text = "Pagos"
         Me.pagosclientes.UseVisualStyleBackColor = True
         '
+        'btnPagar
+        '
+        Me.btnPagar.Font = New System.Drawing.Font("Segoe UI Symbol", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPagar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnPagar.ImageKey = "pagar.png"
+        Me.btnPagar.ImageList = Me.imgBotones
+        Me.btnPagar.Location = New System.Drawing.Point(544, 203)
+        Me.btnPagar.Name = "btnPagar"
+        Me.btnPagar.Size = New System.Drawing.Size(99, 88)
+        Me.btnPagar.TabIndex = 8
+        Me.btnPagar.Text = "Pagar (F5)"
+        Me.btnPagar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnPagar.UseVisualStyleBackColor = True
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.Button2)
+        Me.GroupBox3.Controls.Add(Me.DTPHistorial)
+        Me.GroupBox3.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.GroupBox3.Location = New System.Drawing.Point(282, 181)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(256, 236)
+        Me.GroupBox3.TabIndex = 36
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Historial de pagos:"
+        '
+        'Button2
+        '
+        Me.Button2.Font = New System.Drawing.Font("Segoe UI Symbol", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Button2.ImageKey = "pagar.png"
+        Me.Button2.ImageList = Me.imgBotones
+        Me.Button2.Location = New System.Drawing.Point(541, 22)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(99, 88)
+        Me.Button2.TabIndex = 8
+        Me.Button2.Text = "Pagar (F5)"
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'DTPHistorial
+        '
+        Me.DTPHistorial.AllowUserToAddRows = False
+        Me.DTPHistorial.AllowUserToDeleteRows = False
+        Me.DTPHistorial.AllowUserToResizeColumns = False
+        Me.DTPHistorial.AllowUserToResizeRows = False
+        Me.DTPHistorial.BackgroundColor = System.Drawing.Color.Honeydew
+        Me.DTPHistorial.ColumnHeadersHeight = 40
+        Me.DTPHistorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.DTPHistorial.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.FechasPago, Me.pagos})
+        Me.DTPHistorial.Location = New System.Drawing.Point(6, 22)
+        Me.DTPHistorial.Name = "DTPHistorial"
+        Me.DTPHistorial.ReadOnly = True
+        Me.DTPHistorial.RowHeadersVisible = False
+        Me.DTPHistorial.RowHeadersWidth = 50
+        Me.DTPHistorial.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.DTPHistorial.Size = New System.Drawing.Size(244, 201)
+        Me.DTPHistorial.TabIndex = 34
+        '
+        'FechasPago
+        '
+        Me.FechasPago.Frozen = True
+        Me.FechasPago.HeaderText = "Fechas de Pago"
+        Me.FechasPago.Name = "FechasPago"
+        Me.FechasPago.ReadOnly = True
+        Me.FechasPago.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.FechasPago.Width = 150
+        '
+        'pagos
+        '
+        Me.pagos.Frozen = True
+        Me.pagos.HeaderText = "Pagos"
+        Me.pagos.Name = "pagos"
+        Me.pagos.ReadOnly = True
+        '
         'Panel2
         '
         Me.Panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
@@ -480,6 +555,15 @@ Partial Class Clientes
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(648, 173)
         Me.Panel2.TabIndex = 33
+        '
+        'txtCliente
+        '
+        Me.txtCliente.Enabled = False
+        Me.txtCliente.Location = New System.Drawing.Point(146, 25)
+        Me.txtCliente.MaxLength = 4
+        Me.txtCliente.Name = "txtCliente"
+        Me.txtCliente.Size = New System.Drawing.Size(223, 23)
+        Me.txtCliente.TabIndex = 44
         '
         'txtPago
         '
@@ -520,6 +604,7 @@ Partial Class Clientes
         'cbxDebe
         '
         Me.cbxDebe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxDebe.Enabled = False
         Me.cbxDebe.FormattingEnabled = True
         Me.cbxDebe.Items.AddRange(New Object() {"0", "1", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"})
         Me.cbxDebe.Location = New System.Drawing.Point(243, 77)
@@ -602,6 +687,7 @@ Partial Class Clientes
         'cbxTipopago
         '
         Me.cbxTipopago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbxTipopago.Enabled = False
         Me.cbxTipopago.FormattingEnabled = True
         Me.cbxTipopago.Location = New System.Drawing.Point(375, 25)
         Me.cbxTipopago.Name = "cbxTipopago"
@@ -653,20 +739,6 @@ Partial Class Clientes
         Me.GroupBox2.TabIndex = 35
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Clientes:"
-        '
-        'btnPagar
-        '
-        Me.btnPagar.Font = New System.Drawing.Font("Segoe UI Symbol", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPagar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnPagar.ImageKey = "pagar.png"
-        Me.btnPagar.ImageList = Me.imgBotones
-        Me.btnPagar.Location = New System.Drawing.Point(544, 203)
-        Me.btnPagar.Name = "btnPagar"
-        Me.btnPagar.Size = New System.Drawing.Size(99, 88)
-        Me.btnPagar.TabIndex = 8
-        Me.btnPagar.Text = "Pagar (F5)"
-        Me.btnPagar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnPagar.UseVisualStyleBackColor = True
         '
         'DTPclientes
         '
@@ -939,76 +1011,6 @@ Partial Class Clientes
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Seleccione un grupo:"
         '
-        'GroupBox3
-        '
-        Me.GroupBox3.Controls.Add(Me.Button2)
-        Me.GroupBox3.Controls.Add(Me.DTPHistorial)
-        Me.GroupBox3.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.GroupBox3.Location = New System.Drawing.Point(282, 181)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(256, 236)
-        Me.GroupBox3.TabIndex = 36
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Historial de pagos:"
-        '
-        'Button2
-        '
-        Me.Button2.Font = New System.Drawing.Font("Segoe UI Symbol", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button2.ImageKey = "pagar.png"
-        Me.Button2.ImageList = Me.imgBotones
-        Me.Button2.Location = New System.Drawing.Point(541, 22)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(99, 88)
-        Me.Button2.TabIndex = 8
-        Me.Button2.Text = "Pagar (F5)"
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'DTPHistorial
-        '
-        Me.DTPHistorial.AllowUserToAddRows = False
-        Me.DTPHistorial.AllowUserToDeleteRows = False
-        Me.DTPHistorial.AllowUserToResizeColumns = False
-        Me.DTPHistorial.AllowUserToResizeRows = False
-        Me.DTPHistorial.BackgroundColor = System.Drawing.Color.Honeydew
-        Me.DTPHistorial.ColumnHeadersHeight = 40
-        Me.DTPHistorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.DTPHistorial.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.FechasPago, Me.pagos})
-        Me.DTPHistorial.Location = New System.Drawing.Point(6, 22)
-        Me.DTPHistorial.Name = "DTPHistorial"
-        Me.DTPHistorial.ReadOnly = True
-        Me.DTPHistorial.RowHeadersVisible = False
-        Me.DTPHistorial.RowHeadersWidth = 50
-        Me.DTPHistorial.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.DTPHistorial.Size = New System.Drawing.Size(244, 201)
-        Me.DTPHistorial.TabIndex = 34
-        '
-        'FechasPago
-        '
-        Me.FechasPago.Frozen = True
-        Me.FechasPago.HeaderText = "Fechas de Pago"
-        Me.FechasPago.Name = "FechasPago"
-        Me.FechasPago.ReadOnly = True
-        Me.FechasPago.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.FechasPago.Width = 150
-        '
-        'pagos
-        '
-        Me.pagos.Frozen = True
-        Me.pagos.HeaderText = "Pagos"
-        Me.pagos.Name = "pagos"
-        Me.pagos.ReadOnly = True
-        '
-        'txtCliente
-        '
-        Me.txtCliente.Enabled = False
-        Me.txtCliente.Location = New System.Drawing.Point(146, 25)
-        Me.txtCliente.MaxLength = 4
-        Me.txtCliente.Name = "txtCliente"
-        Me.txtCliente.Size = New System.Drawing.Size(223, 23)
-        Me.txtCliente.TabIndex = 44
-        '
         'Clientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1032,6 +1034,8 @@ Partial Class Clientes
         Me.panelBuscar.ResumeLayout(False)
         Me.panelBuscar.PerformLayout()
         Me.pagosclientes.ResumeLayout(False)
+        Me.GroupBox3.ResumeLayout(False)
+        CType(Me.DTPHistorial, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel3.ResumeLayout(False)
@@ -1043,8 +1047,6 @@ Partial Class Clientes
         CType(Me.DTgrupo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BSourcepagos, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox3.ResumeLayout(False)
-        CType(Me.DTPHistorial, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
